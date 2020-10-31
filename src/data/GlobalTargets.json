@@ -397,57 +397,57 @@
       }
     ]
     ,"targetDos_combinacionTres":[
-      {
-        "Year": 2030,
-        "Net_forest_change": null,
-        "Forest_change_target": 0
-      },
-      {
-        "Year": 2035,
-        "Net_forest_change": null,
-        "Forest_change_target": 0
-      },
-      {
-        "Year": 2040,
-        "Net_forest_change": null,
-        "Forest_change_target": 0
-      },
-      {
-        "Year": 2045,
-        "Net_forest_change": null,
-        "Forest_change_target": 0
-      },
-      {
-        "Year": 2050,
-        "Net_forest_change": null,
-        "Forest_change_target": 0
-      }
-    ]
+  {
+    "Year": 2030,
+    "Protected_land": null,
+    "target_Protected_land": 0.3
+  },
+  {
+    "Year": 2035,
+    "Protected_land": null,
+    "target_Protected_land": 0.3
+  },
+  {
+    "Year": 2040,
+    "Protected_land": null,
+    "target_Protected_land": 0.3
+  },
+  {
+    "Year": 2045,
+    "Protected_land": null,
+    "target_Protected_land": 0.3
+  },
+  {
+    "Year": 2050,
+    "Protected_land": null,
+    "target_Protected_land": 0.3
+  }
+]
     ,"targetDos_combinacionCuatro":[
       {
         "Year": 2030,
-        "Net_forest_change": null,
-        "Forest_change_target": 0
+        "Protected_land": null,
+        "target_Protected_land":0.3
       },
       {
         "Year": 2035,
-        "Net_forest_change": null,
-        "Forest_change_target": 0
+        "Protected_land": null,
+        "target_Protected_land": 0.3
       },
       {
         "Year": 2040,
-        "Net_forest_change": null,
-        "Forest_change_target": 0
+        "Protected_land": null,
+        "target_Protected_land": 0.3
       },
       {
         "Year": 2045,
-        "Net_forest_change": null,
-        "Forest_change_target": 0
+        "Protected_land": null,
+        "target_Protected_land":0.3
       },
       {
         "Year": 2050,
-        "Net_forest_change": null,
-        "Forest_change_target": 0
+        "Protected_land": null,
+        "target_Protected_land": 0.3
       }
     ]
     ,"targetDos_combinacionCinco":[
@@ -518,54 +518,54 @@
       {
         "Year": 2030,
         "Net_forest_change": null,
-        "Forest_change_target": 0
+        "target_Protected_land":0.3
       },
       {
         "Year": 2035,
         "Net_forest_change": null,
-        "Forest_change_target": 0
+        "target_Protected_land": 0.3
       },
       {
         "Year": 2040,
         "Net_forest_change": null,
-        "Forest_change_target": 0
+        "target_Protected_land": 0.3
       },
       {
         "Year": 2045,
         "Net_forest_change": null,
-        "Forest_change_target": 0
+        "target_Protected_land": 0.3
       },
       {
         "Year": 2050,
         "Net_forest_change": null,
-        "Forest_change_target": 0
+        "target_Protected_land": 0.3
       }
     ]
     ,"targetDos_combinacionOcho":[
       {
         "Year": 2030,
         "Net_forest_change": null,
-        "Forest_change_target": 0
+        "target_Protected_land":0.3
       },
       {
         "Year": 2035,
         "Net_forest_change": null,
-        "Forest_change_target": 0
+        "target_Protected_land": 0.3
       },
       {
         "Year": 2040,
         "Net_forest_change": null,
-        "Forest_change_target": 0
+        "target_Protected_land": 0.3
       },
       {
         "Year": 2045,
         "Net_forest_change": null,
-        "Forest_change_target": 0
+        "target_Protected_land": 0.3
       },
       {
         "Year": 2050,
         "Net_forest_change": null,
-        "Forest_change_target": 0
+        "target_Protected_land": 0.3
       }
     ]
     ,"targetDos_combinacionNueve":[
@@ -635,55 +635,55 @@
     ,"targetDos_combinacionOnce":[
       {
         "Year": 2030,
-        "Net_forest_change": null,
-        "Forest_change_target": 0
+        "Protected_land": null,
+        "target_Protected_land":0.3
       },
       {
         "Year": 2035,
-        "Net_forest_change": null,
-        "Forest_change_target": 0
+        "Protected_land": null,
+        "target_Protected_land": 0.3
       },
       {
         "Year": 2040,
-        "Net_forest_change": null,
-        "Forest_change_target": 0
+        "Protected_land": null,
+        "target_Protected_land": 0.3
       },
       {
         "Year": 2045,
-        "Net_forest_change": null,
-        "Forest_change_target": 0
+        "Protected_land": null,
+        "target_Protected_land": 0.3
       },
       {
         "Year": 2050,
-        "Net_forest_change": null,
-        "Forest_change_target": 0
+        "Protected_land": null,
+        "target_Protected_land": 0.3
       }
     ]
     ,"targetDos_combinacionDoce":[
       {
         "Year": 2030,
-        "Net_forest_change": null,
-        "Forest_change_target": 0
+        "Protected_land": null,
+        "target_Protected_land":0.3
       },
       {
         "Year": 2035,
-        "Net_forest_change": null,
-        "Forest_change_target": 0
+        "Protected_land": null,
+        "target_Protected_land": 0.3
       },
       {
         "Year": 2040,
-        "Net_forest_change": null,
-        "Forest_change_target": 0
+        "Protected_land": null,
+        "target_Protected_land": 0.3
       },
       {
         "Year": 2045,
-        "Net_forest_change": null,
-        "Forest_change_target": 0
+        "Protected_land": null,
+        "target_Protected_land": 0.3
       },
       {
         "Year": 2050,
-        "Net_forest_change": null,
-        "Forest_change_target": 0
+        "Protected_land": null,
+        "target_Protected_land": 0.3
       }
     ],"targetTres_combinacionUno":[
       {
