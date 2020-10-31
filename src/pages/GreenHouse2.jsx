@@ -1,463 +1,199 @@
-import React from "react";
-import BarChart from "../componentes/BarChart";
-import data from '../data/Greenhouse2.json';
+import React, { useState, useEffect } from "react";
+import BarChart from "../components/BarChart";
+import ComboBox from '../components/ComboBox';
+import { Container, Row, Col } from "react-bootstrap";
+import CountryCharacteristics from '../data/CountryCharacteristics.json';
+import LeafletMap from './LeafletMap';
 //nfch=NetForestCoverChange
-const greenHouse = (props) => {
- 
- 
-   var dataGraphOne;
-   var dataGraphTwo;
-
- 
-
-  const { GraficaType, Iteration, Scenario } = props.combinacion.select;
-
-  switch(GraficaType){
-    case 'group':
-      switch(Iteration){
-        case 'iteration_3':
-          if(Scenario === "Sustainaible")
-          {
-            dataGraphOne= data.Greengraph_One__combination_Two
-            dataGraphTwo=data.Greengraph_Two__combination_Two
-          }else{
-            dataGraphOne=data.Greengraph_One__combination_Four
-            dataGraphTwo=data.Greengraph_Two__combination_Four
-          }
-          var dataGraphOneAux= convertir(dataGraphOne);
-          var dataGraphTwoAux= convertir(dataGraphTwo);
-          
-          break;
-        case 'iteration_4':
-          if(Scenario === "Sustainaible")
-          {
-            dataGraphOne= data.Greengraph_One__combination_One
-            dataGraphTwo=data.Greengraph_Two__combination_One
-            console.log(dataGraphTwo)
-            
-          }else{
-            dataGraphOne= data.Greengraph_One__combination_Three
-            dataGraphTwo=data.Greengraph_Two__combination_Three
-          }
-          var dataGraphOneAux= convertir(dataGraphOne);
-          var dataGraphTwoAux= convertir(dataGraphTwo);
-          console.log(dataGraphTwoAux)
-          break;
-      }
-      break;
-    case 'regions':
-      switch(Iteration){
-        case 'iteration_3':
-          if(Scenario === "Sustainaible")
-          {
-            dataGraphOne= data.Greengraph_One__combination_Six
-            dataGraphTwo=data.Greengraph_Two__combination_Six
-          }else{
-            dataGraphOne= data.Greengraph_One__combination_Eight
-            dataGraphTwo=data.Greengraph_Two__combination_Eight
-          }
-          var dataGraphOneAux= convertir(dataGraphOne);
-          var dataGraphTwoAux= convertir(dataGraphTwo);
-          break;
-        case 'iteration_4':
-          if(Scenario === "Sustainaible")
-          {
-            dataGraphOne=data.Greengraph_One__combination_Five
-            dataGraphTwo=data.Greengraph_Two__combination_Five
-          }else{
-            dataGraphOne=data.Greengraph_One__combination_Seven
-            dataGraphTwo=data.Greengraph_Two__combination_Seven
-          }
-          var dataGraphOneAux= convertir(dataGraphOne);
-          var dataGraphTwoAux= convertir(dataGraphTwo);
-          break;
-         
-      }
-      break;
-    case 'countries':
-      switch(Iteration){
-      case 'iteration_3':
-        if(Scenario === "Sustainaible")
-        {
-          dataGraphOne=data.Greengraph_One__combination_Ten
-          dataGraphTwo=data.Greengraph_Two__combination_Ten
-        }else{
-          dataGraphOne=data.Greengraph_One__combination_Twelve
-          dataGraphTwo=data.Greengraph_Two__combination_Twelve
-        }
-        var dataGraphOneAux= convertir(dataGraphOne);
-        var dataGraphTwoAux= convertir(dataGraphTwo);
-        break;
-       
-      case 'iteration_4':
-        if(Scenario === "Sustainaible")
-        {
-          dataGraphOne=data.Greengraph_One__combination_Nine
-          dataGraphTwo=data.Greengraph_Two__combination_Nine
-        }else{
-          dataGraphOne=data.Greengraph_One__combination_Eleven
-          dataGraphTwo=data.Greengraph_Two__combination_Eleven
-        }
-        var dataGraphOneAux= convertir(dataGraphOne);
-        var dataGraphTwoAux= convertir(dataGraphTwo);
-        break;
-    }
-    break;
+const GreenHouse = () => {
+  function GreenHouseTwo(ChartCharacteristics,data) {
+    this.data=data;
+    this.type=ChartCharacteristics[0]["type"];
+    this.label=ChartCharacteristics[0]["label"];
+    this.borderColor=ChartCharacteristics[0]["borderColor"];
+    this.backgroundColor=ChartCharacteristics[0]["backgroundColor"];
+    
   }
-  
 
 
-return <div>
-  <BarChart data={dataGraphOneAux}
-title="Green House 2"/> 
-<BarChart data={dataGraphTwoAux}
-title="Green House 2"/> 
-  
-  </div>
-}
 
 
-const convertir=(props)=>{
-    var usa=[];
-    var UK=[];
-    var sweden=[];
-    var south_Africa=[];
-    var rwanda=[];
-    var russia=[]; 
-    var Rest_of_Sub_Saharan_Africa=[];
-    var Rest_of_North_Africa_Middle_East_and_central_Asia=[];
-    var Rest_of_European_Union=[];
-    var Rest_of_Europe_non_EU28=[]
-    var Rest_of_Central_and_South_America=[];
-    var Rest_of_Asia_and_Pacific=[];
-    var norway=[];
-    var mexico=[]; 
-    var malaysia=[];
-    var indonesia=[]; 
-    var india=[];
-    var germany = [];
-    var finland = [];
-    var otros = [];
-    var labels = [];
-
-    if (props != undefined) {
-        props.map((item) => {
-          
-            if (item.c_country_t === "USA") {
-              usa.push(item.total_GHG );
-            }else if (item.c_country_t === "UK") {
-              UK.push(item.total_GHG );
-            }else if (item.c_country_t === "Sweden") {
-              sweden.push(item.total_GHG );
-            }else if (item.c_country_t === "South Africa") {
-              south_Africa.push(item.total_GHG );
-            }
-            else if (item.c_country_t === "Rwanda") {
-              rwanda.push(item.total_GHG );
-            }else if (item.c_country_t === "Russia") {
-              russia.push(item.total_GHG );
-            }else if (item.c_country_t === "Rest of Sub-Saharan Africa") {
-              Rest_of_Sub_Saharan_Africa.push(item.total_GHG );
-            }else if (item.c_country_t === "Rest of North Africa Middle East and central Asia") {
-              Rest_of_North_Africa_Middle_East_and_central_Asia.push(item.total_GHG );
-            }else if (item.c_country_t === "Rest of European Union") {
-              Rest_of_European_Union.push(item.total_GHG );
-            }else if (item.c_country_t === "Rest of Europe non EU28") {
-              Rest_of_Europe_non_EU28.push(item.total_GHG );
-            }else if (item.c_country_t === "Rest of Central and South America") {
-              Rest_of_Central_and_South_America.push(item.total_GHG );
-            }else if (item.c_country_t === "Rest of Asia and Pacific") {
-              Rest_of_Asia_and_Pacific.push(item.total_GHG );
-            }else if (item.c_country_t === "Norway") {
-              norway.push(item.total_GHG );
-            }else if (item.c_country_t === "Mexico") {
-              mexico.push(item.total_GHG );
-            }else if (item.c_country_t === "Malaysia") {
-              malaysia.push(item.total_GHG );
-            }else if (item.c_country_t === "Indonesia") {
-              indonesia.push(item.total_GHG );
-            }else if (item.c_country_t === "India") {
-              india.push(item.total_GHG );
-            }else if (item.c_country_t === "Germany") {
-              germany.push(item.total_GHG );
-            }else if (item.c_country_t === "Finland") {
-              finland.push(item.total_GHG );
-            }else if (item.c_country_t === "otros") {
-              otros.push(item.total_GHG );
-            }
-
-            if(!labels.includes(item.Year))
-    {
-       labels.push(item.Year);
+  const [state, setState] = useState({
+    select: {
+      GraficaType:'group',
+      scenathon_id:'6',
+      Iteration:'4',
     }
-        }
-      
+   
+  });
+  const [json, setJson] = useState([]);
 
-        );}
+  var dataChart1 = null;
+  var dataChart2 = null;
 
-        const data = {
-          labels:  labels,
-           datasets: [
-                {
-                  //Aforestation ejemplo
-                  type: 'bar',
-                  label: 'Usa',
-                  data: usa,
-                  fill: false,
-                  backgroundColor: '#faa75a',
-                  borderColor: '#71B37C',
-                  hoverBackgroundColor: '#71B37C',
-                  hoverBorderColor: '#71B37C',
-                  yAxisID: 'y-axis-1'
-                },{
-                  type: 'bar',
-                  label: 'Uk',
-                  data: UK,
-                  fill: false,
-                  borderColor: '#EC932F',
-                  backgroundColor: '#7cb342',
-                  pointBorderColor: '#EC932F',
-                  pointBackgroundColor: '#EC932F',
-                  pointHoverBackgroundColor: '#EC932F',
-                  pointHoverBorderColor: '#EC932F',
-                  yAxisID: 'y-axis-1'
-                },{
-                  type: 'bar',
-                  label: 'Sweden',
-                  data: sweden,
-                  fill: false,
-                  borderColor: '#EC932F',
-                  backgroundColor: '#5a9bd4',
-                  pointBorderColor: '#EC932F',
-                  pointBackgroundColor: '#EC932F',
-                  pointHoverBackgroundColor: '#EC932F',
-                  pointHoverBorderColor: '#EC932F',
-                  yAxisID: 'y-axis-1'
-                },
-                {
-                  type: 'bar',
-                  label: 'South Africa',
-                  data:south_Africa,
-                  fill: false,
-                  borderColor: '#EC932F',
-                  backgroundColor: '#5e35b1',
-                  pointBorderColor: '#EC932F',
-                  pointBackgroundColor: '#EC932F',
-                  pointHoverBackgroundColor: '#EC932F',
-                  pointHoverBorderColor: '#EC932F',
-                  yAxisID: 'y-axis-1'
-                },
-                {
-                  type: 'bar',
-                  label: 'Rwanda',
-                  data: rwanda,
-                  fill: false,
-                  borderColor: '#EC932F',
-                  backgroundColor: '#00b6cb',
-                  pointBorderColor: '#EC932F',
-                  pointBackgroundColor: '#EC932F',
-                  pointHoverBackgroundColor: '#EC932F',
-                  pointHoverBorderColor: '#EC932F',
-                  yAxisID: 'y-axis-1'
-                }
-                ,
-                {
-                  type: 'bar',
-                  label: 'Russia',
-                  data: russia,
-                  fill: false,
-                  borderColor: '#EC932F',
-                  backgroundColor: '#5e35b1',
-                  pointBorderColor: '#EC932F',
-                  pointBackgroundColor: '#EC932F',
-                  pointHoverBackgroundColor: '#EC932F',
-                  pointHoverBorderColor: '#EC932F',
-                  yAxisID: 'y-axis-1'
-                },
-                {
-                  type: 'bar',
-                  label: 'Rest of Sub Saharan Africa',
-                  data: Rest_of_Sub_Saharan_Africa,
-                  fill: false,
-                  borderColor: '#EC932F',
-                  backgroundColor: '#00b6cb',
-                  pointBorderColor: '#EC932F',
-                  pointBackgroundColor: '#EC932F',
-                  pointHoverBackgroundColor: '#EC932F',
-                  pointHoverBorderColor: '#EC932F',
-                  yAxisID: 'y-axis-1'
-                },
-                {
-                  type: 'bar',
-                  label: 'Rest of North Africa Middle East andcentral Asia',
-                  data: Rest_of_North_Africa_Middle_East_and_central_Asia,
-                  fill: false,
-                  borderColor: '#EC932F',
-                  backgroundColor: '#0072f0',
-                  pointBorderColor: '#EC932F',
-                  pointBackgroundColor: '#EC932F',
-                  pointHoverBackgroundColor: '#EC932F',
-                  pointHoverBorderColor: '#EC932F',
-                  yAxisID: 'y-axis-1'
-                },  {
-                  type: 'bar',
-                  label: 'Rest of European Union',
-                  data: Rest_of_European_Union,
-                  fill: false,
-                  borderColor: '#EC932F',
-                  backgroundColor: '#9e67ab',
-                  pointBorderColor: '#EC932F',
-                  pointBackgroundColor: '#EC932F',
-                  pointHoverBackgroundColor: '#EC932F',
-                  pointHoverBorderColor: '#EC932F',
-                  yAxisID: 'y-axis-1'
-                },  {
-                  type: 'bar',
-                  label: 'Rest of Europe non EU28',
-                  data: Rest_of_Europe_non_EU28,
-                  fill: false,
-                  borderColor: '#EC932F',
-                  backgroundColor: '#0072f0',
-                  pointBorderColor: '#EC932F',
-                  pointBackgroundColor: '#EC932F',
-                  pointHoverBackgroundColor: '#EC932F',
-                  pointHoverBorderColor: '#EC932F',
-                  yAxisID: 'y-axis-1'
-                },
-                {
-                  type: 'bar',
-                  label: 'Rest of Central and South America',
-                  data: Rest_of_Central_and_South_America,
-                  fill: false,
-                  borderColor: '#EC932F',
-                  backgroundColor: '##ce7058',
-                  pointBorderColor: '#EC932F',
-                  pointBackgroundColor: '#EC932F',
-                  pointHoverBackgroundColor: '#EC932F',
-                  pointHoverBorderColor: '#EC932F',
-                  yAxisID: 'y-axis-1'
-                },
-                {
-                  type: 'bar',
-                  label: 'Rest of Asia and Pacific',
-                  data: Rest_of_Asia_and_Pacific,
-                  fill: false,
-                  borderColor: '#EC932F',
-                  backgroundColor: '#ffa800',
-                  pointBorderColor: '#EC932F',
-                  pointBackgroundColor: '#EC932F',
-                  pointHoverBackgroundColor: '#EC932F',
-                  pointHoverBorderColor: '#EC932F',
-                  yAxisID: 'y-axis-1'
-                }, {
-                  type: 'bar',
-                  label: 'Norway',
-                  data: norway,
-                  fill: false,
-                  borderColor: '#EC932F',
-                  backgroundColor: '#ec407a',
-                  pointBorderColor: '#EC932F',
-                  pointBackgroundColor: '#EC932F',
-                  pointHoverBackgroundColor: '#EC932F',
-                  pointHoverBorderColor: '#EC932F',
-                  yAxisID: 'y-axis-1'
-                },{
-                  type: 'bar',
-                  label: 'Mexico',
-                  data: mexico,
-                  fill: false,
-                  borderColor: '#EC932F',
-                  backgroundColor: '#7ac36a',
-                  pointBorderColor: '#EC932F',
-                  pointBackgroundColor: '#EC932F',
-                  pointHoverBackgroundColor: '#EC932F',
-                  pointHoverBorderColor: '#EC932F',
-                  yAxisID: 'y-axis-1'
-                },{
-                  type: 'bar',
-                  label: 'Malaysia',
-                  data: malaysia,
-                  fill: false,
-                  borderColor: '#EC932F',
-                  backgroundColor: '#f10096',
-                  pointBorderColor: '#EC932F',
-                  pointBackgroundColor: '#EC932F',
-                  pointHoverBackgroundColor: '#EC932F',
-                  pointHoverBorderColor: '#EC932F',
-                  yAxisID: 'y-axis-1'
-                },
-                {
-                  type: 'bar',
-                  label: 'Indonesia',
-                  data: indonesia,
-                  fill: false,
-                  borderColor: '#EC932F',
-                  backgroundColor: '#ffa800',
-                  pointBorderColor: '#EC932F',
-                  pointBackgroundColor: '#EC932F',
-                  pointHoverBackgroundColor: '#EC932F',
-                  pointHoverBorderColor: '#EC932F',
-                  yAxisID: 'y-axis-1'
-                },
-                {
-                  type: 'bar',
-                  label: 'India',
-                  data: india,
-                  fill: false,
-                  borderColor: '#EC932F',
-                  backgroundColor: '#5e35b1',
-                  pointBorderColor: '#EC932F',
-                  pointBackgroundColor: '#EC932F',
-                  pointHoverBackgroundColor: '#EC932F',
-                  pointHoverBorderColor: '#EC932F',
-                  yAxisID: 'y-axis-1'
-                },{
-                  type: 'bar',
-                  label: 'Germany',
-                  data: germany,
-                  fill: false,
-                  borderColor: '#EC932F',
-                  backgroundColor: '#0390d0',
-                  pointBorderColor: '#EC932F',
-                  pointBackgroundColor: '#EC932F',
-                  pointHoverBackgroundColor: '#EC932F',
-                  pointHoverBorderColor: '#EC932F',
-                  yAxisID: 'y-axis-1'
-                },{
-                  type: 'bar',
-                  label: 'Finland',
-                  data: finland,
-                  fill: false,
-                  borderColor: '#EC932F',
-                  backgroundColor: '#f10096',
-                  pointBorderColor: '#EC932F',
-                  pointBackgroundColor: '#EC932F',
-                  pointHoverBackgroundColor: '#EC932F',
-                  pointHoverBorderColor: '#EC932F',
-                  yAxisID: 'y-axis-1'
-                },
-                {
-                  type: 'bar',
-                  label: 'Otros',
-                  data: otros,
-                  fill: false,
-                  borderColor: '#EC932F',
-                  backgroundColor: '#f66d00',
-                  pointBorderColor: '#EC932F',
-                  pointBackgroundColor: '#EC932F',
-                  pointHoverBackgroundColor: '#EC932F',
-                  pointHoverBorderColor: '#EC932F',
-                  yAxisID: 'y-axis-1'
-                }
-                
-              ]
-            };
-
-           
-       return data
+  
+  useEffect(() => {
+    const getGreenHouseTwo = async () => {
    
 
+   
+      try {
+            
+        const body =state;
+      
+        console.log(state)
+       const response = await fetch("https://server-fableson.wl.r.appspot.com/gas2"+JSON.stringify(body));
+       const  jsonAux =  await response.json();
+    
+      setJson(jsonAux);
+     
+  
+      } catch (error) {
+        console.error(error)
+      }
+  
+  
+  
+    }
+  
+    getGreenHouseTwo();
+    
+  }, [state]);
+
+  const converter = () => {
+
+var nameCounty=state.select.GraficaType==="regions"?"R_AFR":"Argentina";
+    var AgriCO2e=[];
+    var LandCO2e=[];
+var datasetsChart1=[];
+var datasetsChart2=[];
+var labels=[];
+
+
+if (json != null) {
+
+
+
+json.forEach(item => {
+  if (!labels.includes(item.Year)) 
+  {
+    labels.push(item.Year);
+  }
+  AgriCO2e.push(item.AgriCO2e);
+  LandCO2e.push(item.LandCO2e);
+  if (nameCounty!==item.Country) {
+  
+    var greenHouse = new GreenHouseTwo(CountryCharacteristics[nameCounty], AgriCO2e);
+    datasetsChart1.push(greenHouse);
+    greenHouse = new GreenHouseTwo(CountryCharacteristics[nameCounty], LandCO2e);
+    datasetsChart2.push(greenHouse);
+    nameCounty=item.Country;
+     
+    LandCO2e=[];
+    LandCO2e.push(item.LandCO2e);
+      AgriCO2e=[];
+      AgriCO2e.push(item.AgriCO2e);
+  }
+});
+
+
+}
+var dataAux = {
+labels:labels,
+datasets:datasetsChart1
+};
+dataChart1=dataAux;
+dataAux = {
+  labels:labels,
+  datasets:datasetsChart2
+  };
+  dataChart2=dataAux;
+  }
+  
+  
+
+
+
+
+
+    const handleChange = e => {
+
+      var group = state.select.GraficaType;
+      var scenathon = state.select.scenathon_id;
+      var iteration = state.select.Iteration;
+  
+      if (e.target.name === "scenathon_id") {
+        switch (e.target.value) {
+          case '6':
+            iteration = state.select.Iteration === "1" ? "3" : "4";
+            scenathon = "6";
+            break;
+          case '5':
+            scenathon = "5";
+            iteration = state.select.Iteration === "3" ? "1" : "2";
+            break;
+            default:iteration = state.select.Iteration === "1" ? "3" : "4";
+        }
+      } else {
+  
+        group = e.target.name === "GraficaType" ? e.target.value : state.select.GraficaType;
+        iteration = e.target.name === "Iteration" ? scenathon === "6" ? e.target.value === "after" ? "4" : "3" : e.target.value === "after" ? "2" : "1" : state.select.Iteration;
+      }
+  
+      setState({
+        select: {
+          GraficaType: group,
+          scenathon_id: scenathon,
+          Iteration: iteration,
+  
+        }
+  
+  
+      });
+  
+    }
+  
+  
+
+  return (
+    <Container fluid>
+      <Row>
+        <Col><div style={{height: "100vh" ,width:"35vw"} }>
+        <ComboBox onChange={handleChange}/>
+        {converter()}
+          
+          <BarChart data={dataChart1}
+            title="Green House 2" aspectRatio={false}
+            labelposition="bottom" />
+          
+        </div>
+        </Col>
+        <Col><div style={{height: "100vh" ,width:"35vw"} }>
+        
+          <BarChart data={dataChart2}
+            title="Green House 2" aspectRatio={false}
+            labelposition="bottom" />
+              
+        </div>
+        </Col>
+      </Row>
+ {/* 
+      Graph 1
+      
+      <LeafletMap 
+        countriesData = {dataGraphOneAux}
+      />
+      Graph 2
+      <LeafletMap 
+        countriesData = {dataGraphTwoAux}
+      />
+      */}
+
+    </Container>);
+
 }
 
 
-export default greenHouse;
+
+
+export default GreenHouse;
