@@ -33,8 +33,8 @@ const DrawLandCover = () => {
     const getLandCover = async () => 
     {
       try {   
-        const body =state;
-       const response = await fetch("https://server-fableson.wl.r.appspot.com/landcover"+JSON.stringify(body));
+        
+       const response = await fetch("https://fable2020.herokuapp.com/landcover"+JSON.stringify(state));
        const  jsonAux =  await response.json();
       setJson(jsonAux);
       } catch (error) {

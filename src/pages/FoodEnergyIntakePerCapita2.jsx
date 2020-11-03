@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import BarChart2 from "../components/BarChart2.jsx";
 import ChartCharacteristics from '../data/ChartCharacteristics.json';
 import ComboBoxFoodEnergy2 from "../components/ComboBoxFoodEnergy2.jsx";
-const FoodEnergyIntakePerCapita = () => {
+import Tour from '../components/Tour'
+const FoodEnergyIntakePerCapita = (props) => {
 
   function Food(ChartCharacteristics,data) {
     this.data=data;
@@ -35,10 +36,10 @@ const FoodEnergyIntakePerCapita = () => {
    
       try {
             
-        const body =state;
-      
+       
         
-       const response = await fetch("https://server-fableson.wl.r.appspot.com/foodenergy2"+JSON.stringify(body));
+       const response = await fetch("https://fable2020.herokuapp.com/foodenergy2"+JSON.stringify(state));
+    
        const  jsonAux =  await response.json();
     
       setJson(jsonAux);
@@ -110,7 +111,66 @@ setState({
     }
   
   }
- 
+  //let dataAux;
+
+  //const { GraficaType, Iteration, Scenario, Year } = props.combinacion.select;
+  {/*
+  
+  
+  
+    switch(GraficaType){
+      case 'group':
+        switch(Iteration){
+          case 'iteration_3':
+            dataAux= convertir(Scenario === "Sustainaible" ? data.targetCinco_combinacionDos : data.targetCinco_combinacionCuatro);
+            break;
+          case 'iteration_4':
+            dataAux= convertir(Year === "2030" ? data.targetCinco_combinacionUno : data.targetCinco_combinacionTres);
+            break
+        }
+        break;
+      case 'regions':
+        switch(Iteration){
+          case 'iteration_3':
+            dataAux= convertir(Scenario === "Sustainaible" ? data.targetCinco_combinacionSeis : data.targetCinco_combinacionOcho);
+            break;
+          case 'iteration_4':
+            dataAux= convertir(Scenario === "Sustainaible" ? data.targetCinco_combinacionCinco : data.targetCinco_combinacionSiete);
+            break
+        }
+        break;
+      case 'countries':
+        switch(Iteration){
+        case 'iteration_3':
+          dataAux= convertir(Scenario === "Sustainaible" ? data.targetCinco_combinacionDies : data.targetCinco_combinacionDoce);
+          break;
+        case 'iteration_4':
+          dataAux= convertir(Scenario === "Sustainaible" ? data.targetCinco_combinacionNueve : data.targetCinco_combinacionOnce);
+  
+          break
+      }
+      break;
+    }
+    */}
+
+    const steps = [
+      {
+        target: ".graph",
+        content: "Average grams per day of feasible fats and proteins by country and selected year per capita.",
+        title: "Food energy intake per capita 2",
+          styles: {
+            //this styles override the styles in the props  
+            options: {
+              textColor: "black"
+            }
+          },
+          locale: { 
+            next: <span>End</span>,
+          },
+          placement: "top"
+      }
+    ]
+
   return (
 
     <div>
@@ -120,8 +180,8 @@ setState({
         {converter()}
       </div>
 
-      
-    <div  style={{height: "100vh" ,width:"70vw"} }>
+      <Tour stepsP={steps}/>
+    <div className="graph" style={{height: "100vh" ,width:"70vw"} }>
       <BarChart2 data={data}
     aspectRatio={false}
     labelposition="top"

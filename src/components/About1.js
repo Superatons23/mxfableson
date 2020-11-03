@@ -24,7 +24,7 @@ width:100%;
 
 .about-content{
     color:#4E4E4E;
-    text-align:left;
+    text-align: justify;
     font-size:20px;
 }
 }

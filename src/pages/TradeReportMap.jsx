@@ -1,17 +1,55 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Map, GeoJSON} from 'react-leaflet';
 import mapDataTest from './../data/CountriesTest.json';
 import 'leaflet/dist/leaflet.css'; //This style is for the scroll and plus controls of the map
 import '../css/LeafletMap.css';
 import * as L from 'leaflet';
+import hash from 'object-hash';
 
 
-class TradeReportMap extends Component {
-    state = { color: '#b4b42d'} ;
-popup=null;
+
+const TradeReportMap =(props)=> {
+   
+
+    var mscreenMapa =  null;
+
+
+    const converter=()=>{
+
+      
+       
+     //   paisesTest = propsAux.countriesData.datasets
+if(props.countriesData.datasets!==null){
+    
+      for (const country in props.countriesData.datasets) {
+            
+            color.push(props.countriesData.datasets[country].backgroundColor);
+            countriesName.push(props.countriesData.datasets[country].label);
+            data.push(props.countriesData.datasets[country].data);
+        }
+
+       
+      
+
+       years = props.countriesData.labels;
+
+      //  console.log(color)
+        //console.log("PAISES DESDE LA GRAFICAS")
+        //console.log(countriesName)
+       // console.log(props.countriesData.datasets.length)
+        //console.log(data)
+     
+      
+
+   // console.log(props.countriesData.datasets[1].label);
+    }
+    }
+
+
+var popup=null;
     //This list is for the countries of Rest_of_Sub_Saharan_Africa
     //because in the data they do not come by individual countries
-    name_countries_Rest_of_Sub_Saharan_Africa = [
+  var  name_countries_Rest_of_Sub_Saharan_Africa = [
         'Angola',
 		'Benin',
 		'Botswana',
@@ -66,7 +104,7 @@ popup=null;
         
     //This list is for the countries of Rest of Central and South America
     //because in the data they do not come by individual countries
-    name_countries_Rest_of_Central_and_South_America = [
+   var name_countries_Rest_of_Central_and_South_America = [
         'El salvador',
         'Costa Rica',
         'Belize',
@@ -96,7 +134,7 @@ popup=null;
 
     //This list is for the countries of Rest of North Africa Middle East and central Asia
     //because in the data they do not come by individual countries
-    name_countries_Rest_of_North_Africa_Middle_East_and_central_Asia = [
+  var  name_countries_Rest_of_North_Africa_Middle_East_and_central_Asia = [
         'Algeria',
         'Libya',
         'Morocco',
@@ -127,7 +165,7 @@ popup=null;
         'Uzbekistan'
     ];
 
-    name_countries_Rest_of_Europe_non_EU8 = ['Austria',
+  var  name_countries_Rest_of_Europe_non_EU8 = ['Austria',
         'Belgium',
         'Bulgaria',
         'Croatia',
@@ -157,67 +195,33 @@ popup=null;
         'Switzerland'
         ];
 
-    color = [];
+  var  color = [];
 
-    countriesName = [];
+  var  countriesName = [];
 
-    years = [];
+  var  years = [];
 
-    data = [];
+  var  data = [];
 
-    propsAux = null ;
+  var   propsAux = null ;
 
-    isColored = false;
+  var   isColored = false;
 
-    paisesTest = []
+  var  paisesTest = [];
     
-
+ {/**
     constructor(props) {
 
         super(props);
-        
-        this.propsAux = props;
-
-        console.log('Este es el trade report info props')
-        console.log(this.propsAux.countriesData)
-
-        this.paisesTest = this.propsAux.countriesData.datasets
-
-        for (const country in this.paisesTest) {
-            console.log(this.paisesTest[country].label)
-            this.color.push(this.paisesTest[country].backgroundColor);
-            this.countriesName.push(this.paisesTest[country].label);
-            this.data.push(this.paisesTest[country].data);
-        }
-
-        this.years = this.propsAux.labels
-
-        console.log(this.color)
-        console.log(this.countriesName)
-        console.log(this.data)
-
-        //console.log(this.paisesTest[1].label);
-
-        /*try {
-            
-            this.propsAux.countriesData.datasets.map((item) => {
-                this.color.push(item.backgroundColor);
-                this.countriesName.push(item.label);
-                this.data.push(item.data);
-            });
-
-            this.years = this.propsAux.countriesData.labels
+        */
+       
 
 
-        } catch ( e ) {
-            console.error ( e );
-        }*/
-        
-    }
-    
+ } 
+
 
     //This function is for the style of countries in the GeoJson
-    countryStyle = {
+  var  countryStyle = {
         fillColor: '#dddddd', //Color countries
         fillOpacity: 1, //This number is between cero to one. For example 0 0.1 0.2 0.3 .. 0.9 1
         color: 'white', //The border color of the countries 
@@ -226,11 +230,11 @@ popup=null;
 
     };
 
-    printMessageToConsole = (event) => {
+  const  printMessageToConsole = (event) => {
         console.log('This is a console message');
     }
 
-    changeTheCountryColor = ( event ) => {
+ const   changeTheCountryColor = ( event ) => {
         //console.log('The mouse is over the country')
         //console.log( event )
 
@@ -248,17 +252,17 @@ popup=null;
     }
 
 
-    //htmlCode = ''
+    var htmlCode = ''
 
-    createListInfoCountry = (index, countryName) => {
-        this.htmlCode = '<p style="text-align:center;"><strong>'+ countryName + '</strong></p>'
+  const  createListInfoCountry = (index, countryName) => {
+        htmlCode = '<p style="text-align:center;"><strong>'+ countryName + '</strong></p>'
         
-        this.htmlCode = this.htmlCode + '<ul>'
+        htmlCode = htmlCode + '<ul>'
 
         var i = 0
-        for (const currentValue in this.years) {
+        for (const currentValue in years) {
             //try { 
-                this.htmlCode = this.htmlCode + '<li>' +'<strong>' + this.years[i] + '</strong>' +': '+ this.data[index][i] + '</li>'
+                htmlCode =htmlCode + '<li>' +'<strong>' + years[i] + '</strong>' +': '+ data[index][i] + '</li>'
             /*} catch ( e ) {
                 console.log('Con este pais murio: ', countryName)
                 console.log('Este es el indece: ', index)
@@ -273,49 +277,58 @@ popup=null;
         //    this.htmlCode = '<li>' + this.years[index] +': '+ this.data[index] + '</li>'
         //});
 
-        this.htmlCode = this.htmlCode + '</ul>'
+        htmlCode = htmlCode + '</ul>'
 
-        return this.htmlCode ;
+        return htmlCode ;
         
     }
 
-    onEachCountry = (country, layer) => {
-
+ const onEachCountry = (country, layer) => {
+    
        const countryName = country.id; //The name of the countries
-       
+ 
        var indexAux = -1;
  
-       if (this.name_countries_Rest_of_Sub_Saharan_Africa.includes(countryName)){
-        indexAux = this.countriesName.indexOf( 'Rest of Sub-Saharan Africa' );
+       if (name_countries_Rest_of_Sub_Saharan_Africa.includes(countryName)){
+           console.log("1")
+        indexAux = countriesName.indexOf('Rest of Sub-Saharan Africa');
         
-        layer.options.fillColor = this.color[indexAux];
+        layer.options.fillColor = color[indexAux];
         //console.log('Se llamo con ', indexAux );
-         this.popup = L.popup().setContent(this.createListInfoCountry (indexAux, countryName));
-        layer.bindPopup(this.popup)
-       }
-       if (this.name_countries_Rest_of_North_Africa_Middle_East_and_central_Asia.includes(countryName)){
-        indexAux = this.countriesName.indexOf( 'Rest of North Africa Middle East and central Asia' );
-        layer.options.fillColor = this.color[indexAux];
+         popup = L.popup().setContent(createListInfoCountry (indexAux, countryName));
+        layer.bindPopup(popup)
+       }else if (name_countries_Rest_of_North_Africa_Middle_East_and_central_Asia.includes(countryName)){
+            console.log("2")
+        indexAux = countriesName.indexOf( 'Rest of North Africa Middle East and central Asia');
+        layer.options.fillColor = color[indexAux];
         //console.log('Se llamo con ', indexAux );
-        this.popup = L.popup().setContent(this.createListInfoCountry (indexAux, countryName));
-        layer.bindPopup(this.popup)        
-       }
-       if (this.name_countries_Rest_of_Central_and_South_America.includes(countryName)){
-        indexAux = this.countriesName.indexOf( 'Rest of Central and South America' );
-        layer.options.fillColor = this.color[indexAux];
+        popup = L.popup().setContent(createListInfoCountry (indexAux, countryName));
+        layer.bindPopup(popup)        
+       }else
+       if (name_countries_Rest_of_Central_and_South_America.includes(countryName)){
+        console.log("3")
+        indexAux = countriesName.indexOf( 'Rest of Central and South America' );
+        layer.options.fillColor = color[indexAux];
         //console.log('Se llamo con ', indexAux );
-        this.popup = L.popup().setContent(this.createListInfoCountry (indexAux, countryName));
-        layer.bindPopup(this.popup)
-       }
-       if (this.name_countries_Rest_of_Europe_non_EU8.includes(countryName)){
-        indexAux = this.countriesName.indexOf( 'Rest of European Union' );
-        layer.options.fillColor = this.color[indexAux];
+        popup = L.popup().setContent(createListInfoCountry (indexAux, countryName));
+        layer.bindPopup(popup)
+       }else
+       if (name_countries_Rest_of_Europe_non_EU8.includes(countryName)){
+        console.log("4")
+        indexAux = countriesName.indexOf( 'Rest of European Union' );
+        layer.options.fillColor = color[indexAux];
         
-        this.popup = L.popup().setContent(this.createListInfoCountry (indexAux, countryName));
-        layer.bindPopup(this.popup)
+        popup = L.popup().setContent(createListInfoCountry (indexAux, countryName));
+        layer.bindPopup(popup)
+       }else{
+      
+              indexAux = countriesName.indexOf(countryName);
+          //    indexAux!==-1?console.log(`${countryName}  ${countriesName[indexAux]}`):console.log("");
+              
        }
 
-       indexAux = this.countriesName.indexOf(countryName);
+    
+     
        
        /*this.countriesName.forEach(function(country, index, array) {
             if (country == countryName) {
@@ -338,13 +351,18 @@ popup=null;
         * and therefore it does not overwrite the color
         */
        
-       if(indexAux !== -1){
-            layer.options.fillColor = this.color[indexAux];
+       if(indexAux != -1){
+        
+            layer.options.fillColor = color[indexAux];
             
-            this.popup = L.popup().setContent(this.createListInfoCountry (indexAux, countryName));
-            layer.bindPopup(this.popup)
-            this.isColored = true;
+            popup = L.popup().setContent(createListInfoCountry (indexAux, countryName));
+           // layer.setPopupContent(popup);
+        layer.bindPopup(popup)
+            isColored = true;
+          
+
        }
+       
        /*if (!this.isColored) {
         indexAux = this.countriesName.indexOf('Otros');
         layer.options.fillColor = this.color[indexAux];
@@ -372,27 +390,37 @@ popup=null;
             //mouseover: this.changeTheCountryColor //This line change the country color when the mause is over the country 
         });*/
 
+
+
     }
 
     //This function change the value color of the state 
     //This value comes from input color in the render
-    colorChange = (event) => {
+ const   colorChange = (event) => {
         this.setState({color: event.target.value});
     }
 
-    corner1 = L.latLng(-90, -200)
-    corner2 = L.latLng(90, 200)
-    bounds = L.latLngBounds(this.corner1, this.corner2)
+//a;sldma;lsm;aslma;l
 
-    render () {
+  var  corner1 = L.latLng(-90, -200)
+  var  corner2 = L.latLng(90, 200)
+  var  bounds = L.latLngBounds(corner1, corner2)
+
+   var mapa=null;
         return (
             <div>
-                
-                <Map style={{height: '80vh'}} zoom={2} center={[20, 100]} maxBoundsViscosity = {1.0} maxBounds = {this.bounds}>
-                    <GeoJSON style={this.countryStyle} 
-                        data={mapDataTest.features}
-                        onEachFeature={this.onEachCountry}></GeoJSON>
-                        {//<TileLayer
+               
+                <Map style={{height: '80vh'}} zoom={2} center={[20, 100]} maxBoundsViscosity = {1.0} maxBounds = {bounds}>
+                { 
+            converter(),
+           mapa= props.countriesData.datasets.length!==0?<GeoJSON style={countryStyle} 
+           key={hash(props.countriesData.datasets)} 
+           data={mapDataTest.features}
+            onEachFeature={onEachCountry}/>:null
+                    }  
+
+                    {/** 
+                    <TileLayer
                         /*url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"
                         attribution='<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>'
                         id="mapbox.streets"
@@ -403,7 +431,7 @@ popup=null;
                 
             </div>
         );
-    } 
+    
 }
 
 export default TradeReportMap;

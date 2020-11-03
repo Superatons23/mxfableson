@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import BarChart from "../components/BarChart.jsx";
 
+import ComboBox2 from '../components/ComboBox2'
 import ChartCharacteristics from '../data/ChartCharacteristics.json';
 import ComboBox from '../components/ComboBox'
 
@@ -34,10 +35,8 @@ const DrawProtected = () => {
   useEffect(() => {
     const getProtectedAreaByType = async () => {
       try {
-  
-        const body = state;
-  
-        const response = await fetch("https://server-fableson.wl.r.appspot.com/protected" + JSON.stringify(body));
+
+        const response = await fetch("https://fable2020.herokuapp.com/protected" + JSON.stringify(state));
         const jsonAux = await response.json();
   
         setJson(jsonAux);

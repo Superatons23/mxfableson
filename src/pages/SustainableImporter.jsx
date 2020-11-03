@@ -3,6 +3,7 @@ import BarChart from "../components/BarChart";
 import {Container,Row,Col} from "react-bootstrap";
 import ComboBoxTradeReportersImporters from "../components/ComboBoxTradeReporters";
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
+import TradeReportMap from './TradeReportMap'
 
 const SustainableExporter =()=>
 {
@@ -13,8 +14,9 @@ const SustainableExporter =()=>
       this.label=CountryCharacteristics[0]["label"];
       this.borderColor=CountryCharacteristics[0]["borderColor"];
       this.backgroundColor=CountryCharacteristics[0]["backgroundColor"];
-      
     }
+
+
     const [state,setState]=useState({select: {
         Product: 'abaca',
        iteration: "4",
@@ -25,12 +27,13 @@ const SustainableExporter =()=>
 
        //const [state,setState]=useState([]);
  const [json,setJson]=useState([]);
- var dataAux = null;
-
+ var dataChart = null;
+ 
+ 
  const handleChange = e => {
     var  iteration = e.target.name==="iteration"? e.target.value==="after"?'4':'3':state.select.iteration;
    
-    console.log(iteration)
+
  setState({
          select: {
            
@@ -48,11 +51,12 @@ const SustainableExporter =()=>
     const getNetSustainableImporter = async() => {
       try {
    
-        const body =state;
-        console.log(body)
+      
         
      
-       const response = await fetch("https://server-fableson.wl.r.appspot.com/net/"+JSON.stringify(body));
+    // const response = await fetch("https://server-fableson.wl.r.appspot.com/net"+JSON.stringify(body));
+    
+  const response = await fetch("https://fable2020.herokuapp.com/net"+JSON.stringify(state));
         const  jsonAux =  await response.json();
       
       setJson(jsonAux);
@@ -73,34 +77,43 @@ const SustainableExporter =()=>
   const converter=()=>
   {
     
+    var count = 0;
   var dataImport_quantity=[];
-  var paises=[];
+  var datasetsCharts=[];
+
   var labels=[];
-  var nameCounty="Argentina";
+  var nameCounty="";
   
-    if (json != null) {
-      json.forEach(item => {
-        if (!labels.includes(item.Year)) 
+    if (json.length !==0) {
+      nameCounty=json[0].name;
+      json.forEach(item => 
         {
-          labels.push(item.Year);
-        }
-        dataImport_quantity.push(item.Import_quantity);
-        if (nameCounty!==item.name) {
-          var pais = new Pais(CountryCharacteristics[nameCounty], dataImport_quantity);
-          paises.push(pais);
+          if (!labels.includes(item.Year)) 
+          {
+            labels.push(item.Year);
+          }
+          
+          if (nameCounty!==item.name) 
+          {
+            if(count!==dataImport_quantity.length){
+            var pais = new Pais(CountryCharacteristics[nameCounty], dataImport_quantity);
+            datasetsCharts.push(pais);
+            
+          }
+          count = 0;
           nameCounty=item.name;
           dataImport_quantity=[];
+          }
           dataImport_quantity.push(item.Import_quantity);
-        }
-      });
-  
-  
+          count = item.Import_quantity === "0.00" ? count + 1 : count;
+        });
     }
+   
    var data = {
       labels:labels,
-      datasets:paises
+      datasets:datasetsCharts
   };
-   dataAux=data;
+   dataChart=data;
   }
 
   return (
@@ -113,7 +126,8 @@ const SustainableExporter =()=>
                   <Col>
                   
                   <div style={{height: "100vh", width:"35vw"}}>
-                      <BarChart data={dataAux} title="Sustainable net exporters"
+               
+                      <BarChart data={dataChart} title="Sustainable net exporters"
                                                         labelString='Import quantity'
 
                         aspectRatio={false}
@@ -124,15 +138,14 @@ const SustainableExporter =()=>
                   <Col>
     
                   <div style={{borderStyle:'solid', textAlign:'center', height: "70vh",width:"35vw"}}>
+                
+                 {/** 
+                  <TradeReportMap countriesData = {dataChart} />
+                   */}
+
+                   <TradeReportMap countriesData = {dataChart}/>
+               
                   
-                  {/* 
-                  <LeafletMap
-                  
-    
-                 //   countriesData = {dataAux}
-                  
-                  />
-                  */}
                   </div>
                   </Col>
                 </Row>

@@ -24,15 +24,12 @@ const DrawGlobalTargets = (props) => {
   });
 
  const handleChange = e => {
-console.log("entre HANDE")
   setState({
       select: {
           //el next code evitara que se sobrescriba cuando reciba un valor new
           ...state.select,
-          
           [e.target.name]: e.target.value
       },
-     
   })
   }
 const crearDataTargetUno=(props)=> {

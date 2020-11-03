@@ -39,10 +39,10 @@ const GreenHouse = () => {
    
       try {
             
-        const body =state;
       
-        console.log(state)
-       const response = await fetch("https://server-fableson.wl.r.appspot.com/gas2"+JSON.stringify(body));
+
+      const response = await fetch("https://fable2020.herokuapp.com/gas2"+JSON.stringify(state));
+
        const  jsonAux =  await response.json();
     
       setJson(jsonAux);
@@ -62,38 +62,51 @@ const GreenHouse = () => {
 
   const converter = () => {
 
-var nameCounty=state.select.GraficaType==="regions"?"R_AFR":"Argentina";
     var AgriCO2e=[];
     var LandCO2e=[];
 var datasetsChart1=[];
 var datasetsChart2=[];
 var labels=[];
+var countChartOne = 0;
+var countChartTwo = 0;
+
+var nameCounty = ""
 
 
-if (json != null) {
-
-
-
+if (json.length !==0) {
+  nameCounty=json[0].name;
+  console.log(json)
 json.forEach(item => {
   if (!labels.includes(item.Year)) 
   {
     labels.push(item.Year);
   }
-  AgriCO2e.push(item.AgriCO2e);
-  LandCO2e.push(item.LandCO2e);
+ 
   if (nameCounty!==item.Country) {
   
-    var greenHouse = new GreenHouseTwo(CountryCharacteristics[nameCounty], AgriCO2e);
-    datasetsChart1.push(greenHouse);
-    greenHouse = new GreenHouseTwo(CountryCharacteristics[nameCounty], LandCO2e);
-    datasetsChart2.push(greenHouse);
+    if(countChartOne!==AgriCO2e.length)
+    {
+      var greenHouseOne = new GreenHouseTwo(CountryCharacteristics[nameCounty], AgriCO2e);
+      datasetsChart1.push(greenHouseOne);
+    }
+    if(countChartTwo!==LandCO2e.length)
+    {
+    var  greenHouseTwo = new GreenHouseTwo(CountryCharacteristics[nameCounty], LandCO2e);
+      datasetsChart2.push(greenHouseTwo);
+    }
+   
+    countChartOne=0;
+    countChartTwo=0;
     nameCounty=item.Country;
-     
     LandCO2e=[];
-    LandCO2e.push(item.LandCO2e);
-      AgriCO2e=[];
-      AgriCO2e.push(item.AgriCO2e);
+    AgriCO2e=[];
+      
   }
+
+  AgriCO2e.push(item.AgriCO2e);
+  LandCO2e.push(item.LandCO2e);
+  countChartOne = item.AgriCO2e === "0.00"? countChartOne + 1 : countChartOne;
+  countChartTwo = item.LandCO2e === "0.00"? countChartTwo + 1 : countChartTwo;
 });
 
 
@@ -102,6 +115,7 @@ var dataAux = {
 labels:labels,
 datasets:datasetsChart1
 };
+
 dataChart1=dataAux;
 dataAux = {
   labels:labels,

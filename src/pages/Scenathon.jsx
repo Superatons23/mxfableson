@@ -206,11 +206,6 @@ class Scenathon extends Component {
           }
     }
 
-   
-  
-
-   
-
 
     render() {
         return (
@@ -240,4 +235,3 @@ class Scenathon extends Component {
     }
 }
 export default Scenathon;   
-

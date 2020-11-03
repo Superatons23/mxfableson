@@ -33,8 +33,10 @@ const DrawFreshWaterUse = () => {
     const getFreshWater = async () => {
 
       try {
-        const body = state;
-        const response = await fetch("https://server-fableson.wl.r.appspot.com/freshwater1" + JSON.stringify(body));
+       
+       
+        const response = await fetch("https://fable2020.herokuapp.com/freshwater1"+JSON.stringify(state));
+        
         const jsonAux = await response.json();
         setJson(jsonAux);
       } catch (error) {
@@ -90,7 +92,7 @@ const DrawFreshWaterUse = () => {
 
 
     var labels = [];
-    var sum = [];
+    var blueWater = [];
 
 
     var dataSet = []
@@ -100,11 +102,11 @@ const DrawFreshWaterUse = () => {
 
       json.forEach(item => {
         labels.push(item.Year);
-        sum.push(item.sum);
+        blueWater.push(item.BlueWater);
 
       });
 
-      var freshWaterUse = new FreshWaterUse(ChartCharacteristics["cubic_metres"], sum);
+      var freshWaterUse = new FreshWaterUse(ChartCharacteristics["cubic_metres"], blueWater);
       dataSet.push(freshWaterUse);
 
       var dataAux = {

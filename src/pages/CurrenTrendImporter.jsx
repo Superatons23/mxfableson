@@ -47,13 +47,9 @@ const SustainableExporter =()=>
   useEffect(() => {
     const getNetSustainableImporter = async() => {
       try {
-   
-        const body =state;
-        console.log(body)
-        
      
-       const response = await fetch("https://server-fableson.wl.r.appspot.com/net/"+JSON.stringify(body));
-        const  jsonAux =  await response.json();
+      const response = await fetch("https://fable2020.herokuapp.com/net" + JSON.stringify(state));  
+      const  jsonAux =  await response.json();
       
       setJson(jsonAux);
   
@@ -74,24 +70,32 @@ const SustainableExporter =()=>
   {
     
   var dataImport_quantity=[];
+  var count = 0;
   var paises=[];
   var labels=[];
-  var nameCounty="Argentina";
+  var nameCounty="";
   
-    if (json != null) {
+    if (json.length !==0) {
+      nameCounty = json[0].name;
       json.forEach(item => {
         if (!labels.includes(item.Year)) 
         {
           labels.push(item.Year);
         }
-        dataImport_quantity.push(item.Import_quantity);
+    
         if (nameCounty!==item.name) {
-          var pais = new Pais(CountryCharacteristics[nameCounty], dataImport_quantity);
-          paises.push(pais);
+          if (count !== dataImport_quantity.length) {
+            var pais = new Pais(CountryCharacteristics[nameCounty], dataImport_quantity);
+            paises.push(pais);
+
+          }
+          count = 0;
           nameCounty=item.name;
           dataImport_quantity=[];
-          dataImport_quantity.push(item.Import_quantity);
+ 
         }
+        dataImport_quantity.push(item.Import_quantity);
+        count = item.Import_quantity === "0.00" ? count + 1 : count;
       });
   
   

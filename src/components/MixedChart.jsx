@@ -4,7 +4,7 @@ import {Bar} from 'react-chartjs-2';
 
 
   
-  const  drawMixedChart=(props)=> {
+  const MixedChart=(props)=> {
 
 
     const options = {
@@ -19,8 +19,7 @@ import {Bar} from 'react-chartjs-2';
       display:true,
       labels:{
         boxWidth:props.labelWidth===undefined?20:props.labelWidth,
-      fontSize:props.labelSize===undefined?12:props.labelSize,
-      
+      fontSize:props.labelSize===undefined?12:props.labelSize
       },
       position:props.labelposition===undefined?'right':props.labelposition
     },tooltips: {
@@ -53,21 +52,13 @@ import {Bar} from 'react-chartjs-2';
               stacked: true,
   
             type: 'linear',
-            display: true,   
+            display: true,    
             position: 'left',
             id: 'y-axis-1',
             gridLines: 
             {
                
               display: true,
-
-            }, scaleLabel: {
-              display: true,
-              labelString:props.labelString===undefined?'':props.labelString,
-              fontColor:props.fontColor===undefined?'#546372':props.fontColor,
-              fontSize:props.fontSize===undefined?18:props.fontSize,
-              fontFamily: "Montserrat",
-              
 
             },
 
@@ -93,15 +84,13 @@ import {Bar} from 'react-chartjs-2';
       }
     };
     
-    let data = props.data;
-        
-  
+
     return (
     
-  <Bar data={data}
+  <Bar data={props.data}
                 options={options}/>
     
         
       );
   }
-  export default drawMixedChart;
+  export default MixedChart;

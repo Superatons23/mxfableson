@@ -50,13 +50,9 @@ setState({
  useEffect(() => {
   const getNettrade = async() => {
     try {
-   console.log("net")
-      const body =state;
-      console.log(body)
-      
-   
-     const response = await fetch("https://server-fableson.wl.r.appspot.com/net/"+JSON.stringify(body));
-      const  jsonAux =  await response.json();
+    // const response = await fetch("https://server-fableson.wl.r.appspot.com/net"+JSON.stringify(body));
+    const response = await fetch("https://fable2020.herokuapp.com/net"+JSON.stringify(state));
+    const  jsonAux =  await response.json();
     
     setJson(jsonAux);
 
@@ -77,23 +73,31 @@ setState({
 {
  
 var dataExport_quantity=[];
+var count = 0;
 var paises=[];
 var labels=[];
-var nameCounty="Argentina";
-  if (json != null) {
+var nameCounty="";
+  if (json.length !==0) {
+    nameCounty=json[0].name;
     json.forEach(item => {
       if (!labels.includes(item.Year)) 
       {
         labels.push(item.Year);
       }
-      dataExport_quantity.push(item.Export_quantity);
+      
       if (nameCounty!==item.name) {
+      
+        if(count!==dataExport_quantity.length){
         var pais = new Pais(CountryCharacteristics[nameCounty], dataExport_quantity);
           paises.push(pais);
+        }
+        count = 0;
           nameCounty=item.name;
           dataExport_quantity=[];
-          dataExport_quantity.push(item.Export_quantity);
+         
       }
+      dataExport_quantity.push(item.Export_quantity);
+      count = item.Export_quantity === "0.00" ? count + 1 : count;
     });
 
 
