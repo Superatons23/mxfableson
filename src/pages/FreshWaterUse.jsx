@@ -88,7 +88,6 @@ const DrawFreshWaterUse = () => {
 
   }
 
-
   const converter = () => {
 
 
@@ -98,6 +97,7 @@ const DrawFreshWaterUse = () => {
 
     var dataSet = []
 
+    var dataSet = []
 
     if (json !== null) {
 
@@ -155,6 +155,13 @@ const DrawFreshWaterUse = () => {
     <BarChart data={data}
     aspectRatio={false}
     labelposition="top"
+    labelwidth={50}
+    labelSize={24}
+    TitleSize={45}
+
+  labelString='Blue water cubic metres'
+  fontSize='24'
+
     title="Fresh Water use"/>
   </div>
 </div>

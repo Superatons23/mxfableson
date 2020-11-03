@@ -9,6 +9,8 @@ const  drawSuperGraph=(props)=> {
       maintainAspectRatio: props.aspectRatio===undefined?false:props.aspectRatio,
       title: {
         display: true,
+        fontSize:props.TitleSize===undefined?12:props.TitleSize,
+
         text: props.title
     },legend:{
       labels:{

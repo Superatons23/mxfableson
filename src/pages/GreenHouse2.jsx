@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import BarChart from "../components/BarChart";
+import data from '../data/Greenhouse2.json';
 import ComboBox from '../components/ComboBox';
 import { Container, Row, Col } from "react-bootstrap";
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
 import LeafletMap from './LeafletMap';
+import TradeReportMap from './TradeReportMap'
 import Tour from '../components/Tour'
 
 //nfch=NetForestCoverChange
@@ -198,7 +200,10 @@ return (
           
           <BarChart data={dataChart1}
             title="Greenhouse Gas 2" aspectRatio={false}
-            labelposition="bottom" />
+            labelposition="bottom"
+            labelwidth={50}
+            labelSize={24}
+            TitleSize={45} />
           
         </div>
         </Col>
@@ -209,15 +214,20 @@ return (
         
           <BarChart data={dataChart2}
             title="Greenhouse Gas 2" aspectRatio={false}
-            labelposition="bottom" />
+            labelposition="bottom" 
+            labelwidth={50}
+            labelSize={24}
+            TitleSize={45}
+        />
               
         </div>
         </Col>
       </Row>
+      <TradeReportMap countriesData = {dataChart1}/>
+      <TradeReportMap countriesData = {dataChart2}/>
     </div>
 </Container>
   );
-
 }
 
 

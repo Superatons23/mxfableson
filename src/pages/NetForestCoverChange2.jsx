@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import BarChart from "../components/BarChart";
+import data from '../data/NetForestCoverChange2.json';
 import "../../node_modules/react-grid-layout/css/styles.css";
 import "../../node_modules/react-resizable/css/styles.css";
 import { Container, Row, Col } from "react-bootstrap";
@@ -7,6 +8,8 @@ import ComboBox3 from '../components/ComboBox3';
 import LeafletMap from './LeafletMap';
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
 import { css } from "styled-components";
+
+import TradeReportMap from './TradeReportMap'
 
 //nfch=NetForestCoverChange
 const DrawNfch2 = () => {
@@ -163,6 +166,7 @@ const DrawNfch2 = () => {
         <Col>
 
           <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh", width: "35vw" }}>
+          <TradeReportMap countriesData = {data}/>
             {/* 
                 <LeafletMap
                   countriesData = {data}

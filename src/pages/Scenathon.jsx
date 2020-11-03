@@ -5,6 +5,9 @@ import ComboBox from '../components/ComboBox'
 
 import ComboBox3 from '../components/ComboBox3'
 import Aside from '../components/Aside';
+import Dashboard from '../components/Dashboard'
+import NewSidemenu from '../components/NewSidemenu';
+
 //dashboards
 import NetForestCoverChange from '../pages/NetForestCoverChange'
 import Biodiversity from '../pages/Biodiversity'
@@ -31,7 +34,7 @@ import CurrenTrendImporter from './CurrenTrendImporter'
 
 
 const Styles = styled.div`
-header{
+.header{
 
 
 overflow:hidden;
@@ -44,9 +47,12 @@ overflow:hidden;
   margin: 0;
   height: 100px;
   margin-top:20px;
+
+  transition: all 0.5s ease;
+  
+
   width: 100%;
   
-  transition: all 0.5s ease;
 
 
 .banner{
@@ -60,8 +66,9 @@ transition: all 0.5s ease;
 
 .container{
     display:flex;
-    width:1500px;
+   
     border:5px solid green;
+  
 }
 
 
@@ -131,6 +138,12 @@ class Scenathon extends Component {
             case 'Global Target Summary':
             this.combobox=null;  
                this.dash=<GlobalTargets combinacion={this.state}/>;
+               try{
+                document.getElementById("banner").src=BannerCustom;
+               }catch(Error){
+                   
+               }
+               
               break;
             case 'Net Forest Cover Change 1': 
             this.combobox=<ComboBox onChange={this.handleChange}/>
@@ -218,15 +231,15 @@ class Scenathon extends Component {
     render() {
         return (
 
-        
-                <Styles>
-            <header ref={this.fableRef} alt="">
+            <Styles>
+            <div class="header" ref={this.fableRef}>
         <img class="banner" id="banner" alt=""></img>
-        </header>
+        </div>
             <div className="container-fluid" style={{display: 'flex'}}>
                
                <div>
-                 <Aside onChange={this.handleChange}/>  
+                    <NewSidemenu onChange={this.handleChange}/>
+                 {/* <Aside onChange={this.handleChange}/>   */}
                </div>
             
           

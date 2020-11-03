@@ -158,12 +158,18 @@ const DrawGreenhouse1 = (props) => {
             <SuperGraph data={dataGraphOneAux}
             title="Green House 1"
             aspectRatio={false} 
-            labelposition="top"/> 
+            labelposition="top"
+            labelwidth={50}
+            labelSize={24}
+            TitleSize={35}/> 
             </div></Col>
         <Col > <div style={{height: "100vh" ,width:"35vw"} }><SuperGraph data={dataGraphTwoAux}
           title="Green House 2"
           aspectRatio={false} 
-            labelposition="top" /> </div></Col>
+            labelposition="top" 
+            labelwidth={50}
+            labelSize={24}
+            TitleSize={35}/> </div></Col>
       </Row>
       </div>
     </Container>

@@ -36,7 +36,7 @@ margin-top:20px;
 
 const About2=(props)=>{
 return(
-<Styles ref={props.aboutReference}>
+<Styles ref={props.fableRef}>
 <div className="about-container">
 <div className="about-title">Scenathons: Interactive Scenerario and <br/> Pathway Planning Development</div>
 <div className="about-content">Scenathons were conceived at IIASA as participatory decision-making exercises that integrate models, stakeholders, and technology to collectively solve complex, large-scale multi-objective problems. <br/><br/>

@@ -23,7 +23,7 @@ import Sidebar from './components/Sidebar';
 const ReactHint = ReactHintFactory(React)
 
 const App = (props) => {
-  
+
   const [currentValue, setCurrentValue] = React.useState("")
   
   const handleChangeAside = (value) => {
@@ -56,11 +56,12 @@ const App = (props) => {
           <About1 aboutRef={references.fable}/>
         </div>
         <div id="Jumbotron_2" >
-          {/*<Jumbotron_2 />*/}
+          {<Jumbotron2 />}
         </div>
 
-
-        <div  className="Scenathon2020">
+        
+        
+        <div className="Scenathon2020">
           <Scenathon fableRef={references.scenathon2020} className="Scenathon2020" id="Scenathon2020"/>
         </div>
 
@@ -68,6 +69,13 @@ const App = (props) => {
           <About2 fableRef={references.scenathon}/>
         </div>
 
+      
+        <div className="scenathon-info">
+          <About2 fableRef={references.scenathon}/>
+        </div>
+        <div id="Jumbotron_3" >
+          {<Jumbotron3 />}
+        </div>
         <div id="JumbotronFin" data-rh="Copyright" data-rh-at="top" id="final">
           <JumbotronFin/>
         </div>
@@ -81,4 +89,3 @@ const App = (props) => {
   )
 };
 export default App;
-

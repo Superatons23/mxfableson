@@ -104,9 +104,8 @@ setState({
       var dataAux = {
         labels:labels,
         datasets:dataSet
-    };
-    data=dataAux;
-
+      };
+      data=dataAux;
 
     }
   

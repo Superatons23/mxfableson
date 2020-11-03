@@ -9,7 +9,7 @@ const BarChart = (props) => {
     maintainAspectRatio: props.aspectRatio===undefined?true:props.aspectRatio,
     title: {
       display: true,
-      TfontSize:props.TitleSize===undefined?12:props.TitleSize,
+      fontSize:props.TitleSize===undefined?12:props.TitleSize,
 
       text: props.title
   },legend:{

@@ -4,6 +4,8 @@ import {Container,Row,Col} from "react-bootstrap";
 import ComboBoxTradeReportersImporters from "../components/ComboBoxTradeReporters";
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
 
+import TradeReportMap from './TradeReportMap'
+
 const SustainableExporter =()=>
 {
     function Pais(CountryCharacteristics,data) 
@@ -128,7 +130,7 @@ const SustainableExporter =()=>
                   <Col>
     
                   <div style={{borderStyle:'solid', textAlign:'center', height: "70vh",width:"35vw"}}>
-                  
+                  <TradeReportMap countriesData = {dataAux}/>
                   {/* 
                   <LeafletMap
                   

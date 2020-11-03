@@ -7,6 +7,8 @@ import LeafletMap from './LeafletMap';
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
 import Tour from '../components/Tour';
 
+import TradeReportMap from './TradeReportMap'
+
 const DrawFreshWater2 = () => {
 
 
@@ -158,12 +160,17 @@ const DrawFreshWater2 = () => {
               title="Fresh Water Use 2"
               labelposition="bottom"
               labelSize={15}
+              labelwidth={50}
+              labelSize={16}
+              TitleSize={35}
+          
               aspectRatio={false} />
 
           </div>
         </Col>
         <Col>
           <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh",width:"35vw"}}>
+          <TradeReportMap countriesData = {data}/>
             {/** 
               <LeafletMap
                 

@@ -180,11 +180,10 @@ const convertir=(props)=> {
             label: 'Aforestation',
             data: aforestation,
             fill: false,
-            backgroundColor: 'rgba(129,199,132, 0.8)',
+            backgroundColor: 'rgba(129,199,132, 1)',
             borderColor: 'Green',
-            borderWidth: 2,
            
-            hoverBackgroundColor: 'rgba(129,199,135,0.7)',
+            hoverBackgroundColor: 'rgba(129,199,135,1)',
             hoverBorderColor: 'Green',
             yAxisID: 'y-axis-1'
           },{
@@ -193,8 +192,8 @@ const convertir=(props)=> {
             data: forest_loss,
             fill: false,
             borderColor: '#a98600',
-            borderWidth: 2,
-            backgroundColor: 'rgba(255,213,79, 0.8)',
+            
+            backgroundColor: 'rgba(255,213,79, 1)',
             hoverBackgroundColor: 'rgba(255,213,79,0.7)',
 
             pointBorderColor: '#ffd54f',

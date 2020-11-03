@@ -3,6 +3,7 @@ import BarChart from "../components/BarChart.jsx";
 import ComboBox2 from '../components/ComboBox2'
 import ChartCharacteristics from '../data/ChartCharacteristics.json';
 import ComboBox from '../components/ComboBox'
+
 import Tour from '../components/Tour'
 const DrawProtected = () => {
 

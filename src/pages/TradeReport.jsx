@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import {Container,Row,Col} from "react-bootstrap";
 import LeafletMap from './TradeReportMap'
+
+
 import ComboBoxTradeReportersImporters from "../components/ComboBoxTradeReporters";
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
+import DashboardTradeReport from '../components/DashboardTradeReport'
+
 import BarChart from "../components/BarChart";
 import TradeReportMap from "./TradeReportMap";
 const SustainableImporters = () =>{
