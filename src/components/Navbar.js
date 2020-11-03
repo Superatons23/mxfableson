@@ -21,7 +21,6 @@ import SDSN_LOGO_COLOR from '../assets/SDSN_LOGO.png';
 import FoodAndLand_LOGO_WHITE from '../assets/FoodAndLand_LOGO_WHITE.png';
 import FoodAndLand_LOGO_COLOR from '../assets/FoodAndLand_LOGO.png';
 
-
 const Styles = styled.div`
 .navbar, #navbar{
   display:flex;
@@ -137,7 +136,7 @@ const NavBar = (props) => {
                 <ReactBootStrap.Navbar.Brand  classname="navbar-link" id="navbar-link-home">Home</ReactBootStrap.Navbar.Brand>
               </Link>
               
-              <Link to="/sasa">
+              <Link to="/">
                 <ReactBootStrap.Navbar.Brand classname="navbar-link" id="navbar-link-tour" href="#tour">Tour</ReactBootStrap.Navbar.Brand>
               </Link>
               <Link onClick={() => {handleClick(props.references.fable)}}>

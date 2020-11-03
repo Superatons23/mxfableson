@@ -23,7 +23,7 @@ import Sidebar from './components/Sidebar';
 const ReactHint = ReactHintFactory(React)
 
 const App = (props) => {
-
+  
   const [currentValue, setCurrentValue] = React.useState("")
   
   const handleChangeAside = (value) => {
@@ -76,9 +76,6 @@ const App = (props) => {
           <SwipeableDrawe/>
           <Sidebar/>
         </div>*/}
-
-
-
 
     </React.Fragment>
   )
