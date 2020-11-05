@@ -111,7 +111,7 @@ const DrawBiodiversity = (props) => {
         if (nameCountry !== item.Country) {
 
           if(count!==dataBiodiversity_land.length){
-            var biodiversity = new Biodiversity(CountryCharacteristics[nameCounty], dataBiodiversity_land);
+            var biodiversity = new Biodiversity(CountryCharacteristics[nameCountry], dataBiodiversity_land);
             biodiversities.push(biodiversity);
           }
           count = 0;

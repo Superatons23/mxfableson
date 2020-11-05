@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import "../css/graphCharacteristics.css";
 import "../css/Box.css";
 import "../../node_modules/react-grid-layout/css/styles.css";

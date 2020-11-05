@@ -27,11 +27,12 @@ import BannerLifeOnLand from '../assets/banners/Mesa de trabajo 19.png';
 import BannerCleanWater from '../assets/banners/Mesa de trabajo 8.png';
 import BannerZeroHunger from '../assets/banners/Mesa de trabajo 2.png';
 import BannerClimateAction from '../assets/banners/Mesa de trabajo 16.png';
+import BannerCustom from '../assets/banners/Mesa de trabajo 21.png';
 import SustainableImporter from '../pages/SustainableImporter'
 import SustainableNetExporter from './SustainableNetExporter'
 import CurrenTrendExporter from './CurrenTrendExporter'
 import CurrenTrendImporter from './CurrenTrendImporter'
-
+import Background from './Background.js'
 
 const Styles = styled.div`
 .header{
@@ -88,7 +89,7 @@ class Scenathon extends Component {
             scenathon_id:'6',
             Year:'2000'
         },
-        dashboard:"Global Target Summary"
+        dashboard:"Background"
     }
     
   
@@ -135,6 +136,16 @@ class Scenathon extends Component {
     selectDashboard(){
     
         switch(this.state.dashboard){
+            case 'Background':
+                this.combobox=null;  
+                   this.dash=<Background/>;
+                   try{
+                   }catch(Error){
+                       
+                   }
+                   
+                  break;
+    
             case 'Global Target Summary':
             this.combobox=null;  
                this.dash=<GlobalTargets combinacion={this.state}/>;

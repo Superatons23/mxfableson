@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import BarChart from "../components/BarChart";
-import data from '../data/Greenhouse2.json';
 import ComboBox from '../components/ComboBox';
 import { Container, Row, Col } from "react-bootstrap";
 import CountryCharacteristics from '../data/CountryCharacteristics.json';

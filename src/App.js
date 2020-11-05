@@ -8,7 +8,7 @@ import About3 from "./components/About3";
 import Tour from "./components/Tour";
 import About from './pages/About';
 import Jumbotron from './components/Jumbotron'
-//import Jumbotron2  from './components/Jumbotron2'
+import Jumbotron2  from './components/Jumbotron2'
 import Jumbotron3 from './components/Jumbotron3'
 import JumbotronFin from './components/JumbotronFin'
 import ReactHintFactory from 'react-hint'
