@@ -6,6 +6,8 @@ import "../../node_modules/react-resizable/css/styles.css";
 import { WidthProvider, Responsive } from "react-grid-layout";
 
 import MixedChart from "../components/MixedChart";
+import MixedChart2 from "../components/MixedChart2";
+
 import data from '../data/GlobalTargets.json';
 import BarChart from '../components/BarChart'
 import ComboBox from '../components/ComboBox';
@@ -629,7 +631,7 @@ const crearDataTargetSiete=(props)=> {
             labelposition="bottom"/>
         </div>
         <div key="t2" data-grid={{x: 2, y: 0, w: 2, h: 7}} >
-          <MixedChart
+          <MixedChart2
             data={dataAuxTargetDos}
             aspectRatio={false}
             labelposition="bottom"
@@ -637,7 +639,7 @@ const crearDataTargetSiete=(props)=> {
             title="Target 2.- Share of total land which is protected"/>
           </div>
         <div key="t3" data-grid={{x: 4, y: 0, w: 2, h: 7}}>
-          <MixedChart 
+          <MixedChart2 
             data={dataAuxTargetTres}
             aspectRatio={false}
             labelposition="bottom"

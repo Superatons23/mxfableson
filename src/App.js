@@ -18,7 +18,9 @@ import Joyride, { ACTIONS, EVENTS, STATUS } from 'react-joyride';
 import BackgroundBlue from '../src/assets/background.jpg';
 import steps from './components/TOUR_STEPS';
 import Sidebar from './components/Sidebar';
+import CookieDisclaimer from 'react-cookie-disclaimer';
 {/*import SwipeableDrawe from './components/SwipeableDrawer';*/}
+
 
 const ReactHint = ReactHintFactory(React)
 
@@ -46,6 +48,17 @@ const App = (props) => {
           <Tour stepsP={steps}/>
         </div>
 
+        <CookieDisclaimer
+           
+          background='#306973' 
+          bottomPosition={true}
+          closeIconSize={30}
+          closeIconPositionTop={false}
+          color='#fff'
+          cookiePolicyName='Cookie Policy'
+          cookiePolicyText='By continuing to use the service, you agree to our'
+          text='This website uses cookies to improve service.'/>
+
         <div className="Nav">
           <Navbar references={references}/>
         </div>
@@ -68,11 +81,7 @@ const App = (props) => {
         <div className="scenathon-info">
           <About2 fableRef={references.scenathon}/>
         </div>
-
       
-        <div className="scenathon-info">
-          <About2 fableRef={references.scenathon}/>
-        </div>
         <div id="Jumbotron_3" >
           {<Jumbotron3 />}
         </div>

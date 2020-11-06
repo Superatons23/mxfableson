@@ -43,4 +43,5 @@ export default (props) => {
         </Jumbo>
     </Styles>
     )
-}
+};
+

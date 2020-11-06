@@ -2,7 +2,7 @@ import React from 'react';
 import { Bar} from 'react-chartjs-2';
 
 
-const BarChart = (props) => {
+const BarChart3 = (props) => {
 
   const options = {
     responsive: true,
@@ -25,9 +25,18 @@ const BarChart = (props) => {
     position:props.labelposition===undefined?'right':props.labelposition
   },
     tooltips: {
-      mode: 'label',
-      
-    },
+      mode: 'index',
+      intersect: true,
+      callbacks: {
+        label: function(tooltipItem, data) { return tooltipItem.yLabel + '%'; }
+      }
+
+
+    },hover: {
+      mode: 'index',
+      intersect: true,
+      animationDuration: 1000
+   },
     elements: {
       line: {
         fill: false
@@ -64,7 +73,13 @@ const BarChart = (props) => {
             fontFamily: "Montserrat",
 
           },
-
+          ticks: {
+            callback: function(label, index, labels) {
+                return label+'$';
+            },
+           
+         
+        },
           labels: {
             show: true,
             position: 'right',
@@ -97,4 +112,4 @@ const BarChart = (props) => {
       }
 
 
-export default BarChart;
+export default BarChart3;

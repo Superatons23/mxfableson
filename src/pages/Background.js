@@ -5,14 +5,16 @@ import styled from 'styled-components';
 
 const Styles = styled.div`
 .image-background{
-    background: url(${BackgroundChart});
+  background-color: #000;
+  height: 1080px;
+  width: 1920px;
 }
 `;
 
 const Background = () => {
   return (
-    
-    <image href={BackgroundChart}/>
+
+    <div className="image-background"></div>
 
   );
 };

@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
-import BarChart from "../components/BarChart";
+import BarChart3 from "../components/BarChart3";
 
 import { Container, Row, Col } from "react-bootstrap";
 import LeafletMap from './LeafletMap';
 import ComboBox from '../components/ComboBox';
+
+import TradeReportMap from './TradeReportMap'
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
 
 
 //nfch=NetForestCoverChange
-const DrawBiodiversity = (props) => {
+const DrawBiodiversity = () => 
+{
 
 
 
@@ -139,34 +142,27 @@ const DrawBiodiversity = (props) => {
         <ComboBox onChange={handleChange} />
         {converter()}
       </div>
-      <Row  >
+      <Row>
         <Col>
 
-          <div style={{ height: "100vh", width: "35vw" }}>
-            <BarChart data={data} title="Biodiversity"
+          <div style={{ textAlign: 'center', height: "120vh", width: "35vw" }}>
+            <BarChart3 data={data} title="Share of total land which is protected
+"
               aspectRatio={false}
               labelString='ha per year'
               fontSize='25'
               labelwidth={50}
               labelSize={16}
-              TitleSize={40}
-
+              TitleSize={30}
+              fontColor='#3a4aab'
               labelposition="bottom" />
           </div>
 
         </Col>
         <Col>
-
-          <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh", width: "35vw" }}>
-
-            {/* 
-              <LeafletMap
-              
-                
-                countriesData = {data}
-              
-              />
-              */}
+<br/><br/><br/>
+          <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh", width: "30vw" }}>
+          <TradeReportMap countriesData = {data}/>
           </div>
         </Col>
       </Row>
@@ -175,9 +171,4 @@ const DrawBiodiversity = (props) => {
 
   );
 }
-
-
-
-
-
 export default DrawBiodiversity;

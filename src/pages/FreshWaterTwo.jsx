@@ -154,7 +154,7 @@ const DrawFreshWater2 = () => {
       </div>
       <Row  >
         <Col >
-          <div className="graph"  style={{ height: "100vh", width: "35vw" }}>
+          <div className="graph"  style={{ textAlign: 'center',height: "100vh", width: "35vw" }}>
 
             <BarChart data={data}
               title="Fresh Water Use 2"
@@ -169,7 +169,7 @@ const DrawFreshWater2 = () => {
           </div>
         </Col>
         <Col>
-          <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh",width:"35vw"}}>
+          <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh",width:"30vw"}}>
           <TradeReportMap countriesData = {data}/>
             {/** 
               <LeafletMap

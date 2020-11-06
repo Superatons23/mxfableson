@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import BarChart from "../components/BarChart";
+
 import ComboBox from '../components/ComboBox';
 import { Container, Row, Col } from "react-bootstrap";
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
@@ -42,10 +43,7 @@ const GreenHouse = () => {
    
       try {
             
-      
-
       const response = await fetch("https://fable2020.herokuapp.com/gas2"+JSON.stringify(state));
-
        const  jsonAux =  await response.json();
     
       setJson(jsonAux);
@@ -190,40 +188,61 @@ dataAux = {
 
 return (
 <Container fluid>
+  <div>
   <Tour stepsP={steps}/>
+  <ComboBox onChange={handleChange}/>
+        {converter()}
+  </div>
+ 
     <div className="graph">
       <Row>
-        <Col><div style={{height: "100vh" ,width:"35vw"} }>
-        <ComboBox onChange={handleChange}/>
-        {converter()}
-          
+        <Col>
+        <div style={{ textAlign: 'center',height: "120vh" ,width:"35vw"} }>
+       
+    
           <BarChart data={dataChart1}
-            title="Greenhouse Gas 2" aspectRatio={false}
+            title="Greenhouse Gas 2" 
+            aspectRatio={false}
             labelposition="bottom"
             labelwidth={50}
-            labelSize={24}
-            TitleSize={45} />
+            labelSize={16}
+            TitleSize={40} />
           
         </div>
+        </Col>
+
+        <Col>
+        <br/><br/><br/>
+        <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh", width: "30vw"}}>
+        <TradeReportMap countriesData = {dataChart1}/>
+        </div>
+      
         </Col>
       </Row>
       <Row>
         <Col>
-        <div style={{height: "100vh" ,width:"35vw"} }>
+        <div style={{ textAlign: 'center',height: "120vh" ,width:"35vw"} }>
         
           <BarChart data={dataChart2}
             title="Greenhouse Gas 2" aspectRatio={false}
             labelposition="bottom" 
             labelwidth={50}
-            labelSize={24}
+            labelSize={10}
             TitleSize={45}
         />
               
+        </div >
+        </Col>
+        <Col>
+        <br/><br/><br/>
+        <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh", width: "30vw"}}>
+        <TradeReportMap countriesData = {dataChart2}/>
         </div>
+       
         </Col>
       </Row>
-      <TradeReportMap countriesData = {dataChart1}/>
-      <TradeReportMap countriesData = {dataChart2}/>
+     
+   
     </div>
 </Container>
   );

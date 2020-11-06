@@ -8,6 +8,7 @@ import Aside from '../components/Aside';
 import Dashboard from '../components/Dashboard'
 import NewSidemenu from '../components/NewSidemenu';
 
+
 //dashboards
 import NetForestCoverChange from '../pages/NetForestCoverChange'
 import Biodiversity from '../pages/Biodiversity'
@@ -21,7 +22,7 @@ import NetForestCoverChange2 from '../pages/NetForestCoverChange2'
 import GreenHouse2 from '../pages/GreenHouse2'
 import GreenHouseOne from '../pages/GreenHouseOne'
 import FreshWaterTwo from '../pages/FreshWaterTwo'
-
+//assets
 import styled from 'styled-components';
 import BannerLifeOnLand from '../assets/banners/Mesa de trabajo 19.png';
 import BannerCleanWater from '../assets/banners/Mesa de trabajo 8.png';
@@ -33,6 +34,7 @@ import SustainableNetExporter from './SustainableNetExporter'
 import CurrenTrendExporter from './CurrenTrendExporter'
 import CurrenTrendImporter from './CurrenTrendImporter'
 import Background from './Background.js'
+
 
 const Styles = styled.div`
 .header{
@@ -84,10 +86,10 @@ class Scenathon extends Component {
     }
     state = {
         select: {
-            GraficaType:'group',
-            Iteration:'before',
-            scenathon_id:'6',
-            Year:'2000'
+            GraficaType:'',
+            Iteration:'',
+            scenathon_id:'',
+            Year:''
         },
         dashboard:"Background"
     }
@@ -246,15 +248,13 @@ class Scenathon extends Component {
             <div class="header" ref={this.fableRef}>
         <img class="banner" id="banner" alt=""></img>
         </div>
-            <div className="container-fluid" style={{display: 'flex'}}>
+            <div className="container-fluid" style={{display: 'flex', padding: '0 0'}}>
                
                <div>
                     <NewSidemenu onChange={this.handleChange}/>
                  {/* <Aside onChange={this.handleChange}/>   */}
                </div>
-            
-          
-               
+             
                 <div>
                 {this.selectDashboard()}
                 {this.combobox}

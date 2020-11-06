@@ -150,26 +150,32 @@ const DrawGreenhouse1 = (props) => {
   return (
     <Container fluid>
       <Tour stepsP={steps}/>
+      <ComboBox onChange={handleChange}/>
       <div className="graph">
       <Row>
         <Col >
-          <div style={{height: "100vh" ,width:"35vw"} }>
-          <ComboBox onChange={handleChange}/>
+          <div style={{ textAlign: 'center', height: "120vh", width: "30vw" }}>
+          
             <SuperGraph data={dataGraphOneAux}
             title="Green House 1"
             aspectRatio={false} 
-            labelposition="top"
+            labelposition="bottom"
             labelwidth={50}
             labelSize={24}
             TitleSize={35}/> 
-            </div></Col>
-        <Col > <div style={{height: "100vh" ,width:"35vw"} }><SuperGraph data={dataGraphTwoAux}
+            </div>
+            </Col>
+        <Col > 
+        <div style={{ textAlign: 'center', height: "120vh", width: "30vw" }}>
+          <SuperGraph data={dataGraphTwoAux}
           title="Green House 2"
           aspectRatio={false} 
-            labelposition="top" 
+            labelposition="bottom" 
             labelwidth={50}
             labelSize={24}
-            TitleSize={35}/> </div></Col>
+            TitleSize={35}/> 
+            </div>
+            </Col>
       </Row>
       </div>
     </Container>
