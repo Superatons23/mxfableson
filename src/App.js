@@ -19,6 +19,8 @@ import BackgroundBlue from '../src/assets/background.jpg';
 import steps from './components/TOUR_STEPS';
 import Sidebar from './components/Sidebar';
 import CookieDisclaimer from 'react-cookie-disclaimer';
+import CookieDisclaimer2 from './components/CookieContainer'
+
 {/*import SwipeableDrawe from './components/SwipeableDrawer';*/}
 
 
@@ -48,8 +50,9 @@ const App = (props) => {
           <Tour stepsP={steps}/>
         </div>
 
+        <CookieDisclaimer2 />
         <CookieDisclaimer
-           
+
           background='#306973' 
           bottomPosition={true}
           closeIconSize={30}
