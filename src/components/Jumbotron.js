@@ -36,7 +36,7 @@ export default (props) => {
     <Styles ref={props.jumboReference}>
         <Jumbo fluid className= "jumbo">
             <div className= "overlay"></div>
-            <Container>
+            <Container display="">
                 <h3 className = "bann" data-rh="tooltip 1"><i>Fable</i></h3>
                 <h3 className = "bann" data-rh="tooltip 1">Scenathon</h3>
             </Container>

@@ -17,7 +17,7 @@ width:100%;
 .about-title{
     text-align:left;
     color:#306973;
-    font-size:35px;
+    font-size:32px;
     font-weight: bold;
     margin-bottom:30px;
 }
@@ -25,7 +25,7 @@ width:100%;
 .about-content{
     color:#4E4E4E;
     text-align: justify;
-    font-size:20px;
+    font-size:15px;
 }
 }
 

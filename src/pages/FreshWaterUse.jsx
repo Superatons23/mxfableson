@@ -46,8 +46,10 @@ const DrawFreshWaterUse = () => {
     var group = state.select.GraficaType;
     var scenathon = state.select.scenathon_id;
     var iteration = state.select.Iteration;
-
-    if (e.target.name === "scenathon_id") {
+  if(e.name === "GraficaType")
+  {
+  group=e.value 
+  }else if (e.target.name === "scenathon_id") {
       switch (e.target.value) {
         case '6':
           iteration = state.select.Iteration === "1" ? "3" : "4";
@@ -60,22 +62,23 @@ const DrawFreshWaterUse = () => {
         default: iteration = state.select.Iteration === "1" ? "3" : "4";
       }
     } else {
-
-      group = e.target.name === "GraficaType" ? e.target.value : state.select.GraficaType;
-      iteration = e.target.name === "Iteration" ? scenathon === "6" ? e.target.value === "after" ? "4" : "3" : e.target.value === "after" ? "2" : "1" : state.select.Iteration;
+  
+    
+      iteration =scenathon === "6" ? e.target.value === "after" ? "4" : "3" : e.target.value === "after" ? "2" : "1" ;
     }
-
+  
     setState({
       select: {
         GraficaType: group,
         scenathon_id: scenathon,
         Iteration: iteration,
-
+  
       }
-
-
+  
+  
     });
-
+  
+   
   }
 
 
@@ -142,7 +145,7 @@ const DrawFreshWaterUse = () => {
           labelposition="bottom"
           labelwidth={50}
           labelSize={24}
-          labelString='Blue water cubic metres'
+          labelString='Blue water in million cubic metres'
           fontSize='24'
          
           title="Fresh Water use" />

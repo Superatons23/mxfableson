@@ -39,11 +39,11 @@ const DrawNfch2 = () => {
 
   useEffect(() => {
 
-    const getNetForest = async () => {
+    const getNetForesTwo = async () => {
 
       try {
 
-       
+
         const response = await fetch("https://fable2020.herokuapp.com/forestTwo" + JSON.stringify(state));
         const jsonAux = await response.json();
         setJson(jsonAux);
@@ -52,7 +52,7 @@ const DrawNfch2 = () => {
         console.error(error)
       }
     }
-    getNetForest();
+    getNetForesTwo();
   }, [state]);
 
 
@@ -104,17 +104,17 @@ const DrawNfch2 = () => {
     var labels = [];
     var nameCounty = "";
 
-    if (json.length !==0) {
-      
-      nameCounty=json[0].name;
+    if (json.length !== 0) {
+
+      nameCounty = json[0].name;
       json.forEach(item => {
         if (!labels.includes(item.Year)) {
           labels.push(item.Year);
         }
-       
+
         if (nameCounty !== item.Country) {
 
-          if(count!==NetForestChange.length){
+          if (count !== NetForestChange.length) {
 
             var netForest = new NetForest(CountryCharacteristics[nameCounty], NetForestChange);
             datasetAux.push(netForest);
@@ -132,7 +132,7 @@ const DrawNfch2 = () => {
 
 
     }
-   
+
     var dataAux = {
       labels: labels,
       datasets: datasetAux
@@ -144,17 +144,17 @@ const DrawNfch2 = () => {
 
 
     <Container fluid >
-        <div >
-            <ComboBox3 onChange={handleChange} />
-            {converter()}
-            </div>
+      <div >
+        <ComboBox3 onChange={handleChange} />
+        {converter()}
+      </div>
       <Row>
-    
-        <Col >
-          
 
-<div style={{ textAlign: 'center', height: "100vh", width: "35vw" }}>
-<BarChart data={data}
+        <Col >
+
+
+          <div style={{ textAlign: 'center', height: "100vh", width: "35vw" }}>
+            <BarChart data={data}
               title="Net Forest Cover Change 2"
               labelposition="bottom"
               display={true}
@@ -162,15 +162,15 @@ const DrawNfch2 = () => {
               fontSize='25'
               aspectRatio={false} />
 
-</div>
-           
-         
+          </div>
+
+
         </Col>
         <Col>
-<br/><br/>
+          <br /><br />
           <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh", width: "30vw" }}>
-          <TradeReportMap countriesData = {data}/>
-      
+            <TradeReportMap countriesData={data} />
+
           </div>
         </Col>
       </Row>

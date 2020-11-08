@@ -52,7 +52,7 @@ const SustainableExporter =()=>
      
       const response = await fetch("https://fable2020.herokuapp.com/net" + JSON.stringify(state));  
       const  jsonAux =  await response.json();
-      
+      console.log(jsonAux);
       setJson(jsonAux);
   
       } catch (error) {
@@ -136,7 +136,8 @@ const SustainableExporter =()=>
                   </Col>
                 </Row>
                
-              </Container>          
+              </Container>    
+                    
     );
 
 }

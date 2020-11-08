@@ -53,8 +53,8 @@ const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar, onChange }
            <MenuItem onClick={()=>handleChange("Global Target Summary")}>Global Target Summary</MenuItem>
         
             <SubMenu icon title="Net Forest Cover Change">
-              <MenuItem class="submenu" onClick={()=>handleChange("Net Forest Cover Change 1")}>Net Forest Cover Change 1</MenuItem>
-              <MenuItem  class="submenu" onClick={()=>handleChange("Net Forest Cover Change 2")}>Net Forest Cover Change 2</MenuItem>
+              <MenuItem  onClick={()=>handleChange("Net Forest Cover Change 1")}>Net Forest Cover Change 1</MenuItem>
+              <MenuItem   onClick={()=>handleChange("Net Forest Cover Change 2")}>Net Forest Cover Change 2</MenuItem>
               {/*<SubMenu title="submenu">
                 <MenuItem>submenu 3.3.1 </MenuItem>
                 <MenuItem>submenu 3.3.2 </MenuItem>
@@ -65,26 +65,26 @@ const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar, onChange }
             <MenuItem onClick={()=>handleChange("Protected Areas by Type")}>Protected Areas by Type</MenuItem>
             <MenuItem onClick={()=>handleChange("Land Cover")}>Land Cover</MenuItem>
             <SubMenu title="Fresh Water">
-              <MenuItem class="submenu" onClick={()=>handleChange("Fresh Water 1")}>Fresh Water 1</MenuItem>
-              <MenuItem  class="submenu"onClick={()=>handleChange("Fresh Water 2")}>Fresh Water 2</MenuItem>
+              <MenuItem  onClick={()=>handleChange("Fresh Water 1")}>Fresh Water 1</MenuItem>
+              <MenuItem  onClick={()=>handleChange("Fresh Water 2")}>Fresh Water 2</MenuItem>
             </SubMenu>
             <SubMenu title="Green House Gas (GHG) Emissions">
-              <MenuItem  class="submenu"onClick={()=>handleChange("Green House Gas (GHG) Emissions 1")}>Green House Gas (GHG) Emissions 1</MenuItem>
-              <MenuItem  class="submenu"onClick={()=>handleChange("Green House Gas (GHG) Emissions 2")}>Green House Gas (GHG) Emissions 2</MenuItem>
+              <MenuItem  onClick={()=>handleChange("Green House Gas (GHG) Emissions 1")}>Green House Gas (GHG) Emissions 1</MenuItem>
+              <MenuItem  onClick={()=>handleChange("Green House Gas (GHG) Emissions 2")}>Green House Gas (GHG) Emissions 2</MenuItem>
             </SubMenu>
             <SubMenu title="Food Energy Intake Per Capita">
-              <MenuItem  class="submenu"onClick={()=>handleChange("Food Energy Intake Per Capita 1")}>Food Energy Intake Per Capita 1</MenuItem>
-              <MenuItem  class="submenu"onClick={()=>handleChange("Food Energy Intake Per Capita 2")}>Food Energy Intake Per Capita 2</MenuItem>
+              <MenuItem  onClick={()=>handleChange("Food Energy Intake Per Capita 1")}>Food Energy Intake Per Capita 1</MenuItem>
+              <MenuItem onClick={()=>handleChange("Food Energy Intake Per Capita 2")}>Food Energy Intake Per Capita 2</MenuItem>
             </SubMenu>
           </SubMenu>
             <SubMenu title="Trade Report">
               <SubMenu title="Sustainable - net">
-                <MenuItem class="submenu" onClick={()=>handleChange("Sustainable_next_importers")}>Importers</MenuItem>
-                <MenuItem class="submenu" onClick={()=>handleChange("Sustainable_next_exporters")} >Exporters</MenuItem>
+                <MenuItem  onClick={()=>handleChange("Sustainable_next_importers")}>Importers</MenuItem>
+                <MenuItem  onClick={()=>handleChange("Sustainable_next_exporters")} >Exporters</MenuItem>
               </SubMenu>
               <SubMenu title="Current Trend">
-                <MenuItem class="submenu"  onClick={()=>handleChange("Current_trend_next_importers")}>Importers</MenuItem>
-                <MenuItem  class="submenu"  onClick={()=>handleChange("Current_trend_next_exporters")}>Exporters</MenuItem>
+                <MenuItem   onClick={()=>handleChange("Current_trend_next_importers")}>Importers</MenuItem>
+                <MenuItem   onClick={()=>handleChange("Current_trend_next_exporters")}>Exporters</MenuItem>
               </SubMenu>
 
             </SubMenu>

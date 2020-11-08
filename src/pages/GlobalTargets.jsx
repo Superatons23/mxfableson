@@ -26,6 +26,19 @@ const DrawGlobalTargets = (props) => {
   });
 
  const handleChange = e => {
+ 
+   if(e.name==="GraficaType")
+   {
+     
+    setState({
+      select: {
+      
+        GraficaType:e.value,
+      scenathon_id:state.select.scenathon_id,
+      Iteration:state.select.Iteration,
+      },
+  })
+   }else{
   setState({
       select: {
           //el next code evitara que se sobrescriba cuando reciba un valor new
@@ -33,6 +46,7 @@ const DrawGlobalTargets = (props) => {
           [e.target.name]: e.target.value
       },
   })
+}
   }
 const crearDataTargetUno=(props)=> {
  

@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
   drawerGeneralStyles: {
     position: 'relative',
     display: 'block',
-    height: '190vh'
+    height: '120vh'
   },
   drawerOpen: {
     width:330,

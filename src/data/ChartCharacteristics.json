@@ -162,5 +162,218 @@
             "pointHoverBorderColor": "#81c784",
             "yAxisID": "y-axis-1"
         }
-    ]
+    ],
+    "Livestock_CH4":[{
+        "type": "bar",
+        "label": "livestock CH4",
+        "borderColor": "#4dd0e1",
+        "backgroundColor": "#4dd0e1",
+        "yAxisID":"y-axis-1"
+    }
+
+    ],
+    "Livestock_N20":[{
+
+        "type": "bar",
+        "label":"livestock N2O",
+        "fill": false,
+        "borderColor": "#b2ebf2",
+        "backgroundColor": "#b2ebf2",
+        "yAxisID": "y-axis-1"
+
+    }],
+    "Crop_N20":[{
+
+        "type": "bar",
+        "label":"crop N2O",
+        "fill": false,
+        "borderColor": "#64b5f6",
+        "backgroundColor": "#64b5f6",
+        "yAxisID": "y-axis-1"
+    }],
+    "Crop_CH4":[{
+        "type": "bar",
+        "label": "crop CH4",
+        "fill": false,
+        "borderColor": "#f10096",
+        "backgroundColor": "#f10096",
+        "yAxisID": "y-axis-1"
+
+    }],
+    "Crop_CO2":[{
+        "type": "bar",
+        "label": "crop CO2",
+        "fill": false,
+        "borderColor": "#0072f0",
+        "backgroundColor": "#0072f0",
+        "yAxisID": "y-axis-1"
+    }],
+    "Total_GHG_agric":[{
+        "type":"line",
+        "label": "Total GHG agric",
+        "fill": false,
+        "radius":6,
+        "backgroundColor": "grey",
+        "borderColor": "grey",
+        "hoverBackgroundColor": "grey",
+        "hoverBorderColor": "#b2ebf2",
+        "yAxisID": "y-axis-1"
+
+    }],
+    "FAO_GHGagric":[{
+        "type": "scatter",
+        "label": "FAO Agric global",
+        "fill": false,
+        "borderColor": "black",
+        "backgroundColor": "black",
+        "radius":6,
+        "pointBorderColor": "black",
+        "pointBackgroundColor": "black",
+        "pointHoverBackgroundColor": "grey",
+        "pointHoverBorderColor": "grey",
+        "yAxisID": "y-axis-1"
+
+    }],
+    "ghg_agri_target":[{
+        "type": "scatter",
+        "label": "Target GHG agri",
+        "fill": false,
+        "borderColor": "red",
+        "backgroundColor": "red",
+        "radius": 7,
+        "pointBorderColor":" #e64a19",
+        "pointBackgroundColor": "#e64a19",
+        "pointHoverBackgroundColor": "#e64a19",
+        "pointHoverBorderColor": "#e64a19",
+        "yAxisID": "y-axis-1"
+    }],
+    "deforestation":[{
+        "type": "bar",
+        "label":" deforestation",
+        "fill": false,
+        "borderColor": "#EC932F",
+        "backgroundColor": "#4dd0e1",
+        "yAxisID": "y-axis-1"
+
+    }],
+    "Other_LUC":[{
+        "type": "bar",
+        "label":"other LUC",
+        "fill": false,
+        "borderColor": "#EC932F",
+        "backgroundColor": "#ff8f00",
+        "yAxisID": "y-axis-1"
+    }],
+    "sequestration":[{
+        "type": "bar",
+        "label": "sequestration",
+        "fill": false,
+        "borderColor": "#EC932F",
+        "backgroundColor": "#64b5f6",
+        "yAxisID": "y-axis-1"
+
+    }],
+    "peat":[{
+        "type": "bar",
+        "label": "peat",
+        "fill": false,
+        "borderColor": "#EC932F",
+        "backgroundColor": "#ffd54f",
+        "yAxisID": "y-axis-1"
+
+    }],
+    "total_GHG_land":[{
+        "type": "line",
+        "label":"Total GHG land",
+        "fill": false,
+        "backgroundColor": "#f4511e",
+        "borderColor": "#f4511e",  
+        "radius": 8,
+        "hoverBackgroundColor":"#f4511e",
+        "hoverBorderColor": "#f4511e",
+        "yAxisID":"y-axis-1"
+    }],
+    "FAO_GHG_LU":[{
+        "type":"scatter",
+        "label": "FAO LU global",
+        "fill": false,
+        "borderColor": "black",
+        "backgroundColor": "black",
+        "pointBorderColor": "black",
+        "radius": 6,
+        "pointBackgroundColor": "black",
+        "pointHoverBackgroundColor": "grey",
+        "pointHoverBorderColor": "grey",
+        "yAxisID": "y-axis-1"
+    }],
+    "GHG_LU_target":[{
+        "type": "scatter",
+        "label": "Target GHG LU",
+      
+        "fill": false,
+        "borderColor": "red",
+        "backgroundColor": "red",
+        "pointBorderColor": "red",
+        "radius": 5,
+        "usePointStyle":true,
+        "pointBackgroundColor":"red",
+        "pointHoverBackgroundColor": "crimson",
+        "pointHoverBorderColor": "#EC932F",
+        "yAxisID": "y-axis-1"
+    }],
+    "NetForestChange":[{
+        "label": "Net forest change",
+        "type":"scatter",
+        "fill": false,
+        "backgroundColor": "Green",
+        "borderColor":"#71B37C",
+        "radius": 5,
+        "pointBorderColor": "#71B37C",
+        "pointBackgroundColor": "#71B37C",
+        "pointHoverBackgroundColor": "#71B37C",
+        "pointHoverBorderColor": "#71B37C",
+        "yAxisID": "y-axis-1"
+
+    }],
+    "GFW_deforestation_global":[{
+        "label": "GWF deforestation",
+        "type":"scatter",
+        "fill": false,
+        "backgroundColor": "Black",
+        "borderColor":"Black",
+        "radius": 7,
+        "pointBorderColor": "Black",
+        "pointBackgroundColor": "Black",
+        "pointHoverBackgroundColor": "Black",
+        "pointHoverBorderColor": "Black",
+        "yAxisID":" y-axis-1"
+    }],
+    "Forest_target":[{
+        "label": "forest_target",
+        "type":"scatter",
+        "fill": false,
+        "backgroundColor": "Red",
+        "borderColor":"Red",
+        "radius": 7,
+        "pointBorderColor": "Red",
+        "pointBackgroundColor": "Red",
+        "pointHoverBackgroundColor": "Red",
+        "pointHoverBorderColor": "Red",
+        "yAxisID":" y-axis-1" 
+    }],
+    "ForestLoss":[{
+        "label": "Forest loss",
+        "type":"bar",
+        "fill": false,
+        "backgroundColor": "rgba(255,213,79, 1)",
+        "borderColor":"#a98600"
+    }],
+    "Aforestation":[{
+        "label": "Aforestation",
+        "type":"bar",
+        "fill": false,
+        "backgroundColor": "rgba(129,199,132, 1)",
+        "borderColor":"Green"
+    }]
+
 }
