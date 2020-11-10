@@ -1,6 +1,6 @@
 import React from 'react';
 import { Map, GeoJSON } from 'react-leaflet';
-import mapDataTest from './../data/CountriesTest.json';
+import mapDataTest from './../data/Countries.json';
 import 'leaflet/dist/leaflet.css'; //This style is for the scroll and plus controls of the map
 import '../css/LeafletMap.css';
 import * as L from 'leaflet';
@@ -244,7 +244,13 @@ const TradeReportMap = (props) => {
         var i = 0
         for (const currentValue in years) {
  
-            htmlCode = htmlCode + '<li>' + '<strong>' + years[i] + '</strong>' + ': ' + data[index][i] + '</li>'
+            htmlCode = htmlCode + '<li>' + '<strong>' + years[i] + '</strong>' + ': ' + data[index][i]
+
+            if(props.graphType == 'Biodiversity') {
+                htmlCode = htmlCode + '%';        
+            }
+
+            htmlCode = htmlCode + '</li>';
 
             i++;
         }
@@ -257,7 +263,9 @@ const TradeReportMap = (props) => {
 
     const onEachCountry = (country, layer) => {
 
-        const countryName = country.id; //The name of the countries
+        //const countryName = country.id; //The name of the countries
+        const countryName = country.properties.ISO_A3;
+
 
         var indexAux = -1;
 
