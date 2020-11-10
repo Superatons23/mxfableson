@@ -145,7 +145,7 @@ const DrawFreshWaterUse = () => {
           labelposition="bottom"
           labelwidth={50}
           labelSize={24}
-          labelString='Blue water cubic metres'
+          labelString='Blue water in million cubic metres'
           fontSize='24'
          
           title="Fresh Water use" />

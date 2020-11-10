@@ -85,7 +85,8 @@ if(e.name === "GraficaType")
         styles: {
           //this styles override the styles in the props  
           options: {
-            textColor: "black"
+            textColor: "black",
+            backgroundColor: '#fff',
           }
         },
         locale: { 

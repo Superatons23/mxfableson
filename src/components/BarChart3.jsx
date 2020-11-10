@@ -20,7 +20,7 @@ const BarChart3 = (props) => {
     labels:{
       boxWidth:props.labelwidth===undefined?20:props.labelwidth,
       fontSize:props.labelSize===undefined?12:props.labelSize
-      
+
     },
     position:props.labelposition===undefined?'right':props.labelposition
   },
@@ -76,7 +76,10 @@ const BarChart3 = (props) => {
           ticks: {
             callback: function(label, index, labels) {
                 return label+'%';
+                
             },
+            
+
            
          
         },

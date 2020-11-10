@@ -15,7 +15,7 @@ function ComboBoxFoodEnergy2 (props) {
                 <br></br>
                 <select   class="selectBox" name="scenathon_id" onChange={onChange}>
                 <option value="" disabled selected hidden>Scenario</option>
-                <option  value="6">Sustainaible</option>
+                <option  value="6">Sustainable</option>
                    
                     
                 </select>

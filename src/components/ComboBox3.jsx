@@ -20,6 +20,7 @@ function ComboBox (props) {
                   <option value="" disabled selected hidden>Scenario</option>
                     <option  value="6">Sustainaible</option>
                     <option  value="5">Current trend</option>
+
                   </select>
                 </Form>
 

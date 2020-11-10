@@ -168,9 +168,8 @@ const DrawFreshWater2 = () => {
             <BarChart data={data}
               title="Fresh Water Use 2"
               labelposition="bottom"
+              labelwidth={20}
               labelSize={15}
-              labelwidth={50}
-              labelSize={16}
               TitleSize={35}
           
               aspectRatio={false} />

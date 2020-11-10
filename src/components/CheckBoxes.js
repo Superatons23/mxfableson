@@ -4,12 +4,26 @@ import { Form } from 'react-bootstrap';
 import '../css/CheckBox.css';
 
 
-
+var expanded = false;
 const CheckBoxes =(props)=> {  
 const{onChange}=props
 
 const regionscheckbox = React.createRef();
 const countriescheckbox = React.createRef();
+
+//This method shows/hides the checkboxes "inside" the combobox
+const showCheckboxes = (nameComboBox) => {
+    var checkboxes = document.getElementById("checkboxes");
+    if (!expanded) {
+      checkboxes.style.display = "block";
+      expanded = true;
+     
+    } else {
+      checkboxes.style.display = "none";
+      expanded = false;
+ 
+    }
+  }
 
 const check = (nameComboBox) => {
     let checkbox=null;
@@ -48,6 +62,7 @@ const check = (nameComboBox) => {
 }
         return (
             <div id="checkBoxContainer" className="checkBoxContainer">
+ 
 
            
 
@@ -63,6 +78,7 @@ const check = (nameComboBox) => {
                 <span class="checkmark"></span>
             </label>
         </div>
+ 
         )       
 }
 

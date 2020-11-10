@@ -63,7 +63,23 @@ const BarChart = (props) => {
             fontSize:props.fontSize===undefined?18:props.fontSize,
             fontFamily: "Montserrat",
 
-          },
+          },    ticks: {
+            callback: function(label, value, labels) {
+              if(label>=1000000){
+
+                return label/1000000+' M';
+                
+              }else if(label<1000000 && label>100000){
+                return label/1000+' mil';
+
+              }
+              else{
+                return label
+              }
+            },
+           
+         
+        },
 
           labels: {
             show: true,
