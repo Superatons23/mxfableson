@@ -72,7 +72,7 @@ var dataGraphOneAux, dataGraphTwoAux;
    
       try {
             
-      const response = await fetch("http://localhost:3456/gas1"+JSON.stringify(state));
+      const response = await fetch("https://fable2020.herokuapp.com/gas1"+JSON.stringify(state));
        const  jsonAux =  await response.json();
     
       setJson(jsonAux);

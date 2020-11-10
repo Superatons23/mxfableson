@@ -1,7 +1,7 @@
 import CountryCharacteristics from '../data/CountryCharacteristics.json';
 
 const responseApi = response =>{
-   
+ 
     function Biodiversity(nameCountry, data) {
         
         
@@ -57,10 +57,14 @@ const responseApi = response =>{
 
 
 export default function getBiodiversity(props)  {
+ 
     try {
        
-   return    fetch ("https://fable2020.herokuapp.com/biodiversity" + JSON.stringify(props))
-                  .then(res=>res.json()).then(responseApi);
+  return    fetch (`https://fable2020.herokuapp.com/biodiversity${ JSON.stringify(props)}`)
+                .then(res=>res.json()).then(responseApi);
+
+ 
+      
 
       } catch (error) {
         console.error(error)

@@ -25,6 +25,8 @@ const DrawNfch = () => {
     var group = state.select.GraficaType;
     var scenathon = state.select.scenathon_id;
     var iteration = state.select.Iteration;
+
+    
 if(e.name === "GraficaType")
 {
   group=e.value 

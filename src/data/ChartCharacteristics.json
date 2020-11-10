@@ -247,6 +247,19 @@
         "pointHoverBorderColor": "#e64a19",
         "yAxisID": "y-axis-1"
     }],
+    "ghg_agri_targets":[{
+        "type": "scatter",
+        "label": "Target",
+        "fill": false,
+        "borderColor": "red",
+        "backgroundColor": "red",
+        "radius": 7,
+        "pointBorderColor":" #e64a19",
+        "pointBackgroundColor": "#e64a19",
+        "pointHoverBackgroundColor": "#e64a19",
+        "pointHoverBorderColor": "#e64a19",
+        "yAxisID": "y-axis-1"
+    }],
     "deforestation":[{
         "type": "bar",
         "label":" deforestation",
@@ -284,6 +297,17 @@
     }],
     "total_GHG_land":[{
         "type": "line",
+        "label":"Total GHG land",
+        "fill": false,
+        "backgroundColor": "#f4511e",
+        "borderColor": "#f4511e",  
+        "radius": 8,
+        "hoverBackgroundColor":"#f4511e",
+        "hoverBorderColor": "#f4511e",
+        "yAxisID":"y-axis-1"
+    }],
+    "total_GHG_land_bar":[{
+        "type": "bar",
         "label":"Total GHG land",
         "fill": false,
         "backgroundColor": "#f4511e",
@@ -334,6 +358,14 @@
         "pointHoverBorderColor": "#71B37C",
         "yAxisID": "y-axis-1"
 
+    }],"NetForestChangeBar":[{
+        "label": "Net forest change",
+        "type":"bar",
+        "fill": false,
+        "backgroundColor": "Green",
+        "borderColor":"#71B37C",
+        "yAxisID": "y-axis-1"
+
     }],
     "GFW_deforestation_global":[{
         "label": "GWF deforestation",
@@ -349,7 +381,7 @@
         "yAxisID":"y-axis-1"
     }],
     "Forest_target":[{
-        "label": "forest_target",
+        "label": "forest target",
         "type":"scatter",
         "fill": false,
         "backgroundColor": "Red",
@@ -374,6 +406,64 @@
         "fill": false,
         "backgroundColor": "rgba(129,199,132, 1)",
         "borderColor":"Green"
+    }],
+    "protected_land":[{
+        "label": "Protectend Land",
+        "type":"bar",
+        "fill": false,
+        "backgroundColor": "#7cb342",
+        "borderColor":"#81c784"
+    }],
+    "protected_land_target":[{
+        "label": "Target Protectend Land",
+        "type":"scatter",
+        "fill": false,
+        "backgroundColor": "red",
+        "borderColor":"red",
+        "hoverBackgroundColor":"Red",
+        "hoverBorderColor":"Red"
+
+    }],"biodiversity_land":[{
+        "label": "Biodiversity Land",
+        "type":"bar",
+        "fill": false,
+        "backgroundColor": "#cddc39",
+        "borderColor":"#81c784"
+       
+
+    }],"biodiversity_target":[{
+        "label":"Biod-target1",
+        "fill":false,
+        "type":"scatter",
+        "backgroundColor":"black",
+        "borderColor":"black",
+        "hoverBackgroundColor":"black",
+        "hoverBorderColor":"black",
+        "yAxisID":"y-axis-1"
+       
+
+    }],
+    "water_target": [
+        {
+            "type": "scatter",
+            "label": "water target",
+            "borderColor": "red",
+            "backgroundColor": "#e64a19",
+            "pointBorderColor": "yellow",
+            "pointBackgroundColor": "#e64a19",
+            "pointHoverBackgroundColor": "#e64a19",
+            "radius":7,
+            "pointHoverBorderColor": "#EC932F",
+            "yAxisID": "y-axis-1"
+        }
+    ],"BlueWater":[{
+        "label": "BlueWater in million cubic meters",
+        "type":"bar",
+        "fill": false,
+        "backgroundColor": "blue",
+        "borderColor":"blue"
+       
+
     }]
 
 }
