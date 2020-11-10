@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState, useEffect } from "react";
 import "../css/graphCharacteristics.css";
 import "../css/Box.css";
 import "../../node_modules/react-grid-layout/css/styles.css";
@@ -8,46 +8,147 @@ import { WidthProvider, Responsive } from "react-grid-layout";
 import MixedChart from "../components/MixedChart";
 import MixedChart2 from "../components/MixedChart2";
 
-import data from '../data/GlobalTargets.json';
+
 import BarChart from '../components/BarChart'
 import ComboBox from '../components/ComboBox';
+import GlobalTargetService from '../services/GlobalTargetService';
+import GreenHouseTarget from '../services/GreenHouseTarget';
+import FoodSecurityService from '../services/FoodSecurityService';
+
 
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
-const DrawGlobalTargets = (props) => {
+const DrawGlobalTargets = () => {
 
   const [state, setState] = useState({
     select: {
-      GraficaType:'group',
-      scenathon_id:'6',
-      Iteration:'after',
+      GraficaType: 'group',
+      scenathon_id: '6',
+      Iteration: '4',
     }
+
+  });
+  const [targetOne, seTargetOne] = useState({
+    labels:[],
+    datasets:[]
+  });
+
+  const [targetTwo, seTargetTwo] = useState({
+    labels:[],
+    datasets:[]
+  });
+
+  const [targetThree, seTargetThree] = useState({
+    labels:[],
+    datasets:[]
+  });
+
+  const [targetFour, seTargetFour] = useState({
+    labels:[],
+    datasets:[]
+  });
+  const [targetFourCharTwo, seTargetFourTwo] = useState({
+    labels:[],
+    datasets:[]
+  });
+
+ 
+  const [targetSix, seTargetSix] = useState({
+    labels:[],
+    datasets:[]
+  });
+
+  const [targetFive, seTargetFive] = useState({
+    labels:[],
+    datasets:[]
+  });
+
+  useEffect(() => {
+    
+    GlobalTargetService(state).then(function(value) {
+     seTargetOne(value.targetOne);
+     seTargetTwo(value.targetTwo);
+     seTargetThree(value.targetThree);
+     
+
+  });
+  GreenHouseTarget(state).then(function(value){
+    
+    seTargetFour(value.targetFour);
+    seTargetFourTwo(value.targetFourCharTwo);
+    seTargetSix(value.targetSix)
    
   });
 
- const handleChange = e => {
+
+  FoodSecurityService(state).then(function(value){
+
+    seTargetFive(value);
+   
+    
+   
+  } );
+  
+  
+  
+
+  
+
  
-   if(e.name==="GraficaType")
-   {
+   
+
+  
+   
+   
      
-    setState({
-      select: {
+     
+      }, [state]);
+    
+      const handleChange = e => {
+
+        var group = state.select.GraficaType;
+        var scenathon = state.select.scenathon_id;
+        var iteration = state.select.Iteration;
+    if(e.name === "GraficaType")
+    {
+      group=e.value 
+    }else if (e.target.name === "scenathon_id") {
+          switch (e.target.value) {
+            case '6':
+              iteration = state.select.Iteration === "1" ? "3" : "4";
+              scenathon = "6";
+              break;
+            case '5':
+              scenathon = "5";
+              iteration = state.select.Iteration === "3" ? "1" : "2";
+              break;
+            default: iteration = state.select.Iteration === "1" ? "3" : "4";
+          }
+        } else {
+    
+        
+          iteration =scenathon === "6" ? e.target.value === "after" ? "4" : "3" : e.target.value === "after" ? "2" : "1" ;
+        }
+    
+        setState({
+          select: {
+            GraficaType: group,
+            scenathon_id: scenathon,
+            Iteration: iteration,
+    
+          }
+    
+    
+        });
+    
+       
+      }
+    
+
+
+
       
-        GraficaType:e.value,
-      scenathon_id:state.select.scenathon_id,
-      Iteration:state.select.Iteration,
-      },
-  })
-   }else{
-  setState({
-      select: {
-          //el next code evitara que se sobrescriba cuando reciba un valor new
-          ...state.select,
-          [e.target.name]: e.target.value
-      },
-  })
-}
-  }
+   {/** 
 const crearDataTargetUno=(props)=> {
  
   var dataUno=[]
@@ -67,8 +168,8 @@ const crearDataTargetUno=(props)=> {
    labels.push(item.Year);
     
   });
- * 
-   */
+ 
+   
   const data={
     labels:labels,
      datasets:[
@@ -99,6 +200,10 @@ const crearDataTargetUno=(props)=> {
 
  return data
 } 
+*/} 
+
+
+{/** 
 const crearDataTargetDos=(props)=> {
  
   
@@ -153,6 +258,10 @@ var labels=[]
  return data
 } 
 
+*/}
+
+
+{/**
 const crearDataTargetTres=(props)=> {
   var dataUno=[]
   var dataDos=[]
@@ -178,7 +287,7 @@ const crearDataTargetTres=(props)=> {
      labels.push(item.Year);
      
    });
-    */
+    
    const data={
     labels:labels,
      datasets:[
@@ -230,6 +339,12 @@ const crearDataTargetTres=(props)=> {
 
   return data
  } 
+
+*/}
+
+
+
+{/** 
  const crearDataTargetCinco=(props)=> {
  
   var dataUno=[]
@@ -282,7 +397,9 @@ const crearDataTargetTres=(props)=> {
 
  return data
 } 
+*/}
 
+{/** 
 const crearDataTargetSeis=(props)=> {
  
   var dataUno=[]
@@ -302,8 +419,8 @@ const crearDataTargetSeis=(props)=> {
    labels.push(item.Year);
     
   });
-  * 
-      */
+
+    
   const data={
     labels:labels,
      datasets:[
@@ -334,7 +451,9 @@ const crearDataTargetSeis=(props)=> {
 
  return data
 } 
+*/}
 
+{/** 
 const crearDataTargetCuatro=(props)=> {
  
   var dataUno=[]
@@ -365,7 +484,7 @@ const crearDataTargetCuatro=(props)=> {
    
     
   });
-  */
+
   labels.push(2050);
  
   const data={
@@ -439,7 +558,10 @@ const crearDataTargetCuatro=(props)=> {
 
  return data
 } 
+*/}
 
+
+{/** 
 const crearDataTargetSiete=(props)=> {
  
   var dataUno=[]
@@ -461,7 +583,7 @@ const crearDataTargetSiete=(props)=> {
  
     
   });
- */
+ 
   const data={
     labels:labels,
      datasets:[
@@ -492,7 +614,11 @@ const crearDataTargetSiete=(props)=> {
 
  return data
 } 
+
+*/}
 //--------------------------------
+
+{/*
   var dataAuxTargetUno;
   var dataAuxTargetDos;
   var dataAuxTargetTres;
@@ -623,9 +749,12 @@ const crearDataTargetSiete=(props)=> {
   dataAuxTargetSeis= crearDataTargetSeis(data.targetSeis_combinacionDoce);
   dataAuxTargetSiete = crearDataTargetSiete(data.targetCuatro_2_combinacionDoce);
 }
+
+*/}
   return (
     
 <div style={{width:"100vw"}}>
+  {console.log("entre div")}
 <ComboBox onChange={handleChange}/>
 <ResponsiveReactGridLayout
           className="layout"
@@ -634,62 +763,76 @@ const crearDataTargetSiete=(props)=> {
           isDraggable={false}
           isResizable={false}
         >
+
           <div key="t1" data-grid={{x: 0, y: 0, w: 2, h: 7,}} >
+        
           <MixedChart 
-            data={dataAuxTargetUno}
+            data={targetOne}
             title="Target 1.- Zero net deforestation"
             aspectRatio={false}
             labelString='1000h/year'
             fontSize='16'
             fontColor='black'
             labelposition="bottom"/>
+          
         </div>
         <div key="t2" data-grid={{x: 2, y: 0, w: 2, h: 7}} >
+          
           <MixedChart2
-            data={dataAuxTargetDos}
+            data={targetTwo}
             aspectRatio={false}
             labelposition="bottom"
             
             title="Target 2.- Share of total land which is protected"/>
-          </div>
+        
+            </div>
         <div key="t3" data-grid={{x: 4, y: 0, w: 2, h: 7}}>
+          
           <MixedChart2 
-            data={dataAuxTargetTres}
+            data={targetThree}
             aspectRatio={false}
             labelposition="bottom"
             labelWidth={4}
             labelSize={8}
             title="Target 3.- Share of land where natural processes predominate"/>
-        </div>
+       
+            </div>
         <div key="t4" data-grid={{x: 6, y: 0, w: 1.5, h:7}}>
+           
           <BarChart 
-            data={dataAuxTargetCuatro}
+            data={targetFour}
             aspectRatio={false}
             labelWidth={6}
             labelSize={10}
             labelposition="right"
             title="From Agriculture "/>
+          
         </div>
         <div key="t5" data-grid={{x: 7.5, y: 0, w: 1.5, h: 7}}>
+          
           <MixedChart 
-            data={dataAuxTargetSiete}
+            data={targetFourCharTwo}
             aspectRatio={false}
             labelposition="bottom"
             title="From Land use change"/>
+          
         </div>
         <div key="t6" data-grid={{x: 0, y: 1, w: 7, h: 12}} style={{borderStyle:'none'}}>
+          
           <MixedChart 
-            data={dataAuxTargetCinco}
+            data={targetFive}
             aspectRatio={false}
             labelposition="top"
             labelString='Kcal per capita /day'
             fontSize='15'
             fontColor='black'
             title="Target 5.-  Food security"/>
+          
             </div>
         <div key="t7" data-grid={{x: 7, y: 1, w: 2.5, h: 8}} style={{borderStyle:'none'}}>
+          
           <MixedChart
-            data={dataAuxTargetSeis}
+            data={targetSix}
             aspectRatio={false}
             labelposition="bottom"
             labelString='blue water in million cubic meters'
@@ -697,6 +840,7 @@ const crearDataTargetSiete=(props)=> {
             fontColor='black'
 
             title="Target 6.- Fresh water use"/>
+          
             </div>
         </ResponsiveReactGridLayout>
       </div>

@@ -2,6 +2,7 @@ import CountryCharacteristics from '../data/CountryCharacteristics.json';
 
 const responseApi = response =>
 {
+    
 
        function NetForest(nameCountry, data) {
         let characteristic =CountryCharacteristics[nameCountry];
