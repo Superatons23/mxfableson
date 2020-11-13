@@ -1,21 +1,13 @@
 import React, { useState, useEffect } from "react";
 import BarChart from "../components/BarChart.jsx";
 import ComboBox from '../components/ComboBox';
-import ChartCharacteristics from '../data/ChartCharacteristics.json';
+import LandCoverService from '../services/LandCoverService';
 import Tour from '../components/Tour'
+
 const DrawLandCover = () => {
 
 
 
-
-  function LanCover(ChartCharacteristics,data) {
-    this.data=data;
-    this.type=ChartCharacteristics[0]["type"];
-    this.label=ChartCharacteristics[0]["label"];
-    this.borderColor=ChartCharacteristics[0]["borderColor"];
-    this.backgroundColor=ChartCharacteristics[0]["backgroundColor"];
-    
-  }
 
 
   const [state, setState] = useState({
@@ -27,75 +19,22 @@ const DrawLandCover = () => {
    
   });
 
-  const [json, setJson] = useState([]);
-  var data = null;
+ 
+
+  const [json, setJson] = useState([{
+    labels:[],
+    datasets:[]
+  }]);
 
   useEffect(() => {
-    const getLandCover = async () => 
-    {
-      try {   
-        
-       const response = await fetch("https://fable2020.herokuapp.com/landcover"+JSON.stringify(state));
-       const  jsonAux =  await response.json();
-      setJson(jsonAux);
-      } catch (error) {
-        console.error(error)
-      }
-    }
-    getLandCover();
+    LandCoverService(state).then(setJson);
   }, [state]);
 
 
 
 
 
-  const converter = () => 
-  {
-    var labels=[];
-    var calcPasture=[];
-    var calcCropland=[];
-    var calcForest=[];
-    var calcNewForest=[];
-    var calcOtherLand=[];
-    var calcUrban=[];
-    var dataSet=[];
-
-    console.log(json);
-    if (json !== null ) {
-   
-      json.forEach(item => {
-          labels.push(item.Year);
-          calcPasture.push(item.CalcPasture);
-          calcCropland.push(item.CalcCropland);
-          calcForest.push(item.CalcForest);
-          calcNewForest.push(item.CalcNewForest);
-          calcOtherLand.push(item.CalcOtherLand);
-          calcUrban.push(item.CalcUrban);
-        
-      });
-
-      var landCover = new LanCover(ChartCharacteristics["calcPasture"],calcPasture);
-      dataSet.push(landCover);
-       landCover = new LanCover(ChartCharacteristics["calcCropland"],calcCropland);
-      dataSet.push(landCover);
-      landCover = new LanCover(ChartCharacteristics["calcForest"],calcForest);
-      dataSet.push(landCover);
-      landCover = new LanCover(ChartCharacteristics["calcNewForest"],calcNewForest);
-      dataSet.push(landCover);
-      landCover = new LanCover(ChartCharacteristics["calcOtherLand"],calcOtherLand);
-      dataSet.push(landCover);
-      landCover = new LanCover(ChartCharacteristics["calcUrban"],calcUrban);
-      dataSet.push(landCover);
- 
- 
-      var dataAux = {
-        labels:labels,
-        datasets:dataSet
-    };
-    data=dataAux;
-    }
-  }
-
+  
 
   const handleChange = e => {
 
@@ -162,11 +101,11 @@ const DrawLandCover = () => {
 
     <div >
     <ComboBox onChange={handleChange}/>
-    {converter()}
+ 
     </div>
 
     <div style={{height: "100vh",width:"70vw"}}>
-    <BarChart data={data}
+    <BarChart data={json}
     labelwidth={40}
     labelSize={24}
     title="Land Cover"

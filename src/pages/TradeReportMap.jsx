@@ -405,10 +405,10 @@ const TradeReportMap = (props) => {
             <Map key={new Date().getMilliseconds()} style={{ height: '80vh' }} zoom={1} center={[20, 100]} maxBoundsViscosity={1.0} maxBounds={bounds}>
                 {
                     converter(),
-                    mapa = props.countriesData.datasets.length !== 0 ? <GeoJSON style={countryStyle}
+                   <GeoJSON style={countryStyle}
                         key={new Date().getMilliseconds()}
                         data={mapDataTest.features}
-                        onEachFeature={onEachCountry} /> : null
+                        onEachFeature={onEachCountry} /> 
                 }
 
             </Map>

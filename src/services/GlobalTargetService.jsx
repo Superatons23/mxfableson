@@ -123,7 +123,7 @@ var dataGlobal={
 targetOne:dataTargetOne,
 targetTwo:dataTargetTwo,
 targetThree:dataTargeThree
-}
+};
     
 
 
