@@ -21,7 +21,7 @@ function dashboardTradeReport (props) {
            
 
             <div className="contenedor-selects">
-                <select  name="dashboard-tradeReport" onChange={props.metodo}>
+                <select name="dashboard-tradeReport" onChange={props.metodo}>
                     <option value="Sustainable_next_exporters">Sustainable-next exporters</option>
                     <option value="Sustainable_next_importers">Sustainable-next importers</option>
                     <option value="Current_trend_next_exporters">Current trend-next exporters</option>

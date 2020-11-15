@@ -1,6 +1,6 @@
   
 import React from 'react';
-import { Jumbotron as Jumbo, Container } from 'react-bootstrap';
+import { Jumbotron as Jumbo } from 'react-bootstrap';
 import styled from 'styled-components';
 import Banner2 from '../assets/banner_2.jpg';
 

@@ -1,14 +1,5 @@
 import React, { Component } from 'react';
-
-
-import ComboBox from '../components/ComboBox'
-
-import ComboBox3 from '../components/ComboBox3'
-import Aside from '../components/Aside';
-import Dashboard from '../components/Dashboard'
 import NewSidemenu from '../components/NewSidemenu';
-
-
 //dashboards
 import NetForestCoverChange from '../pages/NetForestCoverChange'
 import Biodiversity from '../pages/Biodiversity'
@@ -37,39 +28,29 @@ import DashboardCover from '../assets/DashboardCover2.jpg';
 
 const Styles = styled.div`
 .header{
+    overflow:hidden;
+    background-color: transparent;
+    color: transparent;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size: 50px;
+    margin: 0;
+    height: 100px;
+    margin-top:20px;
+    transition: all 0.5s ease;
+    width: 100%;
 
-
-overflow:hidden;
-  background-color: transparent;
-  color: transparent;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-size: 50px;
-  margin: 0;
-  height: 100px;
-  margin-top:20px;
-  transition: all 0.5s ease;
-  width: 100%;
-  
-
-
-.banner{
-  max-width:100%;
-max-height:100%;
-transition: all 0.5s ease;
+    .banner{
+        max-width:100%;
+        max-height:100%;
+        transition: all 0.5s ease;
+    }
 }
-
-
-}
-
-
-#container-fluid{
-  
+#container-fluid{ 
    background: url(${DashboardCover});
    background-size:cover;
 }
-
 `;
 
 
@@ -87,10 +68,6 @@ class Scenathon extends Component {
         },
         dashboard: "Background"
     }
-
-
-
-
 
     //recibe valor de class component "ComboBox" 
     handleChange = e => {
@@ -243,8 +220,8 @@ class Scenathon extends Component {
         return (
 
             <Styles>
-                <div class="header" ref={this.fableRef}>
-                    <img class="banner" id="banner" alt=""></img>
+                <div className="header" ref={this.fableRef}>
+                    <img className="banner" id="banner" alt=""></img>
                 </div>
                 <div id="container-fluid" className="container-fluid" style={{ display: 'flex' , padding:'0 0'}} >
 

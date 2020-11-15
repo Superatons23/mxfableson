@@ -1,5 +1,4 @@
 import React from 'react';
-import { Jumbotron as Container } from 'react-bootstrap';
 import styled from 'styled-components';
 import IIASA_LOGO_COLOR from '../assets/IIASA_LOGO.png';
 import SDSN_LOGO_COLOR from '../assets/SDSN_LOGO.png';
