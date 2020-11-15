@@ -1,6 +1,6 @@
 ## REMAININ' TASKS:
 * fix the damned widths
-* add favicon
+* add favicon [DONE]
 * fix border and position in EL CHART
 * fix chart width
 * fix chart filters (dropdowns)
