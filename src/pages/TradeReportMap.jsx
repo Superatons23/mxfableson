@@ -6,50 +6,20 @@ import '../css/LeafletMap.css';
 import * as L from 'leaflet';
 
 
-
-
 const TradeReportMap = (props) => {
 
-
-    var mscreenMapa = null;
-
-
     const converter = () => {
-
-
-
-        //   paisesTest = propsAux.countriesData.datasets
         if (props.countriesData.datasets !== null) {
-
             for (const country in props.countriesData.datasets) {
-
                 color.push(props.countriesData.datasets[country].backgroundColor);
                 countriesName.push(props.countriesData.datasets[country].label);
                 data.push(props.countriesData.datasets[country].data);
             }
-
-
-
-
             years = props.countriesData.labels;
-
-            //  console.log(color)
-            //console.log("PAISES DESDE LA GRAFICAS")
-            //console.log(countriesName)
-            // console.log(props.countriesData.datasets.length)
-            //console.log(data)
-
-
-
-            // console.log(props.countriesData.datasets[1].label);
         }
     }
 
-
     var popup = null;
-    
-    
-
     var R_ASIPAC = [
         'BGD',
         'BRN',
@@ -217,12 +187,7 @@ const TradeReportMap = (props) => {
 
     var data = [];
 
-    var propsAux = null;
-
     var isColored = false;
-
-    var paisesTest = [];
-
 
     //This function is for the style of countries in the GeoJson
     var countryStyle = {
@@ -244,9 +209,9 @@ const TradeReportMap = (props) => {
         var i = 0
         for (const currentValue in years) {
  
-            htmlCode = htmlCode + '<li>' + '<strong>' + years[i] + '</strong>' + ': ' + data[index][i]
+            htmlCode = htmlCode + '<li><strong>' + years[i] + '</strong>: ' + data[index][i]
 
-            if(props.graphType == 'Biodiversity') {
+            if(props.graphType === 'Biodiversity') {
                 htmlCode = htmlCode + '%';        
             }
 
@@ -272,14 +237,14 @@ const TradeReportMap = (props) => {
         if (R_AFR.includes(countryName)) {
             indexAux = countriesName.indexOf('R_AFR');
 
-            if (indexAux != -1) {
+            if (indexAux !== -1) {
                 layer.options.fillColor = color[indexAux];
                 popup = L.popup().setContent(createListInfoCountry(indexAux, countryName));
                 layer.bindPopup(popup);
             } else {
                 indexAux = countriesName.indexOf('SSA');
 
-                if (indexAux != -1) {
+                if (indexAux !== -1) {
                     layer.options.fillColor = color[indexAux];
                     popup = L.popup().setContent(createListInfoCountry(indexAux, countryName));
                     layer.bindPopup(popup);
@@ -288,14 +253,14 @@ const TradeReportMap = (props) => {
         } else if (R_MECAS.includes(countryName)) {
             indexAux = countriesName.indexOf('R_MECAS');
 
-            if (indexAux != -1) {
+            if (indexAux !== -1) {
                 layer.options.fillColor = color[indexAux];
                 popup = L.popup().setContent(createListInfoCountry(indexAux, countryName));
                 layer.bindPopup(popup)
             } else {
                 indexAux = countriesName.indexOf('NMC');
 
-                if (indexAux != -1) {
+                if (indexAux !== -1) {
                     layer.options.fillColor = color[indexAux];
                     popup = L.popup().setContent(createListInfoCountry(indexAux, countryName));
                     layer.bindPopup(popup);
@@ -304,14 +269,14 @@ const TradeReportMap = (props) => {
         } else if (R_LAM.includes(countryName)) {
             indexAux = countriesName.indexOf('R_LAM');
 
-            if (indexAux != -1) {
+            if (indexAux !== -1) {
                 layer.options.fillColor = color[indexAux];
                 popup = L.popup().setContent(createListInfoCountry(indexAux, countryName));
                 layer.bindPopup(popup);
             } else {
                 indexAux = countriesName.indexOf('CSA');
 
-                if (indexAux != -1) {
+                if (indexAux !== -1) {
                     layer.options.fillColor = color[indexAux];
                     popup = L.popup().setContent(createListInfoCountry(indexAux, countryName));
                     layer.bindPopup(popup);
@@ -321,14 +286,14 @@ const TradeReportMap = (props) => {
         } else if (R_OEU.includes(countryName)) {
             indexAux = countriesName.indexOf('ROEU');
 
-            if (indexAux != -1) {
+            if (indexAux !== -1) {
                 layer.options.fillColor = color[indexAux];
                 popup = L.popup().setContent(createListInfoCountry(indexAux, countryName));
                 layer.bindPopup(popup);
             } else {
                 indexAux = countriesName.indexOf('R_OEU');
 
-                if (indexAux != -1) {
+                if (indexAux !== -1) {
                     layer.options.fillColor = color[indexAux];
                     popup = L.popup().setContent(createListInfoCountry(indexAux, countryName));
                     layer.bindPopup(popup);
@@ -338,14 +303,14 @@ const TradeReportMap = (props) => {
         } else if (R_NEU.includes(countryName)) {
             indexAux = countriesName.indexOf('R_NEU');
 
-            if (indexAux != -1) {
+            if (indexAux !== -1) {
                 layer.options.fillColor = color[indexAux];
                 popup = L.popup().setContent(createListInfoCountry(indexAux, countryName));
                 layer.bindPopup(popup);
             } else {
                 indexAux = countriesName.indexOf('NEU');
 
-                if (indexAux != -1) {
+                if (indexAux !== -1) {
                     layer.options.fillColor = color[indexAux];
                     popup = L.popup().setContent(createListInfoCountry(indexAux, countryName));
                     layer.bindPopup(popup);
@@ -355,14 +320,14 @@ const TradeReportMap = (props) => {
         } else if (R_ASIPAC.includes(countryName)) {
             indexAux = countriesName.indexOf('R_ASIPAC');
 
-            if (indexAux != -1) {
+            if (indexAux !== -1) {
                 layer.options.fillColor = color[indexAux];
                 popup = L.popup().setContent(createListInfoCountry(indexAux, countryName));
                 layer.bindPopup(popup);
             } else {
                 indexAux = countriesName.indexOf('ASP');
 
-                if (indexAux != -1) {
+                if (indexAux !== -1) {
                     layer.options.fillColor = color[indexAux];
                     popup = L.popup().setContent(createListInfoCountry(indexAux, countryName));
                     layer.bindPopup(popup);
@@ -382,7 +347,7 @@ const TradeReportMap = (props) => {
          * and therefore it does not overwrite the color
          */
 
-        if (indexAux != -1) {
+        if (indexAux !== -1) {
 
             layer.options.fillColor = color[indexAux];
 
