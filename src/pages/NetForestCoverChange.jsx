@@ -1,17 +1,9 @@
 import React, { useState, useEffect } from "react";
 import MixedChart from "../components/MixedChart.jsx";
-import {Container,Row,Col} from "react-bootstrap";
 import Tour from '../components/Tour';
 import ComboBox from '../components/ComboBox'
 import NetForestCoverService from '../services/NetForestCoverService';
-//filter map
-//nfch=NetForestCoverChange
 const DrawNfch = () => {
-  
-
-
-
-
   const [state, setState] = useState({
     select: {
       GraficaType: 'group',
@@ -25,7 +17,6 @@ const DrawNfch = () => {
     var group = state.select.GraficaType;
     var scenathon = state.select.scenathon_id;
     var iteration = state.select.Iteration;
-
     
 if(e.name === "GraficaType")
 {

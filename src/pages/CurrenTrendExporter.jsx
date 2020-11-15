@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import BarChart from "../components/BarChart";
 import { Container, Row, Col } from "react-bootstrap";
 import ComboBoxTradeReportersImporters from "../components/ComboBoxTradeReporters";
-import CountryCharacteristics from '../data/CountryCharacteristics.json';
 import CurrenTrendExporterService from '../services/CurrenTrendExporterService';
 import TradeReportMap from './TradeReportMap'
 

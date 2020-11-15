@@ -1,72 +1,56 @@
-import { Check } from '@material-ui/icons';
 import React from 'react';
-import { Form } from 'react-bootstrap';
-
 import '../css/ComboBox.css';
 import '../css/CheckBox.css';
-
-import CheckBoxes from '../components/CheckBoxes.js'
-
 var expanded = false;
 function ComboBox(props) {
-
-
     const { onChange } = props;
     const groupcheckbox = React.createRef();
     const regionscheckbox = React.createRef();
     const countriescheckbox = React.createRef();
-
     const check = (nameComboBox) => {
-
         let checkbox=null;
+        switch (nameComboBox){
+          case "group":
+            checkbox=groupcheckbox;
 
-        switch (
-        nameComboBox
-        ) {
-
-            case "group":
-                checkbox=groupcheckbox;
-
-                if (groupcheckbox.current.checked) {
-
-                    regionscheckbox.current.checked = true;
-                    countriescheckbox.current.checked = true;
-                }
-                groupcheckbox.current.checked = true;
-                checkbox=groupcheckbox;
-
-                break;
-            case "regions":
-                checkbox=regionscheckbox;
-
-                if (!regionscheckbox.current.checked && countriescheckbox.current.checked && groupcheckbox.current.checked) {
-                    groupcheckbox.current.checked = false;
-                    checkbox=countriescheckbox;
-                } else if (regionscheckbox.current.checked && countriescheckbox.current.checked) {
-                    groupcheckbox.current.checked = true;
-                    checkbox=groupcheckbox;
-                } else if (!countriescheckbox.current.checked && !regionscheckbox.current.checked && !groupcheckbox.current.checked) {
-                    checkbox=regionscheckbox;
-                    regionscheckbox.current.checked = true
-                }
-                break;
-            case "countries":
-                checkbox=countriescheckbox;
-                if (!countriescheckbox.current.checked && regionscheckbox.current.checked && groupcheckbox.current.checked) {
-                    groupcheckbox.current.checked = false;
-                    checkbox=regionscheckbox;
-                } else if (regionscheckbox.current.checked && countriescheckbox.current.checked) {
-                    checkbox=groupcheckbox;
-                    groupcheckbox.current.checked = true;
-                } else if (!countriescheckbox.current.checked && !regionscheckbox.current.checked && !groupcheckbox.current.checked) {
-                    checkbox=countriescheckbox;
-                    countriescheckbox.current.checked = true
-                }
-
-
-
-            default:
-        break;
+            if (groupcheckbox.current.checked) {
+              regionscheckbox.current.checked = true;
+              countriescheckbox.current.checked = true;
+            }
+            groupcheckbox.current.checked = true;
+            checkbox=groupcheckbox;
+          break;
+          case "regions":
+            checkbox=regionscheckbox;
+            if (!regionscheckbox.current.checked && countriescheckbox.current.checked && groupcheckbox.current.checked) {
+              groupcheckbox.current.checked = false;
+              checkbox=countriescheckbox;
+            } 
+            else if (regionscheckbox.current.checked && countriescheckbox.current.checked) {
+              groupcheckbox.current.checked = true;
+              checkbox=groupcheckbox;
+            } 
+            else if (!countriescheckbox.current.checked && !regionscheckbox.current.checked && !groupcheckbox.current.checked) {
+              checkbox=regionscheckbox;
+              regionscheckbox.current.checked = true
+            }
+          break;
+          case "countries":
+            checkbox=countriescheckbox;
+            if (!countriescheckbox.current.checked && regionscheckbox.current.checked && groupcheckbox.current.checked) {
+              groupcheckbox.current.checked = false;
+              checkbox=regionscheckbox;
+            } 
+            else if (regionscheckbox.current.checked && countriescheckbox.current.checked) {
+              checkbox=groupcheckbox;
+              groupcheckbox.current.checked = true;
+            } 
+            else if (!countriescheckbox.current.checked && !regionscheckbox.current.checked && !groupcheckbox.current.checked) {
+              checkbox=countriescheckbox;
+              countriescheckbox.current.checked = true
+            }
+          break;
+          default:break;
     }
 
     onChange(checkbox.current);

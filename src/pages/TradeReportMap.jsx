@@ -186,9 +186,6 @@ const TradeReportMap = (props) => {
     var years = [];
 
     var data = [];
-
-    var isColored = false;
-
     //This function is for the style of countries in the GeoJson
     var countryStyle = {
         fillColor: '#dddddd', //Color countries
@@ -354,30 +351,19 @@ const TradeReportMap = (props) => {
             popup = L.popup().setContent(createListInfoCountry(indexAux, countryName));
             // layer.setPopupContent(popup);
             layer.bindPopup(popup)
-            isColored = true;
-
-
         }
-
-    }
-
-    //This function change the value color of the state 
-    //This value comes from input color in the render
-    const colorChange = (event) => {
-        this.setState({ color: event.target.value });
     }
 
     var corner1 = L.latLng(-90, -200)
     var corner2 = L.latLng(90, 200)
     var bounds = L.latLngBounds(corner1, corner2)
-
-    var mapa = null;
     return (
         <div>
 
             <Map key={new Date().getMilliseconds()} style={{ height: '80vh' }} zoom={1} center={[20, 100]} maxBoundsViscosity={1.0} maxBounds={bounds}>
                 {
-                    converter(),
+                    converter()}
+                    {
                    <GeoJSON style={countryStyle}
                         key={new Date().getMilliseconds()}
                         data={mapDataTest.features}

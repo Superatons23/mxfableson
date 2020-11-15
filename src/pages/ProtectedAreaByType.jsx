@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
 import BarChart from "../components/BarChart.jsx";
-import ChartCharacteristics from '../data/ChartCharacteristics.json';
 import ComboBox from '../components/ComboBox'
 import ProtectedAreaService from '../services/ProtectedAreaService';
 
 import Tour from '../components/Tour'
 const DrawProtected = () => {
-
-
- 
   const [state, setState] = useState({
     select: {
       GraficaType: 'group',
@@ -16,9 +12,6 @@ const DrawProtected = () => {
       Iteration: '4',
     }
   });
-
-
-
   const [json, setJson] = useState([{
     labels:[],
     datasets:[]
@@ -29,9 +22,6 @@ const DrawProtected = () => {
     ProtectedAreaService(state).then(setJson);
 
   }, [state]);
-
-
-
     const handleChange = e => {
 
       var group = state.select.GraficaType;
