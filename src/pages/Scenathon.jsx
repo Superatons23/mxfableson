@@ -33,13 +33,7 @@ import SustainableImporter from '../pages/SustainableImporter'
 import SustainableNetExporter from './SustainableNetExporter'
 import CurrenTrendExporter from './CurrenTrendExporter'
 import CurrenTrendImporter from './CurrenTrendImporter'
-<<<<<<< HEAD
-import Background from './Background.js'
-
-=======
-import BannerCustom from '../assets/banners/Mesa de trabajo 21.png';
 import DashboardCover from '../assets/DashboardCover2.jpg';
->>>>>>> 00973e48989aa41d6239d3cff4dfe11002367ac9
 
 const Styles = styled.div`
 .header{
@@ -86,21 +80,12 @@ class Scenathon extends Component {
     }
     state = {
         select: {
-<<<<<<< HEAD
-            GraficaType:'',
-            Iteration:'',
-            scenathon_id:'',
-            Year:''
-        },
-        dashboard:"Background"
-=======
             GraficaType: 'group',
             Iteration: 'before',
             scenathon_id: '6',
             Year: '2000'
         },
         dashboard: "Background"
->>>>>>> 00973e48989aa41d6239d3cff4dfe11002367ac9
     }
 
 
@@ -121,21 +106,6 @@ class Scenathon extends Component {
                 },
                 dashboard: e
 
-<<<<<<< HEAD
-    selectDashboard(){
-    
-        switch(this.state.dashboard){
-            case 'Background':
-                this.combobox=null;  
-                   this.dash=<Background/>;
-                   try{
-                   }catch(Error){
-                       
-                   }
-                   
-                  break;
-    
-=======
             })
         } else {
 
@@ -156,7 +126,6 @@ class Scenathon extends Component {
             case 'Background':
                //document.getElementById('container-fluid').style.backgroundImage="url(../assets/DashboardCover.png)"; ;
                 break;
->>>>>>> 00973e48989aa41d6239d3cff4dfe11002367ac9
             case 'Global Target Summary':
                 document.getElementById('container-fluid').style.background="transparent";
                 this.combobox = null;
@@ -275,22 +244,6 @@ class Scenathon extends Component {
         return (
 
             <Styles>
-<<<<<<< HEAD
-            <div class="header" ref={this.fableRef}>
-        <img class="banner" id="banner" alt=""></img>
-        </div>
-            <div className="container-fluid" style={{display: 'flex', padding: '0 0'}}>
-               
-               <div>
-                    <NewSidemenu onChange={this.handleChange}/>
-                 {/* <Aside onChange={this.handleChange}/>   */}
-               </div>
-             
-                <div>
-                {this.selectDashboard()}
-                {this.combobox}
-                {this.dash}
-=======
                 <div class="header" ref={this.fableRef}>
                     <img class="banner" id="banner" alt=""></img>
                 </div>
@@ -306,7 +259,6 @@ class Scenathon extends Component {
                         {this.dash}
                     </div>
 
->>>>>>> 00973e48989aa41d6239d3cff4dfe11002367ac9
                 </div>
             </Styles>
 

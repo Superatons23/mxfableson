@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import MixedChart from "../components/MixedChart.jsx";
-import data from '../data/NetForestCoverChange1.json';
 import {Container,Row,Col} from "react-bootstrap";
 import Tour from '../components/Tour';
 import ChartCharacteristics from '../data/ChartCharacteristics.json';
