@@ -127,7 +127,7 @@ const NavBar = (props) => {
               <Link onClick={() => {handleClick(props.references.scenathon2020)}}>
                 <ReactBootStrap.Navbar.Brand className="navbar-link" id="navbar-link-scenathon2020">Scenathon 2020</ReactBootStrap.Navbar.Brand>
               </Link>
-              <Link onClick={() => {openExternalUrL()}}>
+              <Link onClick={() => {openExternalUrL()}} to={""}>
                <ReactBootStrap.Navbar.Brand className="navbar-link" id="navbar-link-scenathon2019" href="#scenathon2019">Scenathon 2019</ReactBootStrap.Navbar.Brand>
               </Link>
             </div>
