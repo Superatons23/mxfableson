@@ -1,6 +1,7 @@
 import React from 'react';
-import '../css/ComboBox.css';
-import '../css/CheckBox.css';
+import '../css/index.css';
+
+
 var expanded = false;
 function ComboBox(props) {
     const { onChange } = props;
@@ -124,4 +125,3 @@ function ComboBox(props) {
 }
 
 export default ComboBox;
-

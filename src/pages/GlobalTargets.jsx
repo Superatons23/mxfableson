@@ -1,21 +1,15 @@
 import React, { useState, useEffect } from "react";
-import "../css/graphCharacteristics.css";
-import "../css/Box.css";
+import "../css/index.css";
 import "../../node_modules/react-grid-layout/css/styles.css";
 import "../../node_modules/react-resizable/css/styles.css";
 import { WidthProvider, Responsive } from "react-grid-layout";
-
 import MixedChart from "../components/MixedChart";
 import MixedChart2 from "../components/MixedChart2";
-
-
 import BarChart from '../components/BarChart'
 import ComboBox from '../components/ComboBox';
 import GlobalTargetService from '../services/GlobalTargetService';
 import GreenHouseTarget from '../services/GreenHouseTarget';
 import FoodSecurityService from '../services/FoodSecurityService';
-
-
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 const DrawGlobalTargets = () => {
