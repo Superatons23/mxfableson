@@ -28,7 +28,6 @@ const DrawBiodiversity = () =>
 
 
   useEffect(() => {
-    console.log(state)
 BiodiversityService(state).then(setJson);
  
  
@@ -104,7 +103,7 @@ if(e.name === "GraficaType")
 <br/><br/><br/>
  
           <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh", width: "30vw" }}>
-          <TradeReportMap countriesData = {json}/>
+          <TradeReportMap countriesData = {json} graphType = 'Biodiversity'/>
           </div>
           
         </Col>

@@ -4,35 +4,32 @@ import styled from 'styled-components';
 const Styles= styled.div`
 
 .about-container{
-overflow:hidden;
-background-color:transparent;
-padding: 10px 10%;
-align-items:center;
-margin:0;
-
-justify-content:space-between;
-margin-bottom:30px;
-width:100%;
-margin-top:20px;
-
-.about-title{
-    text-align:left;
-    color:#306973;
-    font-size:32px;
-    font-weight: bold;
+    overflow:hidden;
+    background-color:transparent;
+    padding: 10px 10%;
+    align-items:center;
+    margin:0;
+    
+    justify-content:space-between;
     margin-bottom:30px;
-    margin-left:95px;
-}
-
-.about-content{
-    color:#4E4E4E;
-    text-align:justify;
-    font-size:15px;
-    margin-left:95px;
-}
-}
-
-`;
+    width:100%;
+    
+    .about-title{
+        text-align:left;
+        color:#306973;
+        font-size:32px;
+        font-weight: bold;
+        margin-bottom:30px;
+    }
+    
+    .about-content{
+        color:#4E4E4E;
+        text-align: justify;
+        font-size:15px;
+    }
+    }
+    
+    `;
 
 const About2=(props)=>{
 return(

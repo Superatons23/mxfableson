@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron as Jumbo, Container } from 'react-bootstrap';
+import { Jumbotron as Jumbo } from 'react-bootstrap';
 import styled from 'styled-components';
 import Banner3 from '../assets/banner_3.png';
 
@@ -13,7 +13,7 @@ const Styles = styled.div`
         margin:0;
         padding:0;
         background-position:center ;
-        height:40vh;
+        height:270px;
         width:100%;
     }
     .overlay{
@@ -25,7 +25,30 @@ const Styles = styled.div`
         bottom: -5;
         right: 0;
         
-    }`;
+    }
+    
+    @media(max-width 1200px){
+
+    }
+
+    @media(max-width 992px){
+        .jumbo3{
+            height: 40vh;
+        }
+    }
+
+    
+    @media( max-width: 768px){
+       .jumbo3{
+           height: 125px;
+       }
+    }
+    @media (max-width 576px){
+        .jumbo3{
+            height: 32px;
+        }
+    }
+    `;
 
 
 export default () => {

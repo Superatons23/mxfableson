@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Form } from 'react-bootstrap';
 import '../css/ComboBox.css';
 
@@ -16,42 +15,28 @@ function ComboBox (props) {
             <div className="contenedor-selects">
                 <br></br>
                 <Form>
-                  <select class="selectBox" name="Scenario" onChange={onChange} >
+                  <select class="selectBox" name="scenathon_id" onChange={onChange} >
                   <option value="" disabled selected hidden>Scenario</option>
-                    <option  value="Sustainaible">Sustainaible</option>
-                    <option  value="Current_trend">Current trend</option>
+                    <option  value="6">Sustainaible</option>
+                    <option  value="5">Current trend</option>
+
                   </select>
                 </Form>
 
-               {/*<select  name="Scenario" onChange={onChange}>
-                    <option value="Sustainaible">Sustainaible</option>
-                    <option value="Current_trend">Current trend</option>
-                    
-                  </select>*/}
+              
                 <br></br>
                 <Form>
                   <select  class="selectBox" name="Iteration" onChange={onChange} >
                   <option value="" disabled selected hidden>Iteration</option>
-                    <option  value="iteration_4">Iteration:4</option>
-                    <option  value="iteration_3">Iteration:3</option>
+                    <option  value="after">after</option>
+                    <option  value="before">before</option>
                   </select>
                 </Form>
 
-                {/*<select  name="Iteration" onChange={onChange}>
-                    <option value="iteration_4">iteration:4</option>
-                    <option value="iteration_3">iteration:3</option>
-                </select>*/}
-                <br></br>
-                <Form>
-                  <select  class="selectBox"name="GraficaType" onChange={onChange} >
-                  <option value="" disabled selected hidden>Group</option>
-                  <option  value="group">Group</option>
-                    <option value="regions">ALL ROW regions</option>
-                    <option value="countries">ALL FABLE countries</option>
-                  </select>
-                </Form>
+               
+              
 
-               <CheckBoxes/>
+               <CheckBoxes  onChange={onChange} />
             </div>
 
 

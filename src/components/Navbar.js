@@ -1,4 +1,3 @@
-
 import React from 'react';
 import "../css/App.css"
 import * as ReactBootStrap from "react-bootstrap";
@@ -8,12 +7,8 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-
-
 import About from '../pages/About';
 import styled from 'styled-components';
-
-
 import IIASA_LOGO_WHITE from '../assets/IIASA_LOGO_WHITE.png';
 import IIASA_LOGO_COLOR from '../assets/IIASA_LOGO.png';
 import SDSN_LOGO_WHITE from '../assets/SDSN_LOGO_WHITE.png';
@@ -61,20 +56,13 @@ width: 100px;
  navbar-brand: hover{
     color:#306973;
     width:inherit;
-    
-  
-  
   }
 .navbar-brand, .navbar-nav .nav-link {
   color: white;
   text-shadow: .5px .5px 2px #000000;
- 
-
   .navbar-link{
     margin-left:70px;
   }
- 
-
 }
 `;
 
@@ -95,16 +83,6 @@ const NavBar = (props) => {
 
   return (
     <Styles>
-
-
-      {/*
-        <div class="banner-container">
-                  <img src={IIASA_LOGO} class="banner" />
-                  <img src={SDSN_LOGO} class="banner" />
-                  <img src={FoodAndLand_LOGO} class="banner" />
-                </div>
-
-      */}
       <Router>
         <ReactBootStrap.Navbar expand="lg" className="nav navBarWidth" id="navbar" variant="light">
 
@@ -134,62 +112,28 @@ const NavBar = (props) => {
 
               </ReactBootStrap.Navbar.Brand>
             </div>
-
-
             <div className="router-container" id="router-container">
 
               <Link onClick={() => {handleClick(props.references.home)}} >
-                <ReactBootStrap.Navbar.Brand  classname="navbar-link" id="navbar-link-home">Home</ReactBootStrap.Navbar.Brand>
+                <ReactBootStrap.Navbar.Brand  className="navbar-link" id="navbar-link-home">Home</ReactBootStrap.Navbar.Brand>
               </Link>
               
               <Link onClick={() => {handleClick(props.references.fable)}}>
-                <ReactBootStrap.Navbar.Brand classname="navbar-link" id="navbar-link-fable">Fable</ReactBootStrap.Navbar.Brand>
+                <ReactBootStrap.Navbar.Brand className="navbar-link" id="navbar-link-fable">Fable</ReactBootStrap.Navbar.Brand>
               </Link>
               <Link onClick={() => {handleClick(props.references.scenathon)}}>
-                <ReactBootStrap.Navbar.Brand classname="navbar-link" id="navbar-link-scenathon">Scenathon</ReactBootStrap.Navbar.Brand>
+                <ReactBootStrap.Navbar.Brand className="navbar-link" id="navbar-link-scenathon">Scenathon</ReactBootStrap.Navbar.Brand>
               </Link>
               <Link onClick={() => {handleClick(props.references.scenathon2020)}}>
-                <ReactBootStrap.Navbar.Brand classname="navbar-link" id="navbar-link-scenathon2020">Scenathon 2020</ReactBootStrap.Navbar.Brand>
+                <ReactBootStrap.Navbar.Brand className="navbar-link" id="navbar-link-scenathon2020">Scenathon 2020</ReactBootStrap.Navbar.Brand>
               </Link>
               <Link onClick={() => {openExternalUrL()}}>
-               <ReactBootStrap.Navbar.Brand classname="navbar-link" id="navbar-link-scenathon2019" href="#scenathon2019">Scenathon 2019</ReactBootStrap.Navbar.Brand>
+               <ReactBootStrap.Navbar.Brand className="navbar-link" id="navbar-link-scenathon2019" href="#scenathon2019">Scenathon 2019</ReactBootStrap.Navbar.Brand>
               </Link>
-   
-
             </div>
-
-            { /*
-            <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
-              <ReactBootStrap.Nav className="mr-auto">
-
-
-              </ReactBootStrap.Nav>
-              <ReactBootStrap.Nav>
-                <ReactBootStrap.Nav.Link>Login</ReactBootStrap.Nav.Link>
-                <ReactBootStrap.Nav.Link>Sign In</ReactBootStrap.Nav.Link>                
-              </ReactBootStrap.Nav>
-            </ReactBootStrap.Navbar.Collapse>
-           */}
           </ReactBootStrap.Navbar.Collapse>
         </ReactBootStrap.Navbar>
-
-        {/* A <Switch> looks through its children <Route>s and
-                      renders the first one that matches the current URL. */}
         <Switch>
-          {/*<Route path="/Features" component={Features}>
-              <Features />
-            </Route>*/}
-
-          {/*<Route path="/TradeReport" component={TradeReport}>
-              <TradeReport />
-                    </Route>*/}
-          {/*<Route exact path="/Scenathon" component={Scenathon}>
-                <Scenathon />
-              </Route>
-              <Route  path="/" component={Scenathon}>
-                <Scenathon />
-              </Route>
-*/}
 
           <Route path="/About" render={
             () => {

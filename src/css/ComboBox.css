@@ -1,5 +1,5 @@
 .contenedor-selects{
-    margin-bottom:15px;
+  
     margin-top:20px;
    display:flex;
    justify-content:flex-end;
@@ -7,13 +7,11 @@
   
  }
 
+
  .conetenedor-select {
    color:white;
     
  }
- .contenedor-select hover{
-     color:#94B046;
-   }
  select, .selectBox{
    background-color:#72a5ad;
    color:white;
@@ -22,12 +20,18 @@
    height:30px;
    border:0px;
    outline:0px;
+   position: relative;
    font-size:15px;
    text-align:left;
    padding:0 2%;
    margin-left:7px;
    margin-right:7px;
    cursor: pointer;
+   
+ 
+ }
+ #comboboxcheckboxes{
+z-index: -2;
  }
 select:hover {
   background-color:#306973;
@@ -39,8 +43,7 @@ select:hover {
  option{
     border:0px;
    outline:0px;
-   background-color:#72a5ad;  
-   box-shadow: .5px .5px 5px #000000;  
+   background-color:#72a5ad;   
    color:#ffffff;
    margin-top:10px;
    border-radius:7px;
@@ -48,9 +51,47 @@ select:hover {
     border:0px;
      outline:0px;
      margin-left:10px;
+     z-index:-2
  }
 
  
   
  
+ .multiselect {
+  width: 205px;
+  background-color:#72a5ad; 
+  position: absolute;
+}
+
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+
+}
+
+#checkboxes {
+  display: none;
+  border: 1px #dadada solid;
+    background-color:#72a5ad; 
+  position: absolute;
+  z-index: 20;
+
+  padding:0 .5%;
  
+}
+
+#checkboxes label {
+  display: block;
+  background-color:#72a5ad;   
+ color:#ffffff;
+ cursor: pointer;
+}
+
+#checkboxes label:hover {
+  background-color: #1e90ff;
+}

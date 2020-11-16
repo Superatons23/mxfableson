@@ -28,7 +28,44 @@ const Styles = styled.div`
         bottom: -5;
         right: 0;
         z-index: -1;
-    }`;
+    }
+    
+    @media(max-width 1200px){
+
+    }
+
+    @media(max-width 992px){
+        .bann{
+            font-size:75px;
+         }
+         .jumbo{
+             height: 300px;
+         }
+    }
+
+    
+    @media( max-width: 768px){
+        .bann{
+            font-size:75px;
+         }
+         .jumbo{
+             height: 270px;
+         }
+    }
+    @media (max-width 576px){
+        .bann{
+            font-size:10px;
+         }
+         .jumbo{
+             height: 70px;
+         }
+    
+    
+    
+    
+    
+    
+    `;
 
 
 export default (props) => {

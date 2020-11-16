@@ -1,18 +1,9 @@
 import React, { useState, useEffect } from "react";
 import MixedChart from "../components/MixedChart.jsx";
-import ChartCharacteristics from '../data/ChartCharacteristics.json';
 import ComboBox2 from "../components/ComboBox2.jsx";
 import Tour from "../components/Tour.js";
-const FoodEnergyIntakePerCapita = (props) => {
-
-  function Food(ChartCharacteristics,data) {
-    this.data=data;
-    this.type=ChartCharacteristics[0]["type"];
-    this.label=ChartCharacteristics[0]["label"];
-    this.borderColor=ChartCharacteristics[0]["borderColor"];
-    this.backgroundColor=ChartCharacteristics[0]["backgroundColor"];
-    this.radius=ChartCharacteristics[0]["radius"];
-  }
+import FoodEnergyService from '../services/FoodEnergyService';
+const FoodEnergyIntakePerCapita = () => {
 
   const [state, setState] = useState({
     select: {
@@ -23,24 +14,14 @@ const FoodEnergyIntakePerCapita = (props) => {
    
   });
 
-  const [json, setJson] = useState([]);
-  var data = null;
+  const [json, setJson] = useState([{
+    labels:[],
+    datasets:[]
+  }]);
+
   useEffect(() => {
  
-    const getFoodEnergyIntakePerCapita = async () => {
-      try {   
-        const body =state;
-
-      const response = await fetch("https://fable2020.herokuapp.com/foodenergy1"+JSON.stringify(body));
-   
-       const  jsonAux =  await response.json();
-      setJson(jsonAux);
-      } catch (error) {
-        console.error(error)
-      }
-
-    }
-    getFoodEnergyIntakePerCapita();
+    FoodEnergyService(state).then(setJson);
   }, [state]);
 
 
@@ -75,40 +56,6 @@ const handleChange = e => {
   });
 }
 
-
-  const converter = () => {
-  
-
-    var labels=[];
-    var target_mder=[];
-
-    var kcal_feasible=[];
-    var dataSet=[]
-
-
-    if (json !== null ) {
-   
-      json.forEach(item => {
-          labels.push(item.Country);
-          target_mder.push(item.Target_MDER);
-
-          kcal_feasible.push(item.Kcal_feasible);
-        
-      });
-
-      var food = new Food(ChartCharacteristics["target_mder"],target_mder);
-      dataSet.push(food);
-      food = new Food(ChartCharacteristics["kcal_feasible"],kcal_feasible);
-      dataSet.push(food);
-
-      var dataAux = {
-        labels:labels,
-        datasets:dataSet
-
-    };
-    data=dataAux;
-  }
-}
     const steps = [
       {
         target: ".graph",
@@ -133,27 +80,19 @@ const handleChange = e => {
       
       <div>
         <ComboBox2 onChange={handleChange} />
-        {converter()}
       </div>
-
       <Tour stepsP={steps}/>
     <div className="graph" style={{height: "100vh" ,width:"70vw"} }>
-      <MixedChart data={data}
-    aspectRatio={false}
-    labelposition="top"
-    labelwidth={50}
-    labelSize={24}
-    TitleSize={45}
-
-    labelString='Energy intake per capita'
-
-    title="Food energy intake per capita"/>
+      <MixedChart data={json}
+        aspectRatio={false}
+        labelposition="top"
+        labelwidth={50}
+        labelSize={24}
+        TitleSize={45}
+        labelString='Energy intake per capita'
+        title="Food energy intake per capita"/>
     </div>
-  
     </div>
   )
-
-
 }
 export default FoodEnergyIntakePerCapita;
-
