@@ -25,15 +25,19 @@ const BarChart3 = (props) => {
     position:props.labelposition===undefined?'right':props.labelposition
   },
     tooltips: {
-      mode: 'index',
+      mode: 'label',
       intersect: true,
       callbacks: {
-        label: function(tooltipItem, data) { return tooltipItem.yLabel + '%'; }
-      }
+        label: function(tooltipItem, data) {
+          var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+          return label=label+ " " +tooltipItem.yLabel+"%"
+        }
+        }
 
 
     },hover: {
-      mode: 'index',
+      mode: 'label',
       intersect: true,
       animationDuration: 1000
    },
