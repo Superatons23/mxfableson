@@ -22,9 +22,13 @@ const BarChart3 = (props) => {
 		tooltips: {
 			mode: 'index',
 			intersect: true,
-			callbacks: {
-			label: function(tooltipItem, data) { return tooltipItem.yLabel + '%'; }
-			}
+      callbacks: {
+        label: function(tooltipItem, data) {
+          var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+          return label=label+ " " +tooltipItem.yLabel+"%"
+        }
+        }
 		},
 		hover: {
 			mode: 'index',

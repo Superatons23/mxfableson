@@ -120,7 +120,7 @@ const DrawFreshWater2 = () => {
         <Col>
         <br/><br/><br/>
  
-          <div style={{ borderStyle: 'solid', textAlign: 'center', height: "70vh", width: "30vw" }}>
+          <div style={{textAlign: 'center', height: "70vh", width: "30vw" }}>
           <TradeReportMap countriesData = {json}/>
           </div>
         </Col>

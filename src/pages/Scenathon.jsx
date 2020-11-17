@@ -19,11 +19,11 @@ import BannerLifeOnLand from '../assets/banners/Mesa de trabajo 19.png';
 import BannerCleanWater from '../assets/banners/Mesa de trabajo 8.png';
 import BannerZeroHunger from '../assets/banners/Mesa de trabajo 2.png';
 import BannerClimateAction from '../assets/banners/Mesa de trabajo 16.png';
+import BannerCustom from '../assets/banners/Mesa de trabajo 21.png';
 import SustainableImporter from '../pages/SustainableImporter'
 import SustainableNetExporter from './SustainableNetExporter'
 import CurrenTrendExporter from './CurrenTrendExporter'
 import CurrenTrendImporter from './CurrenTrendImporter'
-import BannerCustom from '../assets/banners/Mesa de trabajo 21.png';
 import DashboardCover from '../assets/DashboardCover2.jpg';
 
 const Styles = styled.div`
