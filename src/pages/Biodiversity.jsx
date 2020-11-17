@@ -146,7 +146,7 @@ const DrawBiodiversity = () =>
         <Col>
 
           <div style={{ textAlign: 'center', height: "120vh", width: "35vw" }}>
-            <BarChart3 data={data} title="Share of total land which is protected
+            <BarChart3 data={data} title="           Share of total land which is protected
 "
               aspectRatio={false}
               labelString='ha per year'
