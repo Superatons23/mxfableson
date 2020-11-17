@@ -102,10 +102,11 @@ grenHouse = new GreenHouse(ChartCharacteristics["Crop_CO2"],crop_CO2);
 datasetsTargetFour.push(grenHouse);
 
 //target four chart two
-grenHouse = new GreenHouse(ChartCharacteristics["total_GHG_land_bar"],total_GHG_land);
-datasetsTargetFourCharTwo.push(grenHouse);
 grenHouse = new GreenHouse(ChartCharacteristics["GHG_LU_target"],ghg_lu_target);
 datasetsTargetFourCharTwo.push(grenHouse);
+grenHouse = new GreenHouse(ChartCharacteristics["total_GHG_land_bar"],total_GHG_land);
+datasetsTargetFourCharTwo.push(grenHouse);
+
 
 //target six 
 grenHouse = new GreenHouseTarget(ChartCharacteristics["water_target"],water_target);
@@ -122,7 +123,7 @@ var dataTargetFour = {
 
 var dataTargetFourCharTwo = {
     labels:labels,
-    datasets:datasetsTargetFour
+    datasets:datasetsTargetFourCharTwo
 };
 
 var dataTargetSix = {
