@@ -117,14 +117,16 @@
   gray-space: nowrap; }
 
 .pro-sidebar .pro-menu {
-  padding-top: 10px;
-  padding-bottom: 10px; }
+  /*padding-top: 10px;*/
+  /*padding-bottom: 10px; */
+}
   .pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item {
     position: relative;
     background-color: #FFFFFF; }
     .pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item > div > ul {
-      padding-top: 15px;
-      padding-bottom: 15px; }
+      /*padding-top: 15px;*/
+      /*padding-bottom: 15px; */
+    }
   .pro-sidebar .pro-menu a {
     text-decoration: none;
     color: gray; }

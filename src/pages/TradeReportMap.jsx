@@ -189,8 +189,8 @@ const TradeReportMap = (props) => {
 	var htmlCode = ''
 
 	const createListInfoCountry = (index, countryName) => {
-		htmlCode = '<p style="text-align:center;"><strong>' + countryName + '</strong></p>'
-		htmlCode = htmlCode + '<ul>'
+		htmlCode = '<p class="popup-list--header"><strong>' + countryName + '</strong></p>'
+		htmlCode = htmlCode + '<ul class="popup-list">'
 		var i = 0
 		for (const currentValue in years) {
 			htmlCode = htmlCode + '<li><strong>' + years[i] + '</strong>: ' + data[index][i]

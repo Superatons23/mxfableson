@@ -143,7 +143,7 @@ code{
 		border: 1px #dadada solid;
 		background-color:#72a5ad; 
 		position: absolute;
-		z-index: 20;
+		z-index: 800;
 		padding:0 .5%;
 	}
 
@@ -272,8 +272,16 @@ code{
 	.leaflet-container {
 		background-color: #73b6e6;
 	}
+	.leaflet-popup-content{
+		font: sans-serif;
+		font-size: 12px;
+		width: 7em !important;
+	}
+	.leaflet-interactive{
+		position: absolute;
+		z-index: -1;
+	}
 /*LEAFLET ENDS*/
-
 
 /*BOXES BEGINS*/
 	l .boxes {
@@ -395,3 +403,30 @@ code{
 		grid-row: 1/3;
 	}
 /*BOX ENDS*/
+
+
+#container-fluid{
+	border:black 1px;
+}
+
+
+@media only screen and (max-width: 919px) {
+	#banner{
+		width: 100%;
+	}
+}
+@media only screen and (min-width: 920px) {
+	#banner{
+		width: 80%;
+		margin-left: 10%;
+	}
+}
+.popup-list--header{
+	text-align: center;
+}
+.popup-list{
+	list-style: none;
+	padding-inline-start: 0;
+	margin: 0;
+	text-align: center;
+}

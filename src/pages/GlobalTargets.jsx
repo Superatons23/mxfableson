@@ -144,8 +144,7 @@ const DrawGlobalTargets = () => {
 
   return (
     
-<div style={{width:"100vw"}}>
-  {console.log("entre div")}
+<div style={{width:"80vw"}}>
 <ComboBox onChange={handleChange}/>
 <ResponsiveReactGridLayout
           className="layout"
