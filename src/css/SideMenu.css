@@ -1,16 +1,3 @@
-/*
- .menuoptioncontainer{
-  background-color: transparent;
-   
-  }
-
-  .menuoptioncontainer:hover{
-    background-color: #306973;
-    box-shadow: .5px .5px 5px #000000; 
-     
-    }
-
-    */
 @keyframes swing {
   0%,
   30%,
@@ -25,7 +12,8 @@
   60% {
     transform: rotate(5deg); }
   80% {
-    transform: rotate(-5deg); } }
+    transform: rotate(-5deg); } 
+}
 
 .pro-sidebar {
   width: 270px;
@@ -105,8 +93,6 @@
   @media (max-width: 768px) {
     .pro-sidebar .pro-menu .pro-menu-item {
       font-size: .5em; }
-     
-
      }
   @media (max-width: 992px) {
     }

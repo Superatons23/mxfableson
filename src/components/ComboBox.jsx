@@ -1,6 +1,7 @@
 import React from 'react';
-import '../css/ComboBox.css';
-import '../css/CheckBox.css';
+import '../css/index.css';
+
+
 var expanded = false;
 function ComboBox(props) {
     const { onChange } = props;
@@ -73,15 +74,15 @@ function ComboBox(props) {
   }
   return (
 
-    <div class="contenedor-selects">
-      <select class="selectBox" name="scenathon_id" onChange={onChange}>
+    <div className="contenedor-selects">
+      <select className="selectBox" name="scenathon_id" onChange={onChange}>
         <option value="" disabled selected hidden>Scenario</option>
         <option value="6">Sustainable</option>
         <option value="5">Current trend</option>
 
       </select>
       <br></br>
-      <select class="selectBox" name="Iteration" onChange={onChange}>
+      <select className="selectBox" name="Iteration" onChange={onChange}>
         <option value="" disabled selected hidden>Trade Adjustment</option>
         <option value="after">After Iteration</option>
         <option value="before">Before Iteration</option>
@@ -94,26 +95,26 @@ function ComboBox(props) {
       <select id="comboboxcheckboxes">
       <option value="" disabled selected hidden>Group</option>
       </select>
-      <div class="overSelect"></div>
+      <div className="overSelect"></div>
     </div>
     <div id="checkboxes">
 
-    <label class="container">
+    <label className="container">
           <input onClick={() => { check("group") }} ref={groupcheckbox} value="group" type="checkbox" name="GraficaType" />
           <p>Group</p>
-          <span class="checkmark"></span>
+          <span className="checkmark"></span>
         </label>
 
-        <label class="container">
+        <label className="container">
           <input onClick={() => { check("regions") }} ref={regionscheckbox} value="regions" type="checkbox" name="GraficaType" />
           <p>ALL ROW regions</p>
-          <span class="checkmark"></span>
+          <span className="checkmark"></span>
         </label>
 
-        <label class="container">
+        <label className="container">
           <input onClick={() => { check("countries") }} ref={countriescheckbox} value="countries" type="checkbox" name="GraficaType" />
           <p>ALL FABLE countries</p>
-          <span class="checkmark"></span>
+          <span className="checkmark"></span>
         </label>
     </div>
   </div>
@@ -124,4 +125,3 @@ function ComboBox(props) {
 }
 
 export default ComboBox;
-

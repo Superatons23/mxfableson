@@ -59,12 +59,6 @@ const Styles = styled.div`
          .jumbo{
              height: 70px;
          }
-    
-    
-    
-    
-    
-    
     `;
 
 
