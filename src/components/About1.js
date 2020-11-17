@@ -9,10 +9,9 @@ background-color:transparent;
 padding: 10px 10%;
 align-items:center;
 margin:0;
-
 justify-content:space-between;
 margin-bottom:30px;
-width:100%;
+
 
 .about-title{
     text-align:left;
@@ -29,6 +28,35 @@ width:100%;
 }
 }
 
+@media(max-width 1200px){
+
+}
+
+@media(max-width 992px){
+   
+}
+
+
+@media( max-width: 768px){
+    .about-title{
+        font-size:15px;
+    }
+
+    .about-content{
+        font-size:5px;
+    }
+}
+@media (max-width 576px){  
+    .about-title{
+        font-size:5px;
+    }
+
+    .about-content{
+        font-size:3px;
+    }
+
+}
+    
 `;
 
 const About1=(props)=>{

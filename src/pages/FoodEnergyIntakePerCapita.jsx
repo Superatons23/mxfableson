@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import MixedChart from "../components/MixedChart.jsx";
-import ChartCharacteristics from '../data/ChartCharacteristics.json';
 import ComboBox2 from "../components/ComboBox2.jsx";
 import Tour from "../components/Tour.js";
 import FoodEnergyService from '../services/FoodEnergyService';
 const FoodEnergyIntakePerCapita = () => {
-
-  
 
   const [state, setState] = useState({
     select: {
@@ -59,8 +56,6 @@ const handleChange = e => {
   });
 }
 
-
- 
     const steps = [
       {
         target: ".graph",
@@ -85,25 +80,19 @@ const handleChange = e => {
       
       <div>
         <ComboBox2 onChange={handleChange} />
-      
       </div>
-
       <Tour stepsP={steps}/>
     <div className="graph" style={{height: "100vh" ,width:"70vw"} }>
       <MixedChart data={json}
-    aspectRatio={false}
-    labelposition="top"
-    labelwidth={50}
-    labelSize={24}
-    TitleSize={45}
-    labelString='Energy intake per capita'
-    title="Food energy intake per capita"/>
+        aspectRatio={false}
+        labelposition="top"
+        labelwidth={50}
+        labelSize={24}
+        TitleSize={45}
+        labelString='Energy intake per capita'
+        title="Food energy intake per capita"/>
     </div>
-  
     </div>
   )
-
-
 }
 export default FoodEnergyIntakePerCapita;
-

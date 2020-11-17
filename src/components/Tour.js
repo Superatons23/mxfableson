@@ -1,8 +1,5 @@
 import React from "react"
 import ReactJoyride from 'react-joyride';
-import steps from "./TOUR_STEPS"
-
-//
 const Tour = (props) => {
 
     return (
@@ -25,7 +22,7 @@ const Tour = (props) => {
               //width of modal
               width: 500,
               //zindex of modal
-              zIndex: 9999
+              zIndex: 9998
           }
       }}
         />

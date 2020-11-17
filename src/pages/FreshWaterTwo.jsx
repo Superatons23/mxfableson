@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import BarChart from "../components/BarChart";
-import {Container,Row,Col,Jumbotron} from "react-bootstrap";
+import {Container,Row,Col} from "react-bootstrap";
 import ComboBox from '../components/ComboBox';
 import Tour from '../components/Tour';
 import FreshWaterTwoService from '../services/FreshWaterTwoService';

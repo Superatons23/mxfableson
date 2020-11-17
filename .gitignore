@@ -10,7 +10,7 @@
 
 # production
 /build
-
+.netlify
 # misc
 .DS_Store
 .env.local
@@ -27,3 +27,4 @@ yarn-error.log*
 /debug.log
 /serverfableson
 /.vscode
+

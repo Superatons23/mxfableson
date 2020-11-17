@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import BarChart from "../components/BarChart";
 import ComboBox from '../components/ComboBox';
 import Tour from "../components/Tour";
-import ChartCharacteristics from '../data/ChartCharacteristics.json';
 import FreshWaterService from '../services/FreshWaterService';
 
 const DrawFreshWaterUse = () => {
