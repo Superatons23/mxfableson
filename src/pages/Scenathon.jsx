@@ -1,14 +1,5 @@
 import React, { Component } from 'react';
-
-
-import ComboBox from '../components/ComboBox'
-
-import ComboBox3 from '../components/ComboBox3'
-import Aside from '../components/Aside';
-import Dashboard from '../components/Dashboard'
 import NewSidemenu from '../components/NewSidemenu';
-
-
 //dashboards
 import NetForestCoverChange from '../pages/NetForestCoverChange'
 import Biodiversity from '../pages/Biodiversity'
@@ -33,46 +24,33 @@ import SustainableNetExporter from './SustainableNetExporter'
 import CurrenTrendExporter from './CurrenTrendExporter'
 import CurrenTrendImporter from './CurrenTrendImporter'
 import BannerCustom from '../assets/banners/Mesa de trabajo 21.png';
-import DashboardCover from '../assets/DashboardCover.png';
+import DashboardCover from '../assets/DashboardCover2.jpg';
 
 const Styles = styled.div`
 .header{
+    overflow:hidden;
+    background-color: transparent;
+    color: transparent;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size: 50px;
+    margin: 0;
+    height: 100px;
+    margin-top:20px;
+    transition: all 0.5s ease;
+    width: 100%;
 
-
-overflow:hidden;
-  background-color: white;
-  color: white;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-size: 50px;
-  margin: 0;
-  height: 100px;
-  margin-top:20px;
-
-  transition: all 0.5s ease;
-  
-
-  width: 100%;
-  
-
-
-.banner{
-  max-width:100%;
-max-height:100%;
-transition: all 0.5s ease;
+    .banner{
+        max-width:100%;
+        max-height:100%;
+        transition: all 0.5s ease;
+    }
 }
-
-
-}
-
-
-#container-fluid{
-  
+#container-fluid{ 
    background: url(${DashboardCover});
    background-size:cover;
 }
-
 `;
 
 
@@ -90,10 +68,6 @@ class Scenathon extends Component {
         },
         dashboard: "Background"
     }
-
-
-
-
 
     //recibe valor de class component "ComboBox" 
     handleChange = e => {
@@ -140,97 +114,104 @@ class Scenathon extends Component {
                 break;
             case 'Net Forest Cover Change 1':
                 document.getElementById('container-fluid').style.background="transparent";
-                this.combobox = <ComboBox onChange={this.handleChange} />
+                document.getElementById("banner").src = BannerLifeOnLand;
+                this.combobox = null;
                 this.dash = <NetForestCoverChange combinacion={this.state} />;
                 break;
             case 'Net Forest Cover Change 2':
                 document.getElementById('container-fluid').style.background="transparent";
-                // this.combobox=<ComboBox3 onChange={this.handleChange}/>
+                document.getElementById("banner").src = BannerLifeOnLand;
                 this.combobox = null;
                 this.dash = <NetForestCoverChange2 />;
-                document.getElementById("banner").src = BannerLifeOnLand;
                 break;
             case 'Biodiversity':
                 document.getElementById('container-fluid').style.background="transparent";
+                document.getElementById("banner").src = BannerLifeOnLand;
                 this.combobox = null;
                 this.dash = <Biodiversity />;
-                document.getElementById("banner").src = BannerLifeOnLand;
                 break;
             case 'Protected Areas by Type':
                 document.getElementById('container-fluid').style.background="transparent";
+                document.getElementById("banner").src = BannerLifeOnLand;
                 //  <ComboBox onChange={this.handleChange}/>
                 this.combobox = null;
                 this.dash = <ProtectedAreaByType />;
-                document.getElementById("banner").src = BannerLifeOnLand;
                 break;
             case 'Land Cover':
                 document.getElementById('container-fluid').style.background="transparent";
+                document.getElementById("banner").src = BannerLifeOnLand;
                 // this.combobox=<ComboBox onChange={this.handleChange}/>
                 this.combobox = null;
                 this.dash = <LandCover />;
                 break;
             case 'Fresh Water 1':
                 document.getElementById('container-fluid').style.background="transparent";
-                //  this.combobox=<ComboBox onChange={this.handleChange}/>
+                document.getElementById("banner").src = BannerCleanWater;
+                 //  this.combobox=<ComboBox onChange={this.handleChange}/>
                 this.combobox = null;
                 this.dash = <FreshWaterUse />;
-                document.getElementById("banner").src = BannerCleanWater;
+               
                 break;
             case 'Fresh Water 2':
                 document.getElementById('container-fluid').style.background="transparent";
+                document.getElementById("banner").src = BannerCleanWater;
                 //  this.combobox=<ComboBox onChange={this.handleChange}/>
                 this.combobox = null;
                 this.dash = <FreshWaterTwo />;
                 break;
             case 'Green House Gas (GHG) Emissions 1':
                 document.getElementById('container-fluid').style.background="transparent";
+                document.getElementById("banner").src = BannerClimateAction;
                 //   this.combobox=<ComboBox onChange={this.handleChange}/>
                 this.combobox = null;
                 this.dash = <GreenHouseOne />;
-                document.getElementById("banner").src = BannerClimateAction;
                 break;
             case 'Green House Gas (GHG) Emissions 2':
                 document.getElementById('container-fluid').style.background="transparent";
+                document.getElementById("banner").src = BannerClimateAction;
                 // this.combobox=<ComboBox onChange={this.handleChange}/>
                 this.combobox = null;
                 this.dash = <GreenHouse2 />;
-                document.getElementById("banner").src = BannerClimateAction;
                 break;
             case 'Food Energy Intake Per Capita 1':
                 document.getElementById('container-fluid').style.background="transparent";
+                document.getElementById("banner").src = BannerZeroHunger;
                 //   this.combobox=<ComboBox2 onChange={this.handleChange}/>
                 this.combobox = null;
-
                 this.dash = <FoodEnergyIntakePerCapita />;
-                document.getElementById("banner").src = BannerZeroHunger;
                 break;
             case 'Food Energy Intake Per Capita 2':
                 document.getElementById('container-fluid').style.background="transparent";
+                document.getElementById("banner").src = BannerZeroHunger;
                 this.combobox = null;
                 this.dash = <FoodEnergyIntakePerCapita2 />;
-                document.getElementById("banner").src = BannerZeroHunger;
                 break;
             case 'Sustainable_next_exporters':
                 document.getElementById('container-fluid').style.background="transparent";
+                document.getElementById("banner").src = "";
                 this.combobox = null;
                 this.dash = <SustainableNetExporter />;
                 break;
             case 'Sustainable_next_importers':
                 document.getElementById('container-fluid').style.background="transparent";
+                document.getElementById("banner").src = "";
                 this.combobox = null;
                 this.dash = <SustainableImporter />;
                 break;
             case 'Current_trend_next_exporters':
                 document.getElementById('container-fluid').style.background="transparent";
+                document.getElementById("banner").src = "";
                 this.combobox = null;
                 this.dash = <CurrenTrendExporter />;
                 break;
             case 'Current_trend_next_importers':
                 document.getElementById('container-fluid').style.background="transparent";
+                document.getElementById("banner").src = "";
                 this.combobox = null;
                 this.dash = <CurrenTrendImporter />;
                 break;
             default: this.combobox = null;
+            document.getElementById("banner").src = "";
             document.getElementById('container-fluid').style.background="transparent";
                 this.dash = <GlobalTargets combinacion={this.state} />;
         }
@@ -239,8 +220,8 @@ class Scenathon extends Component {
         return (
 
             <Styles>
-                <div class="header" ref={this.fableRef}>
-                    <img class="banner" id="banner" alt=""></img>
+                <div className="header" ref={this.fableRef}>
+                    <img className="banner" id="banner" alt=""></img>
                 </div>
                 <div id="container-fluid" className="container-fluid" style={{ display: 'flex' , padding:'0 0'}} >
 

@@ -1,133 +1,81 @@
-import React, { useState} from "react";
+import React, { useState, useEffect } from "react";
 import SuperGraph from "../components/SuperGraph";
-import data from '../data/Greenhouse1.json';
 import ComboBox from '../components/ComboBox';
 import { Container, Row, Col } from "react-bootstrap";
 import Tour from '../components/Tour'
+import GreenHouseService from '../services/GreenHouseService';
+const DrawGreenhouse1 = () => {
 
-const DrawGreenhouse1 = (props) => {
 
-  var dataGraphOne=null;
-  var dataGraphTwo=null;
-  var dataGraphOneAux = null;
-  var dataGraphTwoAux=null;
- 
 
   const [state, setState] = useState({
     select: {
       GraficaType:'group',
       scenathon_id:'6',
-      Iteration:'after',
+      Iteration:'4',
     }
    
   });
+  const [data, setdata] = useState({
+    chartOne:[],
+    charTwo:[]
+  });
 
-  const handleChange = e => {
+ 
+
+  useEffect(() => {
+    GreenHouseService(state).then(setdata);
+    
+  }, [state]);
+
+
+
+
+
+
+
+
+const handleChange = e => {
+
+  var group = state.select.GraficaType;
+  var scenathon = state.select.scenathon_id;
+  var iteration = state.select.Iteration;
+if(e.name === "GraficaType")
+{
+group=e.value 
+}else if (e.target.name === "scenathon_id") {
+    switch (e.target.value) {
+      case '6':
+        iteration = state.select.Iteration === "1" ? "3" : "4";
+        scenathon = "6";
+        break;
+      case '5':
+        scenathon = "5";
+        iteration = state.select.Iteration === "3" ? "1" : "2";
+        break;
+      default: iteration = state.select.Iteration === "1" ? "3" : "4";
+    }
+  } else {
+
   
-    setState({
-        select: {
-            //el next code evitara que se sobrescriba cuando reciba un valor new
-            ...state.select,
-            
-            [e.target.name]: e.target.value
-        },
-       
-    })
+    iteration =scenathon === "6" ? e.target.value === "after" ? "4" : "3" : e.target.value === "after" ? "2" : "1" ;
+  }
+
+  setState({
+    select: {
+      GraficaType: group,
+      scenathon_id: scenathon,
+      Iteration: iteration,
+
     }
 
-  //Cambiar por las combinaciones de los json falta ya que son dos graficas en el json 
-  switch (state.select.GraficaType) {
-    case 'group':
-      switch (state.select.Iteration) {
-        case 'before':
-          if (state.select.scenathon_id === "6") {
-            dataGraphOne = data.graphOne_combinationTwo;
-            dataGraphTwo = data.graphTwo_combinationTwo;
-          } else {
-            dataGraphOne = data.graphOne_combinationFour;
-            dataGraphTwo = data.graphTwo_combinationFour;
-          }
-           dataGraphOneAux = convertir(dataGraphOne);
-           dataGraphTwoAux = convertir_data(dataGraphTwo);
-          break;
-        case 'after':
-          if (state.select.scenathon_id === "6") {
-            dataGraphOne = data.graphOne_combinationOne
-            dataGraphTwo = data.graphTwo_combinationOne
-          } else {
-            dataGraphOne = data.graphOne_combinationThree
-            dataGraphTwo = data.graphTwo_combinationThree
-          }
-           dataGraphOneAux = convertir(dataGraphOne);
-           dataGraphTwoAux = convertir_data(dataGraphTwo);
-          break;
-          default:dataGraphOne = data.graphOne_combinationTwo;
-          dataGraphTwo = data.graphTwo_combinationTwo;
-      }
-      break;
-    case 'regions':
-      switch (state.select.Iteration) {
-        case 'before':
-          if (state.select.scenathon_id === "6") {
-            dataGraphOne = data.graphOne_combinationSix
-            dataGraphTwo = data.graphTwo_combinationSix
-          } else {
-            dataGraphOne = data.graphOne_combinationEight
-            dataGraphTwo = data.graphTwo_combinationSeven
-          }
-           dataGraphOneAux = convertir(dataGraphOne);
-           dataGraphTwoAux = convertir_data(dataGraphTwo);
-          break;
-         
-        case 'after':
-          if (state.select.scenathon_id === "6") {
-            dataGraphOne = data.graphOne_combinationFive
-            dataGraphTwo = data.graphTwo_combinationEight
-          } else {
-            dataGraphOne = data.graphOne_combinationSeven
-            dataGraphTwo = data.Greengraph_Two__combination_Seven
-          }
-           dataGraphOneAux = convertir(dataGraphOne);
-           dataGraphTwoAux = convertir_data(dataGraphTwo);
-          break;
-          default:dataGraphOne = data.graphOne_combinationTwo;
-          dataGraphTwo = data.graphTwo_combinationTwo;
 
-      }
-      break;
-    
-    case 'countries':
-      switch (state.select.Iteration) {
-        case 'before':
-          if (state.select.scenathon_id === "6") {
-            dataGraphOne = data.graphOne_combinationTen
-            dataGraphTwo = data.graphTwo_combinationTen
-          } else {
-            dataGraphOne = data.graphOne_combinationTwelve
-            dataGraphTwo = data.graphTwo_combinationTwelve
-          }
-           dataGraphOneAux = convertir(dataGraphOne);
-           dataGraphTwoAux = convertir_data(dataGraphTwo);
-          break;
+  });
 
-        case 'after':
-          if (state.select.scenathon_id === "6") {
-            dataGraphOne = data.graphOne_combinationNine
-            dataGraphTwo = data.graphTwo_combinationNine
-          } else {
-            dataGraphOne = data.graphOne_combinationEleven
-            dataGraphTwo = data.graphTwo_combinationEleven
-          }
-           dataGraphOneAux = convertir(dataGraphOne);
-           dataGraphTwoAux = convertir_data(dataGraphTwo);
-          break;
-          default:dataGraphOne = data.graphOne_combinationTwo;
-          dataGraphTwo = data.graphTwo_combinationTwo;
-      }
-      break;
-      default:dataGraphOne = data.graphOne_combinationTwo;
-      dataGraphTwo = data.graphTwo_combinationTwo;
-  }
+ 
+}
+
+
 
   const steps = [
     {
@@ -147,16 +95,21 @@ const DrawGreenhouse1 = (props) => {
     }
   ]
 
+
+
+
   return (
     <Container fluid>
       <Tour stepsP={steps}/>
       <ComboBox onChange={handleChange}/>
+     
       <div className="graph">
       <Row>
         <Col >
           <div style={{ textAlign: 'center', height: "120vh", width: "30vw" }}>
           
-            <SuperGraph data={dataGraphOneAux}
+
+            <SuperGraph data={data.chartOne}
             title="            Annual GHG emissions from cops and livestock in Gt CO2e."
             aspectRatio={false} 
             labelposition="bottom"
@@ -167,13 +120,15 @@ const DrawGreenhouse1 = (props) => {
             </Col>
         <Col > 
         <div style={{ textAlign: 'center', height: "120vh", width: "30vw" }}>
-          <SuperGraph data={dataGraphTwoAux}
+
+          <SuperGraph data={data.charTwo}
           title="                Average annual GHG emissions from land use change and peat oxidation in Gt CO2e."
           aspectRatio={false} 
             labelposition="bottom" 
             labelwidth={20}
             labelSize={15}
           TitleSize={18}/> 
+
             </div>
             </Col>
       </Row>
@@ -182,304 +137,5 @@ const DrawGreenhouse1 = (props) => {
  ); 
 }
 
-//These are the values of graph one
-const convertir_data = (props) => {
-
-  var graphTwo_Total_GHG_land = [];
-  var graphTwo_Target_GHG_lu = [];
-  var graphTwo_FAO_LU_global = [];
-  var graphTwo_sequestration = [];
-  var graphTwo_other_luc = [];
-  var graphTwo_peat = [];
-  var graphTwo_deforestation = [];
-
-  var labels = [];
-
-  if (props !== undefined) {
-
-    props.forEach(item => {
-      graphTwo_Total_GHG_land.push(item.total_GHG_land);
-      graphTwo_Target_GHG_lu.push(item.Target_GHG_LU);
-      graphTwo_FAO_LU_global.push(item.FAO_LU_global);
-      graphTwo_sequestration.push(item.sequestration);
-      graphTwo_other_luc.push(item.other_LUC);
-      graphTwo_peat.push(item.peat);
-      graphTwo_deforestation.push(item.deforestation);
-
-      labels.push(item.Year);
-
-    });
-
-  }
-
-  const data = {
-
-    labels: labels,
-    datasets: [
-      {
-        type: 'scatter',
-        label: 'Target GHG LU',
-        data: graphTwo_Target_GHG_lu,
-        fill: false,
-        borderColor: 'red',
-        backgroundColor: 'red',
-        pointBorderColor: 'red',
-        radius: 5,
-        usePointStyle:true,
-
-        pointBackgroundColor: 'red',
-        pointHoverBackgroundColor: 'crimson',
-        pointHoverBorderColor: '#EC932F',
-        yAxisID: 'y-axis-1'
-      },
-      {
-        type: 'scatter',
-        label: 'FAO LU global',
-        data: graphTwo_FAO_LU_global,
-        fill: false,
-        borderColor: 'black',
-        backgroundColor: 'black',
-        pointBorderColor: 'black',
-        radius: 6,
-        pointBackgroundColor: 'black',
-        pointHoverBackgroundColor: 'grey',
-        pointHoverBorderColor: 'grey',
-        yAxisID: 'y-axis-1'
-      },
-      {
-        //Aforestation ejemplo
-        type: 'line',
-        label: 'Total GHG land',
-        data: graphTwo_Total_GHG_land,
-        fill: false,
-        backgroundColor: '#f4511e',
-        borderColor: '#f4511e',  
-        radius: 8,
-    
-        hoverBackgroundColor: '#71B37C',
-        hoverBorderColor: '#71B37C',
-        yAxisID: 'y-axis-1'
-      },
-      //asd
-      {
-        type: 'bar',
-        label: 'sequestration',
-        data: graphTwo_sequestration,
-        fill: false,
-        borderColor: '#EC932F',
-        backgroundColor: '#64b5f6',
-        pointBorderColor: '#EC932F',
-        cornerRadius: 8,
-        pointBackgroundColor: '#EC932F',
-        pointHoverBackgroundColor: '#EC932F',
-        pointHoverBorderColor: '#EC932F',
-        yAxisID: 'y-axis-1'
-      },
-      {
-        type: 'bar',
-        label: 'other LUC',
-        data: graphTwo_other_luc,
-        fill: false,
-        borderColor: '#EC932F',
-        backgroundColor: '#ff8f00',
-        pointBorderColor: '#EC932F',
-        pointBackgroundColor: '#EC932F',
-        pointHoverBackgroundColor: '#EC932F',
-        pointHoverBorderColor: '#EC932F',
-        yAxisID: 'y-axis-1'
-      }
-      ,
-      {
-        type: 'bar',
-        label: 'peat',
-        data: graphTwo_peat,
-        fill: false,
-        borderColor: '#EC932F',
-        backgroundColor: '#ffd54f',
-        pointBorderColor: '#EC932F',
-        pointBackgroundColor: '#EC932F',
-        pointHoverBackgroundColor: '#EC932F',
-        pointHoverBorderColor: '#EC932F',
-        yAxisID: 'y-axis-1'
-      },
-      {
-        type: 'bar',
-        label: 'deforestation',
-        data: graphTwo_deforestation,
-        fill: false,
-        borderColor: '#EC932F',
-        backgroundColor: '#4dd0e1',
-        pointBorderColor: '#EC932F',
-        pointBackgroundColor: '#EC932F',
-        pointHoverBackgroundColor: '#EC932F',
-        pointHoverBorderColor: '#EC932F',
-        yAxisID: 'y-axis-1'
-      }
-
-
-    ]
-
-  };
-
-  return data
-
-}
-
-//These are the values of graph TWO
-const convertir = (props) => {
-
-  var total_GHG_agri = [];
-  var target_GHG_agri = [];
-  var FAO_LU_global = [];
-  var livestock_N2O = [];
-  var livestock_CH4 = [];
-  var crop_CH4 = [];
-  var crop_N2O = [];
-  var crop_CO2 = [];
-  var labels = [];
-
-  if (props !== undefined) {
-
-    props.forEach(item => {
-      total_GHG_agri.push(item.Total_GHG_agric);
-      target_GHG_agri.push(item.Target_GHG_agri);
-      FAO_LU_global.push(item.FAO_Agric_global);
-      livestock_N2O.push(item.livestock_N2O);
-      livestock_CH4.push(item.livestock_CH4);
-      crop_CH4.push(item.crop_CH4);
-      crop_N2O.push(item.crop_N2O);
-      crop_CO2.push(item.crop_CO2);
-
-      labels.push(item.Year);
-
-    });
-
-  }
-
-  const data = {
-
-    labels: labels,
-    datasets: [
-      {
-        type: 'scatter',
-        label: 'Target GHG agri',
-        data: target_GHG_agri,
-        fill: false,
-        borderColor: 'red',
-        backgroundColor: 'red',
-        radius: 7,
-        pointBorderColor: '#e64a19',
-        pointBackgroundColor: '#e64a19',
-        pointHoverBackgroundColor: '#e64a19',
-        pointHoverBorderColor: '#e64a19',
-        yAxisID: 'y-axis-1'
-      },
-      {
-        type: 'scatter',
-        label: 'FAO Agric global',
-        data: FAO_LU_global,
-        fill: false,
-        borderColor: 'black',
-        backgroundColor: 'black',
-        radius:6,
-        pointBorderColor: 'black',
-        pointBackgroundColor: 'black',
-        pointHoverBackgroundColor: 'grey',
-        pointHoverBorderColor: 'grey',
-        yAxisID: 'y-axis-1'
-      },
-      {
-        //Aforestation ejemplo
-        type: 'line',
-        label: 'Total GHG agric',
-        data: total_GHG_agri,
-        fill: false,
-        radius:6,
-        backgroundColor: 'grey',
-        borderColor: 'grey',
-        hoverBackgroundColor: 'grey',
-        hoverBorderColor: '#b2ebf2',
-        yAxisID: 'y-axis-1'
-      },
-      //asd
-      {
-        type: 'bar',
-        label: 'livestock N2O',
-        data: livestock_N2O,
-
-
-        fill: false,
-        borderColor: '#b2ebf2',
-        backgroundColor: '#b2ebf2',
-        pointBorderColor: '#EC932F',
-        pointBackgroundColor: '#EC932F',
-        pointHoverBackgroundColor: '#EC932F',
-        pointHoverBorderColor: '#EC932F',
-        yAxisID: 'y-axis-1'
-      },
-      {
-        type: 'bar',
-        label: 'livestock CH4',
-        data: livestock_CH4,
-
-        fill: false,
-        borderColor: '#4dd0e1',
-        backgroundColor: '#4dd0e1',
-        pointBorderColor: '#EC932F',
-        pointBackgroundColor: '#EC932F',
-        pointHoverBackgroundColor: '#EC932F',
-        pointHoverBorderColor: '#EC932F',
-        yAxisID: 'y-axis-1'
-      }
-      ,
-      {
-        type: 'bar',
-        label: 'crop CH4',
-        data: crop_CH4,
-        fill: false,
-        borderColor: '#f10096',
-        backgroundColor: '#f10096',
-        pointBorderColor: '#EC932F',
-        pointBackgroundColor: '#EC932F',
-        pointHoverBackgroundColor: '#EC932F',
-        pointHoverBorderColor: '#EC932F',
-        yAxisID: 'y-axis-1'
-      },
-
-      {
-
-        type: 'bar',
-        label: 'crop N2O',
-        data: crop_N2O,
-        fill: false,
-        borderColor: '#64b5f6',
-        backgroundColor: '#64b5f6',
-        pointBorderColor: '#EC932F',
-        pointBackgroundColor: '#EC932F',
-        pointHoverBackgroundColor: '#EC932F',
-        pointHoverBorderColor: '#EC932F',
-        yAxisID: 'y-axis-1'
-      },
-      {
-        type: 'bar',
-        label: 'crop CO2',
-        data: crop_CO2,
-        fill: false,
-        borderColor: '#0072f0',
-        backgroundColor: '#0072f0',
-        pointBorderColor: '#EC932F',
-        pointBackgroundColor: '#EC932F',
-        pointHoverBackgroundColor: '#EC932F',
-        pointHoverBorderColor: '#EC932F',
-        yAxisID: 'y-axis-1'
-      }
-
-    ]
-
-  };
-
-  return data
-
-}
 
 export default DrawGreenhouse1

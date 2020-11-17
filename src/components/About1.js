@@ -9,15 +9,14 @@ background-color:transparent;
 padding: 10px 10%;
 align-items:center;
 margin:0;
-
 justify-content:space-between;
 margin-bottom:30px;
-width:100%;
+
 
 .about-title{
     text-align:left;
     color:#306973;
-    font-size:35px;
+    font-size:32px;
     font-weight: bold;
     margin-bottom:30px;
 }
@@ -25,10 +24,39 @@ width:100%;
 .about-content{
     color:#4E4E4E;
     text-align: justify;
-    font-size:20px;
+    font-size:15px;
 }
 }
 
+@media(max-width 1200px){
+
+}
+
+@media(max-width 992px){
+   
+}
+
+
+@media( max-width: 768px){
+    .about-title{
+        font-size:15px;
+    }
+
+    .about-content{
+        font-size:5px;
+    }
+}
+@media (max-width 576px){  
+    .about-title{
+        font-size:5px;
+    }
+
+    .about-content{
+        font-size:3px;
+    }
+
+}
+    
 `;
 
 const About1=(props)=>{
