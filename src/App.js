@@ -33,22 +33,21 @@ const App = (props) => {
           <Tour stepsP={steps}/>
         </div>
 
-        {/*<CookieDisclaimer
-
-background='#306973' 
-bottomPosition={true}
-closeIconSize={30}
-closeIconPositionTop={false}
-color='#fff'
-cookiePolicyName='Cookie Policy'
-cookiePolicyText='By continuing to use the service, you agree to our'
-text='This website uses cookies to improve service.'/>*/}
+        <CookieDisclaimer
+          background='#306973' 
+          bottomPosition={true}
+          closeIconSize={30}
+          closeIconPositionTop={false}
+          color='#fff'
+          cookiePolicyName='Cookie Policy'
+          cookiePolicyText='By continuing to use the service, you agree to our'
+          text='This website uses cookies to improve service.'/>
 
         <div className="Nav">
           <Navbar references={references}/>
         </div>
 
-            <CookieDisclaimer2 />
+            {/*<CookieDisclaimer2 />*/}
             <Jumbotron/>
 
         <div className="About1" id="About1">
