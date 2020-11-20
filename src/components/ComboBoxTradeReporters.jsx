@@ -67,7 +67,6 @@ function ComboBoxTradeReportersImporters(props) {
   );
 
   const AnimatedComponents = makeAnimated();
-  console.log(props.value)
   return (
    
     <Styles>

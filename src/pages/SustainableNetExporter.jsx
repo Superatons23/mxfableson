@@ -16,7 +16,7 @@ const SustainableExporter = () => {
       iteration: "4",
       column: "Export_quantity",
       scenathon_id: "6",
-      optionSelected:null
+      optionSelected:"*"
     }
   });
 
@@ -32,15 +32,16 @@ const SustainableExporter = () => {
    
     if( e.target===undefined )
     {
+     
       setState({
         select: {
           ...state.select,
           optionSelected:e
         }
     
-        })
+        });
     }else{
-    var iteration =  e.target.name === "iteration" ? e.target.value === "after" ? '4' : '3' : state.select.iteration;
+   var iteration =  e.target.name === "iteration" ? e.target.value === "after" ? '4' : '3' : state.select.iteration;
   
     setState({
     select: {
@@ -57,7 +58,7 @@ const SustainableExporter = () => {
 
 
   useEffect(() => {
-    SustainableExporterService(state).then(setJson);
+   // SustainableExporterService(state).then(setJson);
 
   }, [state]);
 

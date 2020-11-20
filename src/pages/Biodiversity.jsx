@@ -104,7 +104,7 @@ if(e.name === "GraficaType")
  
 
           <div style={{ textAlign: 'center', height: "70vh", width: "30vw" }}>
-          <TradeReportMap countriesData = {json}/>
+      <TradeReportMap countriesData = {json}/>
 
           </div>
           
