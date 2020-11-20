@@ -1,5 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import FilterCombobox from "../components/FilterCombobox";
+import { colourOptions } from "../data/prueba";
+import { components } from "react-select";
+import makeAnimated from "react-select/animated";
 
 const Styles = styled.div`
 .contenedor selects{
@@ -14,13 +18,75 @@ const Styles = styled.div`
 `;
 
 function ComboBoxTradeReportersImporters(props) {
+  const customStyles = {
+    control: base => ({
+      ...base,
+      background: "#72a5ad",
+      width: '250px'
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      borderBottom: '1px  pink',
+      backgroundColor: state.isSelected ? '#61868c' : '#72a5ad',
+      fontSize:18,
+      color: state.isSelected ? 'white' : 'white',
+      padding: 20,
+          width: '250px'
+  
+    }), singleValue: base => ({
+      ...base,
+      color: 'red'
+    }),
+    placeholder: (defaultStyles) => {
+      return {
+        ...defaultStyles,
+        color: '#ffffff',
+      }
+    }
+  
+  };
+  const Option = props => {
+    return (
+      <div>
+        <components.Option {...props}>
+          <input
+            type="checkbox"
+            checked={props.isSelected}
+            onChange={() => null}
+          />{" "}
+          <label>{props.label}</label>
+        </components.Option>
+      </div>
+    );
+  };
 
+  const MultiValue = props => (
+    <components.MultiValue {...props}>
+      <span>{props.data.label}</span>
+    </components.MultiValue>
+  );
 
-
+  const AnimatedComponents = makeAnimated();
+  console.log(props.value)
   return (
+   
     <Styles>
 
       <div className="contenedor-selects">
+      <FilterCombobox
+      
+      styles={customStyles}
+        options={colourOptions}
+        isMulti
+        placeholder="Countries"
+        closeMenuOnSelect={false}
+        hideSelectedOptions={false}
+        components={{ Option, MultiValue, AnimatedComponents }}
+        onChange={props.metodo}
+        allowSelectAll={true}
+        value={props.value}
+        
+       style/>
         <br></br>
         <select class="selectBox" name="Product" onChange={props.metodo}>
           <option value="" disabled selected hidden>Product</option>
@@ -131,6 +197,8 @@ function ComboBoxTradeReportersImporters(props) {
           <option value="after">After Iteration</option>
           <option value="before">Before Iteration</option>
         </select>
+     
+       
 
       </div>
     </Styles>

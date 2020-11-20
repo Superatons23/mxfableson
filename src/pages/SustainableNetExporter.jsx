@@ -15,7 +15,8 @@ const SustainableExporter = () => {
       Product: 'abaca',
       iteration: "4",
       column: "Export_quantity",
-      scenathon_id: "6"
+      scenathon_id: "6",
+      optionSelected:null
     }
   });
 
@@ -28,18 +29,30 @@ const SustainableExporter = () => {
 
 
   const handleChange = e => {
-    var iteration = e.target.name === "iteration" ? e.target.value === "after" ? '4' : '3' : state.select.iteration;
+   
+    if( e.target===undefined )
+    {
+      setState({
+        select: {
+          ...state.select,
+          optionSelected:e
+        }
+    
+        })
+    }else{
+    var iteration =  e.target.name === "iteration" ? e.target.value === "after" ? '4' : '3' : state.select.iteration;
+  
     setState({
-      select: {
+    select: {
 
-        ...state.select,
+       ...state.select,
 
-        [e.target.name]: e.target.value,
-        iteration: iteration
-      }
+     [e.target.name]: e.target.value,
+    iteration: iteration
+    }
 
     })
-
+  };
   }
 
 
@@ -49,11 +62,15 @@ const SustainableExporter = () => {
   }, [state]);
 
 
+
+
+  
+ 
   return (
     <Container fluid >
       <div >
-        <ComboBoxTradeReportersImporters metodo={handleChange} />
-
+        <ComboBoxTradeReportersImporters metodo={handleChange} value={state.select.optionSelected} />
+       
       </div>
       <Row  >
         <Col>
